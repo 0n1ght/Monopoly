@@ -6,7 +6,9 @@
 
 - rozdzielenie grafiki od logiki
 
-- mechanizm rzucania kostka i poruszania po polach
+- mechanizm poruszania po polach
+
+- mechanizm rzucania kostka
 
 - kazdy ma pieniadze //todo banknoty
 
