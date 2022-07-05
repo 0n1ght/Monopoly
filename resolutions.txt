@@ -1,0 +1,23 @@
+1. plansza z polami //todo pola osobne elementy
+                    //todo przerobic aplikacje na skalowanie
+
+2. gracze na start
+
+3. mechanizm rzucania kostka i poruszania po polach
+
+4. kazdy ma pieniadze //todo banknoty
+
+5. premia za przekroczenie startu
+
+6. kupowanie pol, ulic na ktorych staje
+
+7. przeciwnik placi po stanieciu na polu innego gracza
+
+8. rozne ulice maja rozny koszt i czynsz
+
+9. jezeli masz wszystkie ulice z danego zestawu, to czyns jest 2x wiekszy
+
+10. jesli komus skoncza sie pieniadze to przegrywa
+
+                                                    //todo optymalizacja pod inne systemy(linux,macos)
+                                                    //todo efekty dzwiekowe

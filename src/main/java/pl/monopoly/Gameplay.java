@@ -8,6 +8,7 @@ public class Gameplay {
     }
 
     public void render(Graphics graphics) {
-        System.out.println("render");
+        Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\monopoly-plansza.jpg");
+        graphics.drawImage(image, 0, 0, null);
     }
 }
