@@ -1,24 +1,26 @@
-1. plansza z polami //todo pola osobne elementy
-                    //todo przerobic aplikacje na skalowanie
+- plansza z polami //todo pola osobne elementy
+                    //todo przerobic aplikacje na skalowanie, plansza na srodku i paski po bokach
 
-2. gracze na start  //todo gracze wyswietlaja sie jako obrazki pionkow (przezroczyste)
+- gracze na start  //todo gracze wyswietlaja sie jako obrazki pionkow (przezroczyste)
                     //todo gracze sa umieszczani w roznych ustawieniach zaleznie od liczby graczy na polu
 
-3. mechanizm rzucania kostka i poruszania po polach
+- rozdzielenie grafiki od logiki
 
-4. kazdy ma pieniadze //todo banknoty
+- mechanizm rzucania kostka i poruszania po polach
 
-5. premia za przekroczenie startu
+- kazdy ma pieniadze //todo banknoty
 
-6. kupowanie pol, ulic na ktorych staje
+- premia za przekroczenie startu
 
-7. przeciwnik placi po stanieciu na polu innego gracza
+- kupowanie pol, ulic na ktorych staje
 
-8. rozne ulice maja rozny koszt i czynsz
+- przeciwnik placi po stanieciu na polu innego gracza
 
-9. jezeli masz wszystkie ulice z danego zestawu, to czyns jest 2x wiekszy
+- rozne ulice maja rozny koszt i czynsz
 
-10. jesli komus skoncza sie pieniadze to przegrywa
+- jezeli masz wszystkie ulice z danego zestawu, to czyns jest 2x wiekszy
+
+- jesli komus skoncza sie pieniadze to przegrywa
 
                                                     //todo optymalizacja pod inne systemy(linux,macos)
                                                     //todo efekty dzwiekowe
