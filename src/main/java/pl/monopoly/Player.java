@@ -8,7 +8,7 @@ public class Player {
     // create
     public Player() {
         id = nextId;
-        field = id+9;
+//        field = id;
         nextId++;
     }
 
