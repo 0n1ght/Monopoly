@@ -8,7 +8,7 @@ public class Player {
     // create
     public Player() {
         id = nextId;
-//        field = id;
+        field = id+35;
         nextId++;
     }
 
@@ -19,6 +19,10 @@ public class Player {
 
     public int getField() {
         return field;
+    }
+
+    public void setField(int field) {
+        this.field = field;
     }
 
 }

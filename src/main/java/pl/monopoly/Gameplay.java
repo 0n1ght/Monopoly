@@ -7,7 +7,7 @@ public class Gameplay {
 
     public void tick() {
 
-        System.out.println("start");
+//        System.out.println("start");
 
     }
 
