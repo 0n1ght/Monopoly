@@ -4,6 +4,16 @@ import java.awt.*;
 
 public class Gameplay {
     private PlayerView[] playerViews = {new PlayerView(), new PlayerView()};
+    private final CubesView cubesView = new CubesView();
+    private MouseManager manager;
+
+    // create
+    public Gameplay(MouseManager manager) {
+
+        this.manager = manager;
+        manager.setCubesView(cubesView);
+
+    }
 
     public void tick() {
 
@@ -15,6 +25,8 @@ public class Gameplay {
 
         Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\monopoly-plansza.jpg");
         graphics.drawImage(image, 0, 0, null);
+
+        cubesView.render(graphics);
 
         playerViews[0].render(graphics);
         playerViews[1].render(graphics);

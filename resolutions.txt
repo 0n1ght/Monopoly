@@ -8,7 +8,7 @@
 
 - mechanizm poruszania po polach
 
-- mechanizm rzucania kostka
+- mechanizm rzucania kostka //todo 2 wersje: podstawowa: po prostu liczba; rozbudowana: zdjecie kostek
 
 - kazdy ma pieniadze //todo banknoty
 
@@ -26,3 +26,4 @@
 
                                                     //todo optymalizacja pod inne systemy(linux,macos)
                                                     //todo efekty dzwiekowe
+                                                    //todo help, wskazowki
