@@ -20,10 +20,6 @@ public class PlayerView {
 
         int distance1=0, distance2=0, normalField = 73, bigFieldAddition = 15;
 
-        if (player.getField() > 40) {
-            player.setField(player.getField()-40);
-        }
-
         if (player.getField() <= 10) {
 
             distance1 = - normalField * player.getField();
@@ -44,7 +40,7 @@ public class PlayerView {
 
         }
 
-        if (player.getField() > 0) {distance1 -= bigFieldAddition;} //todo
+        if (player.getField() > 0) {distance1 -= bigFieldAddition;} //todo refactoring
         if (player.getField() >= 10) {distance1 -= bigFieldAddition;}
         if (player.getField() > 10) {distance2 -= bigFieldAddition;}
         if (player.getField() >= 20) {distance2 -= bigFieldAddition;}

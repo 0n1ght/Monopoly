@@ -37,6 +37,12 @@ public class Player {
         field += movesNumber;
         game.nextRound();
 
+        if (field > 40) {
+
+            money += 100;
+            field -= 40;
+        }
+
     }
 
     // get/set
@@ -46,10 +52,6 @@ public class Player {
 
     public int getField() {
         return field;
-    }
-
-    public void setField(int field) {
-        this.field = field;
     }
 
     public int getMoney() {
