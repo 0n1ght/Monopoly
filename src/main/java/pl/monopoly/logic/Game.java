@@ -4,6 +4,7 @@ public class Game {
     private Player player1;
     private Player player2;
     private int roundNumber;
+    private final Board board = new Board();
 
     // methods
     public Player actualPlayer() {
@@ -13,6 +14,12 @@ public class Game {
         }
 
         return player2;
+
+    }
+
+    public void interactiveField() {
+
+        board.getField(actualPlayer().getFieldNumber()).action(actualPlayer());
 
     }
 

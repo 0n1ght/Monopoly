@@ -14,7 +14,14 @@
 
 - premia za przekroczenie startu
 
-- kupowanie pol, ulic na ktorych staje
+- kupowanie pol, ulic na ktorych staje {
+
+    -stworzenie wszystkich pol
+    -rozpoznanie obecnego pola gracza
+    -zakup pola
+    -prezentacja przynaleznosci pola do danego gracza
+
+}
 
 - przeciwnik placi po stanieciu na polu innego gracza
 

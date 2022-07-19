@@ -24,6 +24,8 @@ public class Cubes {
 
         game.actualPlayer().move(roll1+roll2);
 
+        game.interactiveField(); //todo refactor
+
     }
 
     public int getRoll1() {

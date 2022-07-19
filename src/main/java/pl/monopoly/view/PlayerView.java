@@ -20,33 +20,33 @@ public class PlayerView {
 
         int distance1=0, distance2=0, normalField = 73, bigFieldAddition = 15;
 
-        if (player.getField() <= 10) {
+        if (player.getFieldNumber() <= 10) {
 
-            distance1 = - normalField * player.getField();
+            distance1 = - normalField * player.getFieldNumber();
 
-        } else if (player.getField() > 10 && player.getField() <= 20) {
+        } else if (player.getFieldNumber() > 10 && player.getFieldNumber() <= 20) {
 
             distance1 = - normalField * 10;
-            distance2 = - normalField * (player.getField() - 10);
+            distance2 = - normalField * (player.getFieldNumber() - 10);
 
-        } else if (player.getField() > 20 && player.getField() <= 30) {
+        } else if (player.getFieldNumber() > 20 && player.getFieldNumber() <= 30) {
 
-            distance1 = -normalField * 10 + normalField * (player.getField() - 20);
+            distance1 = -normalField * 10 + normalField * (player.getFieldNumber() - 20);
             distance2 = -normalField * 10;
 
-        } else if (player.getField() > 30) {
+        } else if (player.getFieldNumber() > 30) {
 
-            distance2 = -normalField * 10 + normalField * (player.getField() - 30);
+            distance2 = -normalField * 10 + normalField * (player.getFieldNumber() - 30);
 
         }
 
-        if (player.getField() > 0) {distance1 -= bigFieldAddition;} //todo refactoring
-        if (player.getField() >= 10) {distance1 -= bigFieldAddition;}
-        if (player.getField() > 10) {distance2 -= bigFieldAddition;}
-        if (player.getField() >= 20) {distance2 -= bigFieldAddition;}
-        if (player.getField() > 20) {distance1 += bigFieldAddition;}
-        if (player.getField() >= 30) {distance1 += bigFieldAddition;}
-        if (player.getField() > 30) {distance2 += bigFieldAddition;}
+        if (player.getFieldNumber() > 0) {distance1 -= bigFieldAddition;} //todo refactoring
+        if (player.getFieldNumber() >= 10) {distance1 -= bigFieldAddition;}
+        if (player.getFieldNumber() > 10) {distance2 -= bigFieldAddition;}
+        if (player.getFieldNumber() >= 20) {distance2 -= bigFieldAddition;}
+        if (player.getFieldNumber() > 20) {distance1 += bigFieldAddition;}
+        if (player.getFieldNumber() >= 30) {distance1 += bigFieldAddition;}
+        if (player.getFieldNumber() > 30) {distance2 += bigFieldAddition;}
 
         graphics.fillOval(790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50);
         graphics.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));

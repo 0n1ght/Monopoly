@@ -50,7 +50,7 @@ public class Player {
         return id;
     }
 
-    public int getField() {
+    public int getFieldNumber() {
         return field;
     }
 
