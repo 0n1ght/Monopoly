@@ -1,18 +1,19 @@
-package pl.monopoly;
+package pl.monopoly.logic;
 
 public class Player {
     private int field;
     private static int nextId = 0;
     private int id;
-
     private int money = 1_500;
+    private Game game;
 
     // create
-    public Player() {
+    public Player(Game game) {
 
         id = nextId;
-//        field = id;
         nextId++;
+
+        this.game = game;
     }
 
     // methods
@@ -29,6 +30,13 @@ public class Player {
             }
         });
         thread.start();
+    }
+
+    public void move(int movesNumber){
+
+        field += movesNumber;
+        game.nextRound();
+
     }
 
     // get/set

@@ -1,4 +1,6 @@
-package pl.monopoly;
+package pl.monopoly.view;
+
+import pl.monopoly.view.CubesView;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;

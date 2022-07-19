@@ -1,4 +1,4 @@
-package pl.monopoly;
+package pl.monopoly.view;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;

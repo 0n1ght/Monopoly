@@ -1,4 +1,4 @@
-package pl.monopoly;
+package pl.monopoly.view;
 
 import javax.swing.*;
 import java.awt.*;

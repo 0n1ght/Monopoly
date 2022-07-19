@@ -1,10 +1,19 @@
-package pl.monopoly;
+package pl.monopoly.view;
+
+import pl.monopoly.logic.Player;
 
 import java.awt.*;
 
 public class PlayerView {
     private final Color[] colors = {Color.BLUE, Color.RED, Color.GREEN, Color.MAGENTA};
-    private final Player player = new Player();
+    private Player player;
+
+    // create
+    public PlayerView(Player player) {
+
+        this.player = player;
+
+    }
 
     public void render(Graphics graphics) {
         graphics.setColor(colors[player.getId()]);

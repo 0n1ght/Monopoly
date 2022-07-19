@@ -26,4 +26,4 @@
 
                                                     //todo optymalizacja pod inne systemy(linux,macos)
                                                     //todo efekty dzwiekowe
-                                                    //todo help, wskazowkii
+                                                    //todo help, wskazowki

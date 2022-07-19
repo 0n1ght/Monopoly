@@ -1,15 +1,22 @@
-package pl.monopoly;
+package pl.monopoly.view;
+
+import pl.monopoly.logic.Cubes;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class CubesView {
-    private Cubes cubes = new Cubes();
+    private Cubes cubes;
     private final ImageIcon imageIcon = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubeImage.png");
     private final int positionX = 480;
     private final int positionY = 480;
     private final int width = 100;
     private final int height = 100;
+
+    // create
+    public CubesView(Cubes cubes) {
+        this.cubes = cubes;
+    }
 
     // methods
     public void render(Graphics g) {
