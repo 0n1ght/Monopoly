@@ -24,8 +24,9 @@ public class CubesView {
         g.drawImage(imageIcon.getImage(), positionX, positionY, 100, 100, null);
         g.drawImage(imageIcon.getImage(), positionX-60, positionY+60, 100, 100, null);
 
-        if (cubes.getLastRoll() != 0) {
-            g.drawString(String.valueOf(cubes.getLastRoll()), positionX + width + 10, positionY);
+        if (cubes.getRoll1() != 0 && cubes.getRoll2() != 0) {
+            g.drawString(String.valueOf(cubes.getRoll1()), positionX + width + 10, positionY);
+            g.drawString(String.valueOf(cubes.getRoll2()), positionX + width + 10 + 15, positionY);
         }
 
     }

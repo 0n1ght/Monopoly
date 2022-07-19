@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Cubes {
     private Random random;
-    private int lastRoll;
+    private int roll1, roll2;
     private Game game;
 
     // create
@@ -13,22 +13,23 @@ public class Cubes {
     }
 
     // methods
-    public int rollTheDice() { //todo 2 numbers
+    public void rollTheDice() { //todo 2 numbers
 
         random = new Random();
-        lastRoll = random.nextInt(6)+1;
+        roll1 = random.nextInt(6)+1;
+        roll2 = random.nextInt(6)+1;
 
        // player.setField(player.getField()+lastRoll);
         //todo przerobić program tak, żeby łatwo było w tym miejscu uzyskać gracza, którego jest teraz runda np. klasa logiki zarzadzajaca rundą
 
-        System.out.println(game);
+        game.actualPlayer().move(roll1+roll2);
 
-        game.actualPlayer().move(lastRoll);
-
-        return lastRoll;
     }
 
-    public int getLastRoll() {
-        return lastRoll;
+    public int getRoll1() {
+        return roll1;
+    }
+    public int getRoll2() {
+        return roll2;
     }
 }

@@ -4,7 +4,7 @@ public class Player {
     private int field;
     private static int nextId = 0;
     private int id;
-    private int money = 1_500;
+    private int money = 1_500; //todo menu
     private Game game;
 
     // create
@@ -52,4 +52,7 @@ public class Player {
         this.field = field;
     }
 
+    public int getMoney() {
+        return money;
+    }
 }

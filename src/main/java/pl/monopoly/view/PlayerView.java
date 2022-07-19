@@ -53,6 +53,9 @@ public class PlayerView {
         if (player.getField() > 30) {distance2 += bigFieldAddition;}
 
         graphics.fillOval(790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50);
+        graphics.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
+        graphics.setColor(Color.GREEN);
+        graphics.drawString(player.getMoney()+"", 790+10*player.getId() + distance1, 790+10*player.getId() + distance2);
 
     }
 
