@@ -1,10 +1,13 @@
 package pl.monopoly.logic;
 
+import pl.monopoly.view.BoardView;
+
 public class Game {
     private Player player1;
     private Player player2;
     private int roundNumber;
-    private final Board board = new Board();
+    private final Board board = new Board(this);
+    private final BoardView boardView = new BoardView();
 
     // methods
     public Player actualPlayer() {
@@ -30,5 +33,10 @@ public class Game {
 
     public void nextRound() {
         roundNumber++;
+    }
+
+    // get/set
+    public BoardView getBoardView() {
+        return boardView;
     }
 }

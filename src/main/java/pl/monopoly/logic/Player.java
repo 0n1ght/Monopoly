@@ -35,13 +35,18 @@ public class Player {
     public void move(int movesNumber){
 
         field += movesNumber;
-        game.nextRound();
 
         if (field > 40) {
 
             money += 100;
             field -= 40;
         }
+
+    }
+
+    public void pay(int price) {
+
+        money -= price;
 
     }
 
@@ -56,5 +61,10 @@ public class Player {
 
     public int getMoney() {
         return money;
+    }
+
+    @Override
+    public String toString() {
+        return "Player " + id;
     }
 }

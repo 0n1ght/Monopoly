@@ -34,3 +34,17 @@
                                                     //todo optymalizacja pod inne systemy(linux,macos)
                                                     //todo efekty dzwiekowe
                                                     //todo help, wskazowki
+
+/*
+        Exception in thread "AWT-EventQueue-0" java.lang.IndexOutOfBoundsException: Index 40 out of bounds for length 40
+        at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+        at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+        at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+        at java.base/java.util.Objects.checkIndex(Objects.java:359)
+        at java.base/java.util.ArrayList.get(ArrayList.java:427)
+        at pl.monopoly.logic.Board.getField(Board.java:21)
+        at pl.monopoly.logic.Game.interactiveField(Game.java:25)
+        at pl.monopoly.logic.Cubes.rollTheDice(Cubes.java:24)
+        at pl.monopoly.view.CubesView.roll(CubesView.java:36)
+        at pl.monopoly.view.MouseManager.mousePressed(MouseManager.java:24)
+        */

@@ -2,12 +2,16 @@ package pl.monopoly.logic;
 
 public abstract class Field {
     private static int nextNumber = 0;
-    private final int number = nextNumber++;
+    protected final int number = nextNumber++;
+    protected Game game;
+
+    // create
+    public Field(Game game) {
+        this.game = game;
+    }
 
     // methods
-    public void action(Player player) {
-        System.out.println("na polu " + number + " stanal gracz " + player);
-    }
+    public abstract void action(Player player);
 
     // get/set
     public int getNumber() {

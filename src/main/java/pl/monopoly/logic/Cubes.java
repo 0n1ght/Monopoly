@@ -13,18 +13,17 @@ public class Cubes {
     }
 
     // methods
-    public void rollTheDice() { //todo 2 numbers
+    public void rollTheDice() {
 
         random = new Random();
         roll1 = random.nextInt(6)+1;
         roll2 = random.nextInt(6)+1;
 
-       // player.setField(player.getField()+lastRoll);
-        //todo przerobić program tak, żeby łatwo było w tym miejscu uzyskać gracza, którego jest teraz runda np. klasa logiki zarzadzajaca rundą
-
         game.actualPlayer().move(roll1+roll2);
 
-        game.interactiveField(); //todo refactor
+        game.interactiveField();
+
+        game.nextRound();
 
     }
 
