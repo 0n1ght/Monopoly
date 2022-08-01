@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PlayerView {
-    private Player player;
+    private final Player player;
 
     // create
     public PlayerView(Player player) {
