@@ -2,10 +2,10 @@ package pl.monopoly.view;
 
 import pl.monopoly.logic.Player;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class PlayerView {
-    private final Color[] colors = {Color.BLUE, Color.RED, Color.GREEN, Color.MAGENTA};
     private Player player;
 
     // create
@@ -16,7 +16,6 @@ public class PlayerView {
     }
 
     public void render(Graphics graphics) {
-        graphics.setColor(colors[player.getId()]);
 
         int distance1=0, distance2=0, normalField = 73, bigFieldAddition = 15;
 
@@ -48,7 +47,15 @@ public class PlayerView {
         if (player.getFieldNumber() >= 30) {distance1 += bigFieldAddition;}
         if (player.getFieldNumber() > 30) {distance2 += bigFieldAddition;}
 
-        graphics.fillOval(790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50);
+        new ImageIcon("");
+        ImageIcon playerIcon = switch (player.getId()) {
+            case 0 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\red.png");
+            case 1 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\blue.png");
+            case 2 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\green.png");
+            case 3 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\purple.png");
+            default -> new ImageIcon();
+        };
+        graphics.drawImage(playerIcon.getImage(), 790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50, null);
         graphics.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
         graphics.setColor(Color.GREEN);
         graphics.drawString(player.getMoney()+"", 790+10*player.getId() + distance1, 790+10*player.getId() + distance2);
