@@ -38,7 +38,10 @@ public final class Display {
         frame.setSize(size);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
+        frame.setResizable(true);
+        frame.getContentPane().setBackground(Color.CYAN);
+        frame.setLayout(new BorderLayout());
+
     }
 
     private void createAndSetupCanvas() {
@@ -47,7 +50,7 @@ public final class Display {
         canvas.setPreferredSize(size);
         canvas.setMaximumSize(size);
         canvas.setMinimumSize(size);
-        frame.add(canvas);
+        frame.add(canvas, BorderLayout.CENTER);
 
         canvas.setFocusable(true);
         canvas.requestFocusInWindow();
