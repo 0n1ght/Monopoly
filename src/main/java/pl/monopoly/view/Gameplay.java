@@ -30,7 +30,7 @@ public class Gameplay {
 
     public void render(Graphics graphics) {
 
-        Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\monopoly-plansza.jpg");
+        Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\board.jpg");
         graphics.drawImage(image, 0, 0, null);
 
         cubesView.render(graphics);
