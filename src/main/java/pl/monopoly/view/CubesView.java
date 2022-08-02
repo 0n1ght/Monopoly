@@ -25,8 +25,8 @@ public class CubesView {
 
         g.drawString("Click to randomize !", positionX+30, positionY+2);
         g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesFrameImage.png").getImage(), positionX, positionY, 240, 150, null);
-        g.drawImage(imageIcon.getImage(), positionX-10, positionY+15, 200, 130, null);
-        g.drawImage(imageIcon.getImage(), positionX+50, positionY+20, 200, 130, null);
+//        g.drawImage(imageIcon.getImage(), positionX-10, positionY+15, 200, 130, null);
+//        g.drawImage(imageIcon.getImage(), positionX+50, positionY+20, 200, 130, null);
 
         showCube(cubes.getRoll1(), 0);
         showCube(cubes.getRoll2(), 72);
@@ -36,6 +36,7 @@ public class CubesView {
     public void showCube(int number, int gap) {
 
         switch (number) {
+            case 0 -> {g.drawImage(imageIcon.getImage(), positionX-10, positionY+15, 200, 130, null); g.drawImage(imageIcon.getImage(), positionX+50, positionY+20, 200, 130, null);}
             case 1 -> g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube1pImage.png").getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
             case 2 -> g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube2pImage.png").getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
             case 3 -> g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube3pImage.png").getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
