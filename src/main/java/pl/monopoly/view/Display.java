@@ -3,6 +3,7 @@ package pl.monopoly.view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -10,12 +11,9 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 public final class Display {
 
     private static final int DEFAULT_WIDTH = 880;
-    private static final int DEFAULT_HEIGHT =880;
-
-    private static int width;
-    private static int height;
-    private JFrame frame;
-    private Canvas canvas;
+    private static final int DEFAULT_HEIGHT = 880;
+    private static JFrame frame;
+    private static Canvas canvas;
     private JFrame startMenu = new JFrame();
     private JFrame optionsFrame = new JFrame();
 
@@ -23,12 +21,18 @@ public final class Display {
     private Dimension size;
 
     public Display(String title) {
-
         displayMenu();
         displayGame();
     }
 
-    public void displayMenu() { // new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\logoMonopoly.png");
+    public void displayMenu() { // new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\logoMonopoly.png"):
+        // label
+        JLabel label = new JLabel();
+        Image image = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\logoMonopoly.png")
+                .getImage();
+        Image scaledImage = image.getScaledInstance(400, 120, java.awt.Image.SCALE_SMOOTH);
+        label.setIcon(new ImageIcon(scaledImage));
+        label.setBounds(50, 0, 400, 120);
 
         // buttons
         JButton button1 = new JButton("PLAY");
@@ -37,7 +41,10 @@ public final class Display {
         button1.setBackground(Color.RED);
         button1.setBounds(175, 140, 150, 75);
         button1.setFocusable(false);
-        button1.addActionListener(e -> {startMenu.setVisible(false); showGame();});
+        button1.addActionListener(e -> {
+            startMenu.setVisible(false);
+            showGame();
+        });
         button1.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
 
         JButton button2 = new JButton("OPTIONS");
@@ -61,10 +68,11 @@ public final class Display {
         //menu
         startMenu.setDefaultCloseOperation(EXIT_ON_CLOSE);
         startMenu.setResizable(false);
-        startMenu.setLayout(null);
         startMenu.setSize(500, 500);
+        startMenu.setLocationRelativeTo(frame);
+        startMenu.setLayout(null);
         startMenu.getContentPane().setBackground(Color.BLUE);
-        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\logoMonopoly.png").getImage(), 50, 20, 400, 50, null);
+        startMenu.add(label);
         startMenu.add(button1);
         startMenu.add(button2);
         startMenu.add(button3);
@@ -73,25 +81,24 @@ public final class Display {
 
     public void displayGame() {
 
-        width = DEFAULT_WIDTH;
-        height = DEFAULT_HEIGHT;
-        size = new Dimension(width, height);
+        size = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
         createAndSetupFrame();
         createAndSetupCanvas();
         frame.pack();
     }
 
-    public void displayOptions() {}
+    public void displayOptions() {
+    }
 
     private void createAndSetupFrame() {
         frame = new JFrame(title);
 
         frame.setSize(size);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
+        frame.setLocationRelativeTo(null); // ustawia okno na środku
         frame.setResizable(true);
-        frame.getContentPane().setBackground(Color.CYAN);
+//        frame.getContentPane().setBackground(Color.CYAN);
         frame.setLayout(new BorderLayout());
 
     }
@@ -103,7 +110,6 @@ public final class Display {
         canvas.setMaximumSize(size);
         canvas.setMinimumSize(size);
         frame.add(canvas, BorderLayout.CENTER);
-
         canvas.setFocusable(true);
         canvas.requestFocusInWindow();
     }
@@ -113,11 +119,29 @@ public final class Display {
     }
 
     public static int getHeight() {
-        return height;
+        return canvas.getHeight();
     }
 
     public static int getWidth() {
-        return width;
+        return canvas.getWidth();
+    }
+
+    public static int getRelativeX() {
+
+        if (getWidth() > DEFAULT_WIDTH) {
+            return (getWidth()-DEFAULT_WIDTH)/2;
+        }
+
+        return 0;
+    }
+
+    public static int getRelativeY() {
+
+        if (getHeight() > DEFAULT_HEIGHT) {
+            return (getHeight()-DEFAULT_HEIGHT)/2;
+        }
+
+        return 0;
     }
 
     public void addListener(MouseListener listener) {

@@ -25,7 +25,5 @@
                                                     //todo help, wskazowki
 
 comments:
-- start menu-> repair logo
-- frame resizable-> repair
 - players number choosing
 - menu bar

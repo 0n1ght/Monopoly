@@ -23,6 +23,8 @@ public class CubesView {
 
         this.g = g;
 
+        g.setColor(Color.BLACK);
+        g.setFont(new Font(Font.DIALOG, Font.BOLD,  20));
         g.drawString("Click to randomize !", positionX+30, positionY+2);
         g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesFrameImage.png").getImage(), positionX, positionY, 240, 150, null);
 //        g.drawImage(imageIcon.getImage(), positionX-10, positionY+15, 200, 130, null);

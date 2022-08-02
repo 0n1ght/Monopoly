@@ -29,16 +29,15 @@ public class Gameplay {
     }
 
     public void render(Graphics graphics) {
-
+        graphics.setColor(Color.BLUE);
+        graphics.fillRect(0,0,Display.getWidth(),Display.getHeight());
+        graphics.translate(Display.getRelativeX(),Display.getRelativeY());
         Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\board.jpg");
-        graphics.drawImage(image, 0, 0, null);
-
+        graphics.drawImage(image, 0,0, null);
         cubesView.render(graphics);
-
         playerViews[0].render(graphics);
         playerViews[1].render(graphics);
 //        playerViews[2].render(graphics);
 //        playerViews[3].render(graphics);
-
     }
 }
