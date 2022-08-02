@@ -11,7 +11,7 @@ public class Launcher {
 
         MouseManager manager = new MouseManager();
 
-        Display display = new Display("Monopoly");
+        Display display = new Display();
         display.addListener(manager);
 
         Gameplay gameplay = new Gameplay(manager);

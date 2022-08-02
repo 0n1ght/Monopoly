@@ -10,7 +10,6 @@ public class CubesView {
     private final ImageIcon imageIcon = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubeImage.png");
     private final int positionX = 460;
     private final int positionY = 550;
-    private final int localDemension = 240;
     private Graphics g;
 
     // create
@@ -27,8 +26,6 @@ public class CubesView {
         g.setFont(new Font(Font.DIALOG, Font.BOLD,  20));
         g.drawString("Click to randomize !", positionX+30, positionY+2);
         g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesFrameImage.png").getImage(), positionX, positionY, 240, 150, null);
-//        g.drawImage(imageIcon.getImage(), positionX-10, positionY+15, 200, 130, null);
-//        g.drawImage(imageIcon.getImage(), positionX+50, positionY+20, 200, 130, null);
 
         showCube(cubes.getRoll1(), 0);
         showCube(cubes.getRoll2(), 72);
@@ -55,14 +52,9 @@ public class CubesView {
     }
 
     // get/set
-    public ImageIcon getImageIcon() {
-        return imageIcon;
-    }
 
     public Rectangle getBounds() {
-
-        int height = 240;
-        return new Rectangle(positionX, positionY, localDemension, height);
+        return new Rectangle(positionX+Display.getRelativeX(), positionY+Display.getRelativeY(), 240, 150);
     }
 
 }

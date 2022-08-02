@@ -24,6 +24,11 @@
                                                     //todo efekty dzwiekowe
                                                     //todo help, wskazowki
 
+- refactor all yellow suggestions in classes
+
 comments:
-- players number choosing
+- game icon + frame icon
+- players number choosing at start
 - menu bar
+- continue
+- menuGuyImage1 and menuGuyImage2 next to buttons in main menu

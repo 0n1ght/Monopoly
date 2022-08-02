@@ -5,7 +5,7 @@ import java.util.Random;
 public class Cubes {
     private Random random;
     private int roll1, roll2;
-    private Game game;
+    private final Game game;
 
     // create
     public Cubes(Game game) {

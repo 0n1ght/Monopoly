@@ -3,7 +3,7 @@ package pl.monopoly.logic;
 public class Player {
     private int field;
     private static int nextId = 0;
-    private int id;
+    private final int id;
     private int money = 1_500; //todo menu
     private Game game;
 

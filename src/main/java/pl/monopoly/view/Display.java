@@ -3,7 +3,6 @@ package pl.monopoly.view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -14,25 +13,26 @@ public final class Display {
     private static final int DEFAULT_HEIGHT = 880;
     private static JFrame frame;
     private static Canvas canvas;
-    private JFrame startMenu = new JFrame();
-    private JFrame optionsFrame = new JFrame();
+    private final JFrame startMenu = new JFrame("Monopoly");
+    private final JFrame optionsFrame = new JFrame("Monopoly");
 
-    private String title = "Monopoly";
     private Dimension size;
 
-    public Display(String title) {
+    public Display() {
         displayMenu();
         displayGame();
     }
 
-    public void displayMenu() { // new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\logoMonopoly.png"):
-        // label
+    public void displayMenu() {
+
+        //labels
         JLabel label = new JLabel();
         Image image = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\logoMonopoly.png")
                 .getImage();
         Image scaledImage = image.getScaledInstance(400, 120, java.awt.Image.SCALE_SMOOTH);
         label.setIcon(new ImageIcon(scaledImage));
         label.setBounds(50, 0, 400, 120);
+
 
         // buttons
         JButton button1 = new JButton("PLAY");
@@ -71,7 +71,7 @@ public final class Display {
         startMenu.setSize(500, 500);
         startMenu.setLocationRelativeTo(frame);
         startMenu.setLayout(null);
-        startMenu.getContentPane().setBackground(Color.BLUE);
+        startMenu.getContentPane().setBackground(Color.CYAN);
         startMenu.add(label);
         startMenu.add(button1);
         startMenu.add(button2);
@@ -88,11 +88,10 @@ public final class Display {
         frame.pack();
     }
 
-    public void displayOptions() {
-    }
+    public void displayOptions() {}
 
     private void createAndSetupFrame() {
-        frame = new JFrame(title);
+        frame = new JFrame("Monopoly");
 
         frame.setSize(size);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
