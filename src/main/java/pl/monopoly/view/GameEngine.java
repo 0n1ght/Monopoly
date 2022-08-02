@@ -84,7 +84,7 @@ public final class GameEngine implements Runnable {
         running = true;
         thread = new Thread(this);
         thread.start();
-        display.showGame();
+//        display.showGame();
     }
 
     private synchronized void stop() {
