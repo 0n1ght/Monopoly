@@ -3,14 +3,6 @@
 - gracze na start  //todo gracze wyswietlaja sie jako obrazki pionkow (przezroczyste)
                    //todo gracze sa umieszczani w roznych ustawieniach zaleznie od liczby graczy na polu
 
-- mechanizm poruszania po polach
-
-- mechanizm rzucania kostka
-
-- kazdy ma pieniadze //todo banknoty
-
-- premia za przekroczenie startu
-
 - kupowanie pol, ulic na ktorych staje {
 
     -stworzenie wszystkich pol
@@ -34,4 +26,7 @@
 
 comments:
 - frame resizable- repair
--
+- cubes transparency
+- start menu
+- players number choosing
+- menu bar

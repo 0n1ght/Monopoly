@@ -7,9 +7,9 @@ import pl.monopoly.logic.Player;
 import java.awt.*;
 
 public class Gameplay {
-    private Game game = new Game();
-    private Player player1 = new Player(game), player2 = new Player(game);
-    private PlayerView[] playerViews = {new PlayerView(player1), new PlayerView(player2)};
+    private final Game game = new Game();
+    private final Player player1 = new Player(game), player2 = new Player(game), player3 = new Player(game), player4 = new Player(game);
+    private final PlayerView[] playerViews = {new PlayerView(player1), new PlayerView(player2), new PlayerView(player3), new PlayerView(player4)};
     private MouseManager manager;
     private final CubesView cubesView = new CubesView(new Cubes(game));
 
@@ -37,6 +37,8 @@ public class Gameplay {
 
         playerViews[0].render(graphics);
         playerViews[1].render(graphics);
+//        playerViews[2].render(graphics);
+//        playerViews[3].render(graphics);
 
     }
 }

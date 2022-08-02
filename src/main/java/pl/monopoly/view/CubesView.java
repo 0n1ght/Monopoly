@@ -11,6 +11,7 @@ public class CubesView {
     private final int positionX = 460;
     private final int positionY = 550;
     private final int localDemension = 240;
+    private Graphics g;
 
     // create
     public CubesView(Cubes cubes) {
@@ -20,47 +21,28 @@ public class CubesView {
     // methods
     public void render(Graphics g) {
 
+        this.g = g;
+
         g.drawString("Click to randomize !", positionX+30, positionY+2);
         g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesFrameImage.png").getImage(), positionX, positionY, 240, 150, null);
         g.drawImage(imageIcon.getImage(), positionX-10, positionY+15, 200, 130, null);
         g.drawImage(imageIcon.getImage(), positionX+50, positionY+20, 200, 130, null);
 
-        if (cubes.getRoll1() != 0 && cubes.getRoll2() != 0) {
+        showCube(cubes.getRoll1(), 0);
+        showCube(cubes.getRoll2(), 72);
 
-            g.drawString(String.valueOf(cubes.getRoll1()), positionX + localDemension + 10, positionY);
-            g.drawString(String.valueOf(cubes.getRoll2()), positionX + localDemension + 10 + 15, positionY);
+    }
 
-            switch (cubes.getRoll1()) {
-                case 1 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube1pImage.png").getImage(), positionX + 50, positionY + 40, 60, 60, null);
-                case 2 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube2pImage.png").getImage(), positionX + 50, positionY + 40, 60, 60, null);
-                case 3 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube3pImage.png").getImage(), positionX + 50, positionY + 40, 60, 60, null);
-                case 4 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube4pImage.png").getImage(), positionX + 50, positionY + 40, 60, 60, null);
-                case 5 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube5pImage.png").getImage(), positionX + 50, positionY + 40, 60, 60, null);
-                case 6 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube6pImage.png").getImage(), positionX + 50, positionY + 40, 60, 60, null);
-            }
+    public void showCube(int number, int gap) {
 
-            switch (cubes.getRoll2()) {
-                case 1 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube1pImage.png").getImage(), positionX + 115, positionY + 40, 60, 60, null);
-                case 2 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube2pImage.png").getImage(), positionX + 115, positionY + 40, 60, 60, null);
-                case 3 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube3pImage.png").getImage(), positionX + 115, positionY + 40, 60, 60, null);
-                case 4 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube4pImage.png").getImage(), positionX + 115, positionY + 40, 60, 60, null);
-                case 5 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube5pImage.png").getImage(), positionX + 115, positionY + 40, 60, 60, null);
-                case 6 ->
-                        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube6pImage.png").getImage(), positionX + 115, positionY + 40, 60, 60, null);
-            }
+        switch (number) {
+            case 1 -> g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube1pImage.png").getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
+            case 2 -> g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube2pImage.png").getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
+            case 3 -> g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube3pImage.png").getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
+            case 4 -> g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube4pImage.png").getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
+            case 5 -> g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube5pImage.png").getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
+            case 6 -> g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube6pImage.png").getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
         }
-
     }
 
     public void roll() {
