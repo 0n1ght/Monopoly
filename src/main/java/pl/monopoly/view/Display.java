@@ -18,28 +18,27 @@ public final class Display {
 
     private Dimension size;
 
+    // create
     public Display() {
         displayMenu();
         displayGame();
     }
 
+    // methods
     public void displayMenu() {
 
-        //labels
-        JLabel label = new JLabel();
-        Image image = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\logoMonopoly.png")
-                .getImage();
-        Image scaledImage = image.getScaledInstance(400, 120, java.awt.Image.SCALE_SMOOTH);
-        label.setIcon(new ImageIcon(scaledImage));
-        label.setBounds(50, 0, 400, 120);
-
+        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\logoMonopoly.png", 400, 120, 50, 0);
+        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\redCubesImage1.png", 140, 140, 10, 130);
+        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\redCubesImage1.png", 140, 140, 10, 250);
+        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\redCubesImage2.png", 140, 140, 335, 130);
+        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\redCubesImage2.png", 140, 140, 335, 250);
 
         // buttons
         JButton button1 = new JButton("PLAY");
         button1.setFont(new Font("Comic Sans", Font.BOLD, 25));
         button1.setForeground(Color.WHITE);
         button1.setBackground(Color.RED);
-        button1.setBounds(175, 140, 150, 75);
+        button1.setBounds(168, 140, 150, 75);
         button1.setFocusable(false);
         button1.addActionListener(e -> {
             startMenu.setVisible(false);
@@ -51,7 +50,7 @@ public final class Display {
         button2.setFont(new Font("Comic Sans", Font.BOLD, 25));
         button2.setForeground(Color.WHITE);
         button2.setBackground(Color.RED);
-        button2.setBounds(175, 230, 150, 75);
+        button2.setBounds(168, 230, 150, 75);
         button2.setFocusable(false);
         button2.addActionListener(e -> optionsFrame.setVisible(true));
         button2.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
@@ -60,7 +59,7 @@ public final class Display {
         button3.setFont(new Font("Comic Sans", Font.BOLD, 25));
         button3.setForeground(Color.WHITE);
         button3.setBackground(Color.RED);
-        button3.setBounds(175, 320, 150, 75);
+        button3.setBounds(168, 320, 150, 75);
         button3.setFocusable(false);
         button3.addActionListener(e -> System.exit(0));
         button3.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
@@ -71,11 +70,10 @@ public final class Display {
         startMenu.setSize(500, 500);
         startMenu.setLocationRelativeTo(frame);
         startMenu.setLayout(null);
-        startMenu.getContentPane().setBackground(Color.CYAN);
-        startMenu.add(label);
         startMenu.add(button1);
         startMenu.add(button2);
         startMenu.add(button3);
+        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\menuBackgroundImage.png", 500, 500, 0, 0);
         startMenu.setVisible(true);
     }
 
@@ -89,6 +87,19 @@ public final class Display {
     }
 
     public void displayOptions() {}
+
+    public void addResizedImageToMenu(String fileName, int width, int height, int x, int y) {
+
+        JLabel label = new JLabel();
+        Image image = new ImageIcon(fileName)
+                .getImage();
+        Image scaledImage = image.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);
+        label.setIcon(new ImageIcon(scaledImage));
+        label.setBounds(x, y, width, height);
+
+        startMenu.add(label);
+
+    }
 
     private void createAndSetupFrame() {
         frame = new JFrame("Monopoly");

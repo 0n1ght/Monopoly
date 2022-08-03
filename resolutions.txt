@@ -30,5 +30,7 @@ comments:
 - game icon + frame icon
 - players number choosing at start
 - menu bar
+- sound
+- options frame
 - continue
 - menuGuyImage1 and menuGuyImage2 next to buttons in main menu
