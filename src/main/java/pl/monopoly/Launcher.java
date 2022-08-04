@@ -5,9 +5,13 @@ import pl.monopoly.view.GameEngine;
 import pl.monopoly.view.Gameplay;
 import pl.monopoly.view.MouseManager;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
+
 public class Launcher {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
 
         MouseManager manager = new MouseManager();
 

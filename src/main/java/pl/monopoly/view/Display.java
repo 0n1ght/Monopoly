@@ -1,8 +1,12 @@
 package pl.monopoly.view;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -14,7 +18,7 @@ public final class Display {
     private static JFrame frame;
     private static Canvas canvas;
     private final JFrame startMenu = new JFrame("Monopoly");
-    private final JFrame optionsFrame = new JFrame("Monopoly");
+    private final JFrame settingsFrame = new JFrame("Monopoly");
 
     private Dimension size;
 
@@ -27,53 +31,29 @@ public final class Display {
     // methods
     public void displayMenu() {
 
-        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\logoMonopoly.png", 400, 120, 50, 0);
-        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\redCubesImage1.png", 140, 140, 10, 130);
-        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\redCubesImage1.png", 140, 140, 10, 250);
-        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\redCubesImage2.png", 140, 140, 335, 130);
-        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\redCubesImage2.png", 140, 140, 335, 250);
+        // images
+        addResizedImage("src\\main\\java\\pl\\monopoly\\images\\logoMonopoly.png", 400, 120, 50, 0, startMenu);
+        addResizedImage("src\\main\\java\\pl\\monopoly\\images\\redCubesImage1.png", 140, 140, 10, 130, startMenu);
+        addResizedImage("src\\main\\java\\pl\\monopoly\\images\\redCubesImage1.png", 140, 140, 10, 250, startMenu);
+        addResizedImage("src\\main\\java\\pl\\monopoly\\images\\redCubesImage2.png", 140, 140, 335, 130, startMenu);
+        addResizedImage("src\\main\\java\\pl\\monopoly\\images\\redCubesImage2.png", 140, 140, 335, 250, startMenu);
 
         // buttons
-        JButton button1 = new JButton("PLAY");
-        button1.setFont(new Font("Comic Sans", Font.BOLD, 25));
-        button1.setForeground(Color.WHITE);
-        button1.setBackground(Color.RED);
-        button1.setBounds(168, 140, 150, 75);
-        button1.setFocusable(false);
-        button1.addActionListener(e -> {
-            startMenu.setVisible(false);
-            showGame();
-        });
-        button1.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
+        addingButton("PLAY", 168, 140, 150, 75, e -> {startMenu.setVisible(false); showGame();}, startMenu);
 
-        JButton button2 = new JButton("OPTIONS");
-        button2.setFont(new Font("Comic Sans", Font.BOLD, 25));
-        button2.setForeground(Color.WHITE);
-        button2.setBackground(Color.RED);
-        button2.setBounds(168, 230, 150, 75);
-        button2.setFocusable(false);
-        button2.addActionListener(e -> optionsFrame.setVisible(true));
-        button2.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
+        addingButton("SETTINGS", 168, 230, 150, 75, e -> displaySettings(), startMenu);
 
-        JButton button3 = new JButton("EXIT");
-        button3.setFont(new Font("Comic Sans", Font.BOLD, 25));
-        button3.setForeground(Color.WHITE);
-        button3.setBackground(Color.RED);
-        button3.setBounds(168, 320, 150, 75);
-        button3.setFocusable(false);
-        button3.addActionListener(e -> System.exit(0));
-        button3.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
+        addingButton("EXIT", 168, 320, 150, 75, e -> System.exit(0), startMenu);
+
 
         //menu
+        startMenu.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
         startMenu.setDefaultCloseOperation(EXIT_ON_CLOSE);
         startMenu.setResizable(false);
         startMenu.setSize(500, 500);
         startMenu.setLocationRelativeTo(frame);
         startMenu.setLayout(null);
-        startMenu.add(button1);
-        startMenu.add(button2);
-        startMenu.add(button3);
-        addResizedImageToMenu("src\\main\\java\\pl\\monopoly\\images\\menuBackgroundImage.png", 500, 500, 0, 0);
+        addResizedImage("src\\main\\java\\pl\\monopoly\\images\\menuBackgroundImage.png", 500, 500, 0, 0, startMenu);
         startMenu.setVisible(true);
     }
 
@@ -86,9 +66,31 @@ public final class Display {
         frame.pack();
     }
 
-    public void displayOptions() {}
+    public void displaySettings() {
 
-    public void addResizedImageToMenu(String fileName, int width, int height, int x, int y) {
+        startMenu.setVisible(false);
+        settingsFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        settingsFrame.setResizable(false);
+        settingsFrame.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
+        settingsFrame.setSize(300, 300);
+        settingsFrame.setLocationRelativeTo(null);
+
+        JButton button = new JButton("<-");
+        button.setFont(new Font("Serif", Font.ITALIC, 24));
+
+        JCheckBox checkBox = new JCheckBox("");
+        checkBox.setFocusable(false);
+        checkBox.setFont(new Font("Consolas", Font.PLAIN, 35));
+
+        addingButton("EXIT", 5, 205, 100, 50, e -> {settingsFrame.setVisible(false); startMenu.setVisible(true);}, settingsFrame);
+        settingsFrame.add(checkBox);
+
+        addResizedImage("src\\main\\java\\pl\\monopoly\\images\\menuBackgroundImage.png", 300, 300, 0, 0, settingsFrame);
+        settingsFrame.setVisible(true);
+
+    }
+
+    public void addResizedImage(String fileName, int width, int height, int x, int y, JFrame frame) {
 
         JLabel label = new JLabel();
         Image image = new ImageIcon(fileName)
@@ -97,8 +99,29 @@ public final class Display {
         label.setIcon(new ImageIcon(scaledImage));
         label.setBounds(x, y, width, height);
 
-        startMenu.add(label);
+        frame.add(label);
 
+    }
+
+    public void addingButton(String name, int x, int y, int width, int height, ActionListener l, JFrame frame) {
+
+        JButton button = new JButton(name);
+        button.setFont(new Font("Serif", Font.ITALIC, 30));
+        button.setForeground(Color.WHITE);
+        button.setBackground(Color.RED);
+        button.setBounds(x, y, width, height);
+        button.setFocusable(false);
+        button.addActionListener(l);
+        button.addActionListener(e -> {
+            try {
+                Gameplay.playSound("src\\main\\resources\\sounds\\soundClickDefault.wav");
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        button.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
+
+        frame.add(button);
     }
 
     private void createAndSetupFrame() {
@@ -108,7 +131,7 @@ public final class Display {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null); // ustawia okno na środku
         frame.setResizable(true);
-//        frame.getContentPane().setBackground(Color.CYAN);
+        frame.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
         frame.setLayout(new BorderLayout());
 
     }

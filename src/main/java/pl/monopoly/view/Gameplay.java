@@ -4,7 +4,10 @@ import pl.monopoly.logic.Cubes;
 import pl.monopoly.logic.Game;
 import pl.monopoly.logic.Player;
 
+import javax.sound.sampled.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Gameplay {
     private final Game game = new Game();
@@ -35,5 +38,15 @@ public class Gameplay {
         cubesView.render(graphics);
         playerViews[0].render(graphics);
         playerViews[1].render(graphics);
+    }
+
+    public static void playSound(String path) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+
+        File musicFile = new File(path);
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+
+        clip.start();
     }
 }

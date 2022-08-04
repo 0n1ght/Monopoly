@@ -26,11 +26,9 @@
 
 - refactor all yellow suggestions in classes
 
-comments:
-- game icon + frame icon
+comments: // creating audio-> adding  radio button to settings frame
+- music
+- settingsFrame
 - players number choosing at start
 - menu bar
-- sound
-- options frame
 - continue
-- menuGuyImage1 and menuGuyImage2 next to buttons in main menu

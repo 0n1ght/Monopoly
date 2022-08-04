@@ -45,7 +45,7 @@ public class CubesView {
         }
     }
 
-    public void roll() {
+    public void draw() {
 
         cubes.rollTheDice();
 
