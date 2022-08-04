@@ -11,14 +11,16 @@ import java.io.IOException;
 
 public class Gameplay {
     private final Game game = new Game();
-    private final Player player1 = new Player(game), player2 = new Player(game);
-    private final PlayerView[] playerViews = {new PlayerView(player1), new PlayerView(player2)}; //new PlayerView(player3), new PlayerView(player4)};
+    private final Player player1 = new Player(game), player2 = new Player(game), player3 = new Player(game), player4 = new Player(game);
+    private final PlayerView[] playerViews = {new PlayerView(player1), new PlayerView(player2), new PlayerView(player3), new PlayerView(player4)};
     private final CubesView cubesView = new CubesView(new Cubes(game));
+    private static Graphics graphics;
+    protected static int colorIndex = 0;
 
     // create
     public Gameplay(MouseManager manager) {
 
-        game.setPlayers(player1, player2);
+        game.setPlayers(player1, player2, player3, player4);
         manager.setCubesView(cubesView);
 
     }
@@ -29,15 +31,45 @@ public class Gameplay {
 
     }
 
-    public void render(Graphics graphics) {
-        graphics.setColor(Color.BLUE);
+    public void render(Graphics g) {
+        graphics = g;
+        setBackgroundColor(colorIndex);
         graphics.fillRect(0,0,Display.getWidth(),Display.getHeight());
-        graphics.translate(Display.getRelativeX(),Display.getRelativeY());
+        Gameplay.graphics.translate(Display.getRelativeX(),Display.getRelativeY());
         Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\board.png");
-        graphics.drawImage(image, 0,0, null);
-        cubesView.render(graphics);
-        playerViews[0].render(graphics);
-        playerViews[1].render(graphics);
+        Gameplay.graphics.drawImage(image, 0,0, null);
+        cubesView.render(Gameplay.graphics);
+
+        switch (Game.playersNumber) {
+            case 2 -> {
+                playerViews[0].render(Gameplay.graphics);
+                playerViews[1].render(Gameplay.graphics);
+            }
+            case 3 -> {
+                playerViews[0].render(Gameplay.graphics);
+                playerViews[1].render(Gameplay.graphics);
+                playerViews[2].render(Gameplay.graphics);
+            }
+            case 4 -> {
+                playerViews[0].render(Gameplay.graphics);
+                playerViews[1].render(Gameplay.graphics);
+                playerViews[2].render(Gameplay.graphics);
+                playerViews[3].render(Gameplay.graphics);
+            }
+        }
+    }
+
+    public static void setBackgroundColor(int colorIndex) {
+
+        switch (colorIndex) {
+            case 0 -> graphics.setColor(Color.GREEN);
+            case 1 -> graphics.setColor(Color.BLUE);
+            case 2 -> graphics.setColor(Color.RED);
+            case 3 -> graphics.setColor(Color.YELLOW);
+        }
+
+        graphics.fillRect(0,0,Display.getWidth(),Display.getHeight());
+
     }
 
     public static void playSound(String path) throws UnsupportedAudioFileException, IOException, LineUnavailableException {

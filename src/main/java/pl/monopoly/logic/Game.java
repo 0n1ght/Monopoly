@@ -2,28 +2,34 @@ package pl.monopoly.logic;
 
 import pl.monopoly.view.BoardView;
 
-import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class Game {
-    private Player player1;
-    private Player player2;
-    private int roundNumber;
+    Player player1, player2, player3, player4;
     private final Board board = new Board(this);
     private final BoardView boardView = new BoardView();
+    private Deque<Player> queue;
+    public static int playersNumber = 2;
 
     // methods
 
     public Player actualPlayer() {
 
-        if (roundNumber%2 == 0) {
-            return player1;
+        if (queue.isEmpty()) {
+
+            switch (playersNumber) {
+                case 2 -> queue = new LinkedList<>(List.of(player1, player2));
+                case 3 -> queue = new LinkedList<>(List.of(player1, player2, player3));
+                case 4 -> queue = new LinkedList<>(List.of(player1, player2, player3, player4));
+            }
+
+            return queue.peek();
         }
 
-        return player2;
-
+        return queue.peek();
     }
 
     public void interactiveField() {
@@ -33,12 +39,38 @@ public class Game {
     }
 
     public void nextRound() {
-        roundNumber++;
+        queue.remove();
     }
 
-    public void setPlayers(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
+    public void setPlayers(Player player1, Player player2, Player player3, Player player4) {
+
+        switch (playersNumber) {
+            case 2 -> {
+                this.player1 = player1;
+                this.player2 = player2;
+            }
+            case 3 -> {
+                this.player1 = player1;
+                this.player2 = player2;
+                this.player3 = player3;
+            }
+            case 4 -> {
+                this.player1 = player1;
+                this.player2 = player2;
+                this.player3 = player3;
+                this.player4 = player4;
+            }
+        }
+
+        queue = new LinkedList<>(List.of(this.player1, this.player2, this.player3, this.player4));
+
+//        switch (playersNumber) {
+//            case 2 -> {
+//                queue.removeLast();
+//                queue.removeLast();
+//            }
+//            case 3 -> queue.removeLast();
+//        }
     }
 
     // get/set

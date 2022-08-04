@@ -5,7 +5,7 @@ public class Player {
     private static int nextId = 0;
     private final int id;
     private int money = 1_500; //todo menu
-    private Game game;
+    private final Game game;
 
     // create
     public Player(Game game) {
@@ -17,20 +17,6 @@ public class Player {
     }
 
     // methods
-    public void checkPlayersMoves() {
-
-        Thread thread = new Thread(()-> {
-            try {
-                while (true) {
-                    Thread.sleep(500);
-                    field++;
-                }
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        thread.start();
-    }
 
     public void move(int movesNumber){
 
