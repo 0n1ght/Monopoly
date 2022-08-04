@@ -5,18 +5,26 @@ import pl.monopoly.view.BoardView;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class Game {
     Player player1, player2, player3, player4;
     private final Board board = new Board(this);
     private final BoardView boardView = new BoardView();
     private Deque<Player> queue;
-    public static int playersNumber = 2;
+    public static int playersNumber = 4;
+    private static boolean checkPlayersNumber = false;
 
     // methods
 
     public Player actualPlayer() {
+
+        if (!checkPlayersNumber) {
+            checkPlayersNumber = true;
+            switch (playersNumber) {
+                case 2 -> {queue.removeLast(); queue.removeLast();}
+                case 3 -> queue.removeLast();
+            }
+        }
 
         if (queue.isEmpty()) {
 
@@ -64,13 +72,13 @@ public class Game {
 
         queue = new LinkedList<>(List.of(this.player1, this.player2, this.player3, this.player4));
 
-//        switch (playersNumber) {
-//            case 2 -> {
-//                queue.removeLast();
-//                queue.removeLast();
-//            }
-//            case 3 -> queue.removeLast();
-//        }
+        switch (playersNumber) {
+            case 2 -> {
+                queue.removeLast();
+                queue.removeLast();
+            }
+            case 3 -> queue.removeLast();
+        }
     }
 
     // get/set

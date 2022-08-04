@@ -94,7 +94,7 @@ public final class Display {
         JLabel label1 = new JLabel("Players number:");
         label1.setBounds(15, 15, 110, 20);
 
-        JComboBox<String> colorsComboBox1 = new JComboBox<>(new String[] {"2", "3", "4"});
+        JComboBox<String> colorsComboBox1 = new JComboBox<>(new String[] {"4", "3", "2"});
         colorsComboBox1.setFocusable(false);
         colorsComboBox1.setBackground(Color.RED);
         colorsComboBox1.setBounds(130, 10, 65, 30);

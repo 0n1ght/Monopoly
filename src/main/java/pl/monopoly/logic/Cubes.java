@@ -3,7 +3,7 @@ package pl.monopoly.logic;
 import java.util.Random;
 
 public class Cubes {
-    private Random random;
+    private final Random random = new Random();
     private int roll1, roll2;
     private final Game game;
 
@@ -15,7 +15,6 @@ public class Cubes {
     // methods
     public void rollTheDice() {
 
-        random = new Random();
         roll1 = random.nextInt(6)+1;
         roll2 = random.nextInt(6)+1;
 
