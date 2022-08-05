@@ -33,11 +33,12 @@ public final class Display {
     private static JMenu scoreGap4 = new JMenu(gameplay.getPlayer4().getMoney() + "                   ");
 
     // create
-    public Display(Gameplay gameplay) {Display.gameplay = gameplay;
+    public Display(Gameplay gameplay) {
+
+        Display.gameplay = gameplay;
 
         displayMenu();
         displayGame();
-        gameplay.getPlayer1().move(10);
     }
 
     public void displayMenu() {
@@ -201,19 +202,31 @@ public final class Display {
     public void addScoreBoard() {
 
         JMenuBar menuBar = new JMenuBar();
+        menuBar.setBackground(Color.PINK);
+        menuBar.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
 
-        JMenu player1 = new JMenu("     RED: ");
+        JMenu player1 = new JMenu("           RED: ");
         player1.setForeground(Color.RED);
-        scoreGap1 = new JMenu(gameplay.getPlayer1().getMoney() + "                   ");
+        scoreGap1 = new JMenu(gameplay.getPlayer1().getMoney() + "$                   ");
         JMenu player2 = new JMenu("BLUE: ");
         player2.setForeground(Color.BLUE);
-        scoreGap2 = new JMenu(gameplay.getPlayer2().getMoney() + "                   ");
+        scoreGap2 = new JMenu(gameplay.getPlayer2().getMoney() + "$                   ");
         JMenu player3 = new JMenu("GREEN: ");
         player3.setForeground(Color.GREEN);
-        scoreGap3 = new JMenu(gameplay.getPlayer3().getMoney() + "                   ");
+        scoreGap3 = new JMenu(gameplay.getPlayer3().getMoney() + "$                   ");
         JMenu player4 = new JMenu("PURPLE: ");
         player4.setForeground(Color.MAGENTA);
-        scoreGap4 = new JMenu(gameplay.getPlayer4().getMoney() + "                   ");
+        scoreGap4 = new JMenu(gameplay.getPlayer4().getMoney() + "$");
+
+        player1.setFont(new Font("Serif", Font.ITALIC, 15));
+        player2.setFont(new Font("Serif", Font.ITALIC, 15));
+        player3.setFont(new Font("Serif", Font.ITALIC, 15));
+        player4.setFont(new Font("Serif", Font.ITALIC, 15));
+
+        scoreGap1.setFont(new Font("Serif", Font.ITALIC, 20));
+        scoreGap2.setFont(new Font("Serif", Font.ITALIC, 20));
+        scoreGap3.setFont(new Font("Serif", Font.ITALIC, 20));
+        scoreGap4.setFont(new Font("Serif", Font.ITALIC, 20));
 
 
         if (Objects.equals(playersComboBox.getSelectedItem(), "4")) {
@@ -245,31 +258,14 @@ public final class Display {
 
         }
 
-        JMenu quitButton = new JMenu("        BACK TO MAIN MENU        ");
-        quitButton.setForeground(Color.WHITE);
-        quitButton.setBackground(Color.RED);
-        quitButton.setOpaque(true);
-        quitButton.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
-        quitButton.addActionListener(e -> {
-
-            int quitAnswer = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit the game?\nThe achievement will not be saved.", "quit", JOptionPane.YES_NO_OPTION);
-
-            if (quitAnswer == 1) {
-                frame.setVisible(false);
-                startMenu.setVisible(true);
-            }
-
-        });
-        menuBar.add(quitButton);
-
         frame.setJMenuBar(menuBar);
     }
 
     public static void refreshScoreBoard() {
-        scoreGap1.setText(gameplay.getPlayer1().getMoney() + "                   ");
-        scoreGap2.setText(gameplay.getPlayer2().getMoney() + "                   ");
-        scoreGap3.setText(gameplay.getPlayer3().getMoney() + "                   ");
-        scoreGap4.setText(gameplay.getPlayer4().getMoney() + "                   ");
+        scoreGap1.setText(gameplay.getPlayer1().getMoney() + "$                   ");
+        scoreGap2.setText(gameplay.getPlayer2().getMoney() + "$                   ");
+        scoreGap3.setText(gameplay.getPlayer3().getMoney() + "$                   ");
+        scoreGap4.setText(gameplay.getPlayer4().getMoney() + "$");
     }
 
     public void addListener(MouseListener listener) {

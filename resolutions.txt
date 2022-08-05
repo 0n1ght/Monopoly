@@ -1,6 +1,6 @@
 - plansza z polami //todo pola osobne elementy
 
-- gracze na start  //todo gracze wyswietlaja sie jako obrazki pionkow (przezroczyste)
+- gracze na start
                    //todo gracze sa umieszczani w roznych ustawieniach zaleznie od liczby graczy na polu
 
 - kupowanie pol, ulic na ktorych staje {
@@ -22,13 +22,8 @@
                                                     //todo optymalizacja pod inne systemy(linux,macos)
                                                     //todo help, wskazowki
 
-- refactor all yellow suggestions in classes
 
-
-comments: todo -> synchronize players money with score board (use gameplay.getplayer().getMoney()) + repair quit button
--menu bar in game, score board
--continue
+comments: //todo -> change score board's font and add $
 
 // lesson issues
 -turn off focusable on scores in menu bar (this part is like score board)
--plan others steps

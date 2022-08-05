@@ -9,7 +9,9 @@ public class PlayerView {
     private final Player player;
 
     // create
-    public PlayerView(Player player) {
+    public PlayerView(Player player, Player player1, Player player2, Player player3) {
+
+        player.setEnemies(new Player[]{player1, player2, player3});
 
         this.player = player;
 
@@ -39,7 +41,7 @@ public class PlayerView {
 
         }
 
-        if (player.getFieldNumber() > 0) {distance1 -= bigFieldAddition;} //todo refactoring
+        if (player.getFieldNumber() > 0) {distance1 -= bigFieldAddition;}
         if (player.getFieldNumber() >= 10) {distance1 -= bigFieldAddition;}
         if (player.getFieldNumber() > 10) {distance2 -= bigFieldAddition;}
         if (player.getFieldNumber() >= 20) {distance2 -= bigFieldAddition;}
@@ -55,10 +57,40 @@ public class PlayerView {
             case 3 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\purple.png");
             default -> new ImageIcon();
         };
-        graphics.drawImage(playerIcon.getImage(), 790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50, null);
         graphics.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
         graphics.setColor(Color.GREEN);
-        graphics.drawString(player.getMoney()+"", 790+10*player.getId() + distance1, 790+10*player.getId() + distance2);
+
+        if (player.getId() == 0) {graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);}
+
+        if (player.getId() == 1) {
+
+            if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
+                graphics.drawImage(playerIcon.getImage(), 790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50, null);
+            } else {
+                graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
+            }
+
+        }
+
+        if (player.getId() == 2) {
+
+            if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
+                graphics.drawImage(playerIcon.getImage(), 790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50, null);
+            } else {
+                graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
+            }
+
+        }
+
+        if (player.getId() == 3) {
+
+            if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
+                graphics.drawImage(playerIcon.getImage(), 790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50, null);
+            } else {
+                graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
+            }
+
+        }
 
     }
 

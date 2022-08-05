@@ -5,6 +5,7 @@ public class Player {
     private static int nextId = 0;
     private final int id;
     private int money = 1_500; //todo menu
+    private Player[] enemies;
     private final Game game;
 
     // create
@@ -47,6 +48,14 @@ public class Player {
 
     public int getMoney() {
         return money;
+    }
+
+    public void setEnemies(Player[] enemies) {
+        this.enemies = enemies;
+    }
+
+    public Player[] getEnemies() {
+        return enemies;
     }
 
     @Override

@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Gameplay {
     private final Game game = new Game();
     private final Player player1 = new Player(game), player2 = new Player(game), player3 = new Player(game), player4 = new Player(game);
-    private final PlayerView[] playerViews = {new PlayerView(player1), new PlayerView(player2), new PlayerView(player3), new PlayerView(player4)};
+    private final PlayerView[] playerViews = {new PlayerView(player1, player2, player3, player4), new PlayerView(player2, player1, player3, player4), new PlayerView(player3, player1, player2, player4), new PlayerView(player4, player1, player2, player3)};
     private final CubesView cubesView = new CubesView(new Cubes(game));
     private static Graphics graphics;
     protected static int colorIndex = 0;
