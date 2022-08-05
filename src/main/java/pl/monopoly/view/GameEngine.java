@@ -24,7 +24,7 @@ public final class GameEngine implements Runnable {
     @Override
     public void run() {
         int fps = 60;
-        double timePerTick = 1_000_000_000 / fps;
+        float timePerTick = 1_000_000_000f / fps;
         double delta = 0;
         long now;
         long lastTime = System.nanoTime();
@@ -35,6 +35,7 @@ public final class GameEngine implements Runnable {
             delta += (now - lastTime) / timePerTick;
             timer += now - lastTime;
             lastTime = now;
+
 
             if (delta >= 1) {
                 tick();

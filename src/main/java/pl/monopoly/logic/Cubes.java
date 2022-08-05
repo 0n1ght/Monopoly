@@ -1,5 +1,7 @@
 package pl.monopoly.logic;
 
+import pl.monopoly.view.Gameplay;
+
 import java.util.Random;
 
 public class Cubes {

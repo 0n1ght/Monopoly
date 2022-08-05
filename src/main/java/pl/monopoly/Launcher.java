@@ -11,16 +11,14 @@ import java.io.IOException;
 
 public class Launcher {
 
-    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public static void main(String[] args) {
 
         MouseManager manager = new MouseManager();
 
-        Display display = new Display();
-        display.addListener(manager);
-
         Gameplay gameplay = new Gameplay(manager);
 
-
+        Display display = new Display(gameplay);
+        display.addListener(manager);
 
         GameEngine gameEngine = new GameEngine(display, gameplay);
         gameEngine.start();

@@ -19,13 +19,17 @@
 - jezeli masz wszystkie ulice z danego zestawu, to czyns jest 2x wiekszy
 
 - jesli komus skoncza sie pieniadze to przegrywa
-
                                                     //todo optymalizacja pod inne systemy(linux,macos)
                                                     //todo efekty dzwiekowe
                                                     //todo help, wskazowki
 
 - refactor all yellow suggestions in classes
 
-comments:
+
+comments: todo -> synchronize players money with score board (use gameplay.getplayer().getMoney()) + repair quit button
 -menu bar in game, score board
 -continue
+
+// lesson issues
+-turn off focusable on scores in menu bar (this part is like score board)
+-synchronize scores in menuBar

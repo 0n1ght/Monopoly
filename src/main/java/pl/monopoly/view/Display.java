@@ -24,12 +24,18 @@ public final class Display {
     private final JFrame settingsFrame = new JFrame("Monopoly");
 
     private Dimension size;
+    private final Gameplay gameplay;
     private final JCheckBox musicCheckBox = new JCheckBox();
+    JComboBox<String> playersComboBox = new JComboBox<>(new String[] {"4", "3", "2"});
 
     // create
-    public Display() {
+    public Display(Gameplay gameplay) {
+
+        this.gameplay = gameplay;
+
         displayMenu();
         displayGame();
+        gameplay.getPlayer1().move(10);
     }
 
     // methods
@@ -91,39 +97,37 @@ public final class Display {
         settingsFrame.setLayout(null);
 
 
-        JLabel label1 = new JLabel("Players number:");
-        label1.setBounds(15, 15, 110, 20);
+        JLabel playersComboBoxText = new JLabel("Players number:");
+        playersComboBoxText.setBounds(15, 15, 110, 20);
 
-        JComboBox<String> colorsComboBox1 = new JComboBox<>(new String[] {"4", "3", "2"});
-        colorsComboBox1.setFocusable(false);
-        colorsComboBox1.setBackground(Color.RED);
-        colorsComboBox1.setBounds(130, 10, 65, 30);
-        colorsComboBox1.addActionListener(e -> Game.playersNumber = Integer.parseInt((String) Objects.requireNonNull(colorsComboBox1.getSelectedItem())));
+        playersComboBox.setFocusable(false);
+        playersComboBox.setBackground(Color.RED);
+        playersComboBox.setBounds(130, 10, 65, 30);
+        playersComboBox.addActionListener(e -> {Game.playersNumber = Integer.parseInt((String) Objects.requireNonNull(playersComboBox.getSelectedItem())); addScoreBoard();});
 
 
-        JLabel label2 = new JLabel("Background color:");
-        label2.setBounds(15, 70, 110, 20);
+        JLabel backgroundComboBoxText = new JLabel("Background color:");
+        backgroundComboBoxText.setBounds(15, 70, 110, 20);
 
-        JComboBox<String> colorsComboBox2 = new JComboBox<>(new String[] {"green", "blue", "red", "yellow"});
-        colorsComboBox2.setFocusable(false);
-        colorsComboBox2.setBackground(Color.RED);
-        colorsComboBox2.setBounds(130, 65, 65, 30);
-        colorsComboBox2.addActionListener(e -> Gameplay.colorIndex = colorsComboBox2.getSelectedIndex());
+        JComboBox<String> backgroundComboBox = new JComboBox<>(new String[] {"green", "blue", "red", "yellow"});
+        backgroundComboBox.setFocusable(false);
+        backgroundComboBox.setBackground(Color.RED);
+        backgroundComboBox.setBounds(130, 65, 65, 30);
+        backgroundComboBox.addActionListener(e -> Gameplay.colorIndex = backgroundComboBox.getSelectedIndex());
 
 
         JLabel label3 = new JLabel("Background music:");
         label3.setBounds(15, 125, 110, 20);
 
         musicCheckBox.setFocusable(false);
-        musicCheckBox.setSelected(true);
         musicCheckBox.setBounds(140, 126, 20, 20);
 
 
         settingsFrame.getContentPane().setBackground(Color.WHITE);
-        settingsFrame.add(label1);
-        settingsFrame.add(colorsComboBox1);
-        settingsFrame.add(label2);
-        settingsFrame.add(colorsComboBox2);
+        settingsFrame.add(playersComboBoxText);
+        settingsFrame.add(playersComboBox);
+        settingsFrame.add(backgroundComboBoxText);
+        settingsFrame.add(backgroundComboBox);
         settingsFrame.add(label3);
         settingsFrame.add(musicCheckBox);
         addingButton("BACK", 5, 205, 100, 50, e -> {settingsFrame.setVisible(false); startMenu.setVisible(true);}, settingsFrame);
@@ -175,6 +179,7 @@ public final class Display {
         frame.setResizable(true);
         frame.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
         frame.setLayout(new BorderLayout());
+        addScoreBoard();
 
     }
 
@@ -187,6 +192,73 @@ public final class Display {
         frame.add(canvas, BorderLayout.CENTER);
         canvas.setFocusable(true);
         canvas.requestFocusInWindow();
+    }
+
+    public void addScoreBoard() {
+
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu player1 = new JMenu("RED: ");
+        player1.setForeground(Color.RED);
+        JMenu scoreGap1 = new JMenu(gameplay.getPlayer2().getMoney() + "                   ");
+        JMenu player2 = new JMenu("BLUE: ");
+        player2.setForeground(Color.BLUE);
+        JMenu scoreGap2 = new JMenu(gameplay.getPlayer2().getMoney() + "                   ");
+        JMenu player3 = new JMenu("GREEN: ");
+        player3.setForeground(Color.GREEN);
+        JMenu scoreGap3 = new JMenu(gameplay.getPlayer3().getMoney() + "                   ");
+        JMenu player4 = new JMenu("PURPLE: ");
+        player4.setForeground(Color.MAGENTA);
+        JMenu scoreGap4 = new JMenu(gameplay.getPlayer4().getMoney() + "                                                   ");
+
+
+        if (Objects.equals(playersComboBox.getSelectedItem(), "4")) {
+
+            menuBar.add(player1);
+            menuBar.add(scoreGap1);
+            menuBar.add(player2);
+            menuBar.add(scoreGap2);
+            menuBar.add(player3);
+            menuBar.add(scoreGap3);
+            menuBar.add(player4);
+            menuBar.add(scoreGap4);
+
+        } else if (Objects.equals(playersComboBox.getSelectedItem(), "3")) {
+
+            menuBar.add(player1);
+            menuBar.add(scoreGap1);
+            menuBar.add(player2);
+            menuBar.add(scoreGap2);
+            menuBar.add(player3);
+            menuBar.add(scoreGap3);
+
+        } else {
+
+            menuBar.add(player1);
+            menuBar.add(scoreGap1);
+            menuBar.add(player2);
+            menuBar.add(scoreGap2);
+
+        }
+
+//        JMenu quitButton = new JMenu("        BACK TO MAIN MENU        ");
+//        quitButton.setForeground(Color.WHITE);
+//        quitButton.setBackground(Color.RED);
+//        quitButton.setOpaque(true);
+//        quitButton.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
+//        quitButton.addActionListener(e -> {
+//
+//            int quitAnswer = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit the game?\nThe achievement will not be saved.", "quit", JOptionPane.YES_NO_OPTION);
+//
+//            if (quitAnswer == 1) {
+//                frame.setVisible(false);
+//                startMenu.setVisible(true);
+//            }
+//
+//        });
+//        menuBar.add(quitButton);
+
+        frame.setJMenuBar(menuBar);
     }
 
     public void addListener(MouseListener listener) {
