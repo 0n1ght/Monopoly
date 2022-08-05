@@ -1,6 +1,7 @@
 package pl.monopoly.logic;
 
 import pl.monopoly.view.BoardView;
+import pl.monopoly.view.Display;
 
 import java.util.Deque;
 import java.util.LinkedList;
@@ -47,6 +48,7 @@ public class Game {
     }
 
     public void nextRound() {
+        Display.refreshScoreBoard();
         queue.remove();
     }
 
