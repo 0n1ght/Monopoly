@@ -31,3 +31,4 @@ comments: todo -> synchronize players money with score board (use gameplay.getpl
 
 // lesson issues
 -turn off focusable on scores in menu bar (this part is like score board)
+-plan others steps
