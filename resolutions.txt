@@ -20,7 +20,6 @@
 
 - jesli komus skoncza sie pieniadze to przegrywa
                                                     //todo optymalizacja pod inne systemy(linux,macos)
-                                                    //todo efekty dzwiekowe
                                                     //todo help, wskazowki
 
 - refactor all yellow suggestions in classes
@@ -32,4 +31,3 @@ comments: todo -> synchronize players money with score board (use gameplay.getpl
 
 // lesson issues
 -turn off focusable on scores in menu bar (this part is like score board)
--synchronize scores in menuBar
