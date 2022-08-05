@@ -26,9 +26,6 @@
 
 - refactor all yellow suggestions in classes
 
-comments: //
--settings
+comments:
 -menu bar in game, score board
--turn off asking for buy window focusable
--bug with music in settings (unvisible after second join settings)
 -continue

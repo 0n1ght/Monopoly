@@ -4,6 +4,7 @@ import pl.monopoly.logic.Street;
 
 import javax.swing.*;
 
+
 // must ask player is he want to buy a new field and send back answer
 // sluzy do tego zeby komponenty logiczne mogly wysylac sygnal widoczny graficznie i otrzymywac odpowiedz
 public class BoardView {

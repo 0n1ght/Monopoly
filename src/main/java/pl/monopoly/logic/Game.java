@@ -12,14 +12,14 @@ public class Game {
     private final BoardView boardView = new BoardView();
     private Deque<Player> queue;
     public static int playersNumber = 4;
-    private static boolean checkPlayersNumber = false;
+    private static boolean checkedPlayersNumber = false;
 
     // methods
 
     public Player actualPlayer() {
 
-        if (!checkPlayersNumber) {
-            checkPlayersNumber = true;
+        if (!checkedPlayersNumber) {
+            checkedPlayersNumber = true;
             switch (playersNumber) {
                 case 2 -> {queue.removeLast(); queue.removeLast();}
                 case 3 -> queue.removeLast();

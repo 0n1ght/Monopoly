@@ -24,7 +24,7 @@ public final class Display {
     private final JFrame settingsFrame = new JFrame("Monopoly");
 
     private Dimension size;
-    private final JRadioButton musicRadioButton = new JRadioButton();
+    private final JCheckBox musicCheckBox = new JCheckBox();
 
     // create
     public Display() {
@@ -46,7 +46,7 @@ public final class Display {
         addingButton("PLAY", 168, 140, 150, 75, e -> {
             startMenu.setVisible(false);
             showGame();
-            if (musicRadioButton.isSelected()) {
+            if (musicCheckBox.isSelected()) {
                 try {
                     Gameplay.playSound("src\\main\\resources\\sounds\\music.wav");
                 } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
@@ -114,18 +114,19 @@ public final class Display {
         JLabel label3 = new JLabel("Background music:");
         label3.setBounds(15, 125, 110, 20);
 
-        musicRadioButton.setFocusable(false);
-        musicRadioButton.setBounds(140, 126, 20, 20);
+        musicCheckBox.setFocusable(false);
+        musicCheckBox.setSelected(true);
+        musicCheckBox.setBounds(140, 126, 20, 20);
 
 
+        settingsFrame.getContentPane().setBackground(Color.WHITE);
         settingsFrame.add(label1);
         settingsFrame.add(colorsComboBox1);
         settingsFrame.add(label2);
         settingsFrame.add(colorsComboBox2);
         settingsFrame.add(label3);
-        settingsFrame.add(musicRadioButton);
+        settingsFrame.add(musicCheckBox);
         addingButton("BACK", 5, 205, 100, 50, e -> {settingsFrame.setVisible(false); startMenu.setVisible(true);}, settingsFrame);
-        addResizedImage("src\\main\\java\\pl\\monopoly\\images\\menuBackgroundImage.png", 300, 300, 0, 0, settingsFrame);
 
         settingsFrame.setVisible(true);
 
