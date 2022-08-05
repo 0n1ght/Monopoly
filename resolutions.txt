@@ -1,7 +1,6 @@
 - plansza z polami //todo pola osobne elementy
 
 - gracze na start
-                   //todo gracze sa umieszczani w roznych ustawieniach zaleznie od liczby graczy na polu
 
 - kupowanie pol, ulic na ktorych staje {
 
@@ -26,4 +25,4 @@
 comments: //todo -> change score board's font and add $
 
 // lesson issues
--turn off focusable on scores in menu bar (this part is like score board)
+-turn off focusable on menuBar in game (score board)

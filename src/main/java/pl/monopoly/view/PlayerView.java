@@ -60,12 +60,21 @@ public class PlayerView {
         graphics.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
         graphics.setColor(Color.GREEN);
 
-        if (player.getId() == 0) {graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);}
+
+        if (player.getId() == 0) {
+
+            if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
+                graphics.drawImage(playerIcon.getImage(), 790-10 + distance1, 790-10 + distance2, 50, 50, null);
+            } else {
+                graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
+            }
+
+        }
 
         if (player.getId() == 1) {
 
             if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
-                graphics.drawImage(playerIcon.getImage(), 790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50, null);
+                graphics.drawImage(playerIcon.getImage(), 790+10 + distance1, 790-10 + distance2, 50, 50, null);
             } else {
                 graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
             }
@@ -75,7 +84,7 @@ public class PlayerView {
         if (player.getId() == 2) {
 
             if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
-                graphics.drawImage(playerIcon.getImage(), 790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50, null);
+                graphics.drawImage(playerIcon.getImage(), 790-10 + distance1, 790+10 + distance2, 50, 50, null);
             } else {
                 graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
             }
@@ -85,7 +94,7 @@ public class PlayerView {
         if (player.getId() == 3) {
 
             if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
-                graphics.drawImage(playerIcon.getImage(), 790+10*player.getId() + distance1, 790+10*player.getId() + distance2, 50, 50, null);
+                graphics.drawImage(playerIcon.getImage(), 790+10 + distance1, 790+10 + distance2, 50, 50, null);
             } else {
                 graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
             }
