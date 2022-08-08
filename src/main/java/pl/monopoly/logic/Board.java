@@ -14,7 +14,7 @@ public class Board {
 
     }
 
-    // get/set
+    // getq/set
     public Field getField(int number) {
         number = number == 40 ? 0 : number;
         return fields.get(number);

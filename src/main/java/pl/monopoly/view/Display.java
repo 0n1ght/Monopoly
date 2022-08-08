@@ -202,7 +202,7 @@ public final class Display {
     public void addScoreBoard() {
 
         JMenuBar menuBar = new JMenuBar();
-        menuBar.setBackground(Color.PINK);
+        menuBar.setBackground(new Color(255, 204, 51));
         menuBar.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
 
         JMenu player1 = new JMenu("           RED: ");

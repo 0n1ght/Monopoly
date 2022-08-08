@@ -17,4 +17,5 @@ public abstract class Field {
     public int getNumber() {
         return number;
     }
+    public Game getGame() {return game;}
 }

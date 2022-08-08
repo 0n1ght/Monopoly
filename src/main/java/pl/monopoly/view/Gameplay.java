@@ -62,10 +62,10 @@ public class Gameplay {
     public static void setBackgroundColor(int colorIndex) {
 
         switch (colorIndex) {
-            case 0 -> graphics.setColor(Color.GREEN);
-            case 1 -> graphics.setColor(Color.BLUE);
-            case 2 -> graphics.setColor(Color.RED);
-            case 3 -> graphics.setColor(Color.YELLOW);
+            case 0 -> graphics.setColor(new Color(102, 255, 102));
+            case 1 -> graphics.setColor(new Color(51, 153, 255));
+            case 2 -> graphics.setColor(new Color(255, 102, 102));
+            case 3 -> graphics.setColor(new Color(255, 255, 0));
         }
 
         graphics.fillRect(0,0,Display.getWidth(),Display.getHeight());

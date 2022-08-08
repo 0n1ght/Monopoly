@@ -1,7 +1,3 @@
-- plansza z polami //todo pola osobne elementy
-
-- gracze na start
-
 - kupowanie pol, ulic na ktorych staje {
 
     -stworzenie wszystkich pol
@@ -21,8 +17,10 @@
                                                     //todo optymalizacja pod inne systemy(linux,macos)
                                                     //todo help, wskazowki
 
+- refactor score board
 
-comments: //todo -> change score board's font and add $
+
+comments: //todo -> x on players field
 
 // lesson issues
 -turn off focusable on menuBar in game (score board)
