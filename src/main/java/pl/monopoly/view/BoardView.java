@@ -22,4 +22,8 @@ public class BoardView {
 
     }
 
+    public void addingBoundsInformation() {}
+
+    public void freeDrawInformation() {}
+
 }

@@ -19,15 +19,12 @@ public class MouseManager implements MouseListener {
 
         Rectangle rectangle = new Rectangle(e.getX(), e.getY(), 1, 1);
         if (cubesView.getBounds().intersects(rectangle)) {
-
-            try {
+            try { //todo D
                 Gameplay.playSound("src\\main\\resources\\sounds\\mixkit-mouse-click-close-1113.wav");
             } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
                 throw new RuntimeException(ex);
             }
-
-            cubesView.draw();
-
+            cubesView.roll();
         }
 
     }

@@ -21,6 +21,7 @@
 
 
 comments:
+-add settings to game frame
 
 // lesson issues
 -turn off focusable on menuBar in game (score board)
