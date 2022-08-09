@@ -6,29 +6,38 @@ import pl.monopoly.view.Display;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Game {
-    Player player1, player2, player3, player4;
+   private Player player1, player2, player3, player4;
     private final Board board = new Board(this);
     private final BoardView boardView = new BoardView();
-    private Deque<Player> queue;
+    private LinkedList<Player> queue;
     public static int playersNumber = 4;
     private static boolean checkedPlayersNumber = false;
+    private static Game game = null;
+
+    public Game() {
+        game = this;
+    }
 
     // methods
+    //setup
+    public static void setPlayers(List<Player> players) {
+        game.queue = new LinkedList<>(players.subList(0,playersNumber));
+    }
 
     public Player actualPlayer() {
 
-        if (!checkedPlayersNumber) {
+      /*  if (!checkedPlayersNumber) {
             checkedPlayersNumber = true;
             switch (playersNumber) {
                 case 2 -> {queue.removeLast(); queue.removeLast();}
                 case 3 -> queue.removeLast();
             }
-        }
+        }*/
 
-        if (queue.isEmpty()) {
-
+      /*  if (queue.isEmpty()) {
             switch (playersNumber) {
                 case 2 -> queue = new LinkedList<>(List.of(player1, player2));
                 case 3 -> queue = new LinkedList<>(List.of(player1, player2, player3));
@@ -36,8 +45,7 @@ public class Game {
             }
 
             return queue.peek();
-        }
-
+        }*/
         return queue.peek();
     }
 
@@ -49,42 +57,17 @@ public class Game {
 
     public void nextRound() {
         Display.refreshScoreBoard();
-        queue.remove();
-    }
-
-    public void setPlayers(Player player1, Player player2, Player player3, Player player4) {
-
-        switch (playersNumber) {
-            case 2 -> {
-                this.player1 = player1;
-                this.player2 = player2;
-            }
-            case 3 -> {
-                this.player1 = player1;
-                this.player2 = player2;
-                this.player3 = player3;
-            }
-            case 4 -> {
-                this.player1 = player1;
-                this.player2 = player2;
-                this.player3 = player3;
-                this.player4 = player4;
-            }
-        }
-
-        queue = new LinkedList<>(List.of(this.player1, this.player2, this.player3, this.player4));
-
-        switch (playersNumber) {
-            case 2 -> {
-                queue.removeLast();
-                queue.removeLast();
-            }
-            case 3 -> queue.removeLast();
-        }
+        Player actual = queue.remove();
+        queue.add(actual);
+        System.out.println(queue);
     }
 
     // get/set
     public BoardView getBoardView() {
         return boardView;
+    }
+
+    public static void refresh(){
+        game.queue = new LinkedList<>(game.queue.subList(0,playersNumber));
     }
 }

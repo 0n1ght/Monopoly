@@ -8,6 +8,7 @@ import javax.sound.sampled.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class Gameplay {
     private final Game game = new Game();
@@ -20,7 +21,7 @@ public class Gameplay {
     // create
     public Gameplay(MouseManager manager) {
 
-        game.setPlayers(player1, player2, player3, player4);
+        game.setPlayers(List.of(player1,player2,player3,player4));//todo D
         manager.setCubesView(cubesView);
 
     }
