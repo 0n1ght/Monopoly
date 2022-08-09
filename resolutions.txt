@@ -1,27 +1,11 @@
-- kupowanie pol, ulic na ktorych staje {
+-prezentacja przynaleznosci pola do danego gracza, X na polu gracza koloru jego pionka
 
-    -stworzenie wszystkich pol
-    -rozpoznanie obecnego pola gracza
-    -zakup pola
-    -prezentacja przynaleznosci pola do danego gracza, X na polu gracza koloru jego pionka
+-przeciwnik placi po stanieciu na polu innego gracza
 
-}
+-jezeli masz wszystkie ulice z danego zestawu, to czyns jest 2x wiekszy
 
-////
-
-- przeciwnik placi po stanieciu na polu innego gracza
-
-- rozne ulice maja rozny koszt i czynsz
-
-- jezeli masz wszystkie ulice z danego zestawu, to czyns jest 2x wiekszy
-
-- jesli komus skoncza sie pieniadze to przegrywa
+-jesli komus skoncza sie pieniadze to przegrywa
                                                     //todo optymalizacja pod inne systemy(linux,macos)
                                                     //todo help, wskazowki
 
-
-comments:
--add settings to game frame
-
-// lesson issues
--turn off focusable on menuBar in game (score board)
+-add settings to game frame; settings icon
