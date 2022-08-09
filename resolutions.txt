@@ -3,9 +3,11 @@
     -stworzenie wszystkich pol
     -rozpoznanie obecnego pola gracza
     -zakup pola
-    -prezentacja przynaleznosci pola do danego gracza
+    -prezentacja przynaleznosci pola do danego gracza, X na polu gracza koloru jego pionka
 
 }
+
+////
 
 - przeciwnik placi po stanieciu na polu innego gracza
 
@@ -17,10 +19,8 @@
                                                     //todo optymalizacja pod inne systemy(linux,macos)
                                                     //todo help, wskazowki
 
-- refactor score board
 
-
-comments: //todo -> x on players field
+comments:
 
 // lesson issues
 -turn off focusable on menuBar in game (score board)

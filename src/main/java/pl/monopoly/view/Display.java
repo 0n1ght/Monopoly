@@ -183,9 +183,7 @@ public final class Display {
         frame.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
         frame.setLayout(new BorderLayout());
 
-
         addScoreBoard();
-
     }
 
     private void createAndSetupCanvas() {

@@ -11,7 +11,7 @@ public abstract class Field {
     }
 
     // methods
-    public abstract void action(Player player);
+    public abstract void action(Player player, Board board);
 
     // get/set
     public int getNumber() {

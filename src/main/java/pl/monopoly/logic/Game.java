@@ -43,7 +43,7 @@ public class Game {
 
     public void interactiveField() {
 
-        board.getField(actualPlayer().getFieldNumber()).action(actualPlayer());
+        board.getField(actualPlayer().getFieldNumber()).action(actualPlayer(), board);
 
     }
 
