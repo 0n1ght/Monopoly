@@ -1,10 +1,11 @@
 package pl.monopoly.logic;
 
+import javax.swing.*;
+
 public class Street extends Field{
     private static int nextPrice = 60;
     private final int price = nextPrice+=10;
     private Player owner;
-    private static final int[] buyAbleFields = {1, 3, 6, 8, 9, 11, 13, 14, 16, 18, 19, 21, 23, 24, 26, 27, 29, 31, 32, 34, 37, 39};
 
     public Street(Game game) {
         super(game);
@@ -13,17 +14,55 @@ public class Street extends Field{
     @Override
     public void action(Player player, Board board) {
 
+        int[] buyAbleFields = {1, 3, 6, 8, 9, 11, 13, 14, 16, 18, 19, 21, 23, 24, 26, 27, 29, 31, 32, 34, 37, 39};
+        int[] giftFields = {2, 4, 5, 12, 15, 17, 25, 28, 33, 35, 38};
+        int[] bonusDrawFields = {7, 22, 63};
+        int[] jailFields = {10, 30};
+
         for (int buyAbleField : buyAbleFields) {
 
             if (player.getFieldNumber() == buyAbleField) {
 
-                if (owner == null && player.getMoney() > price)
-                    game.getBoardView().askForBuy(this);
+                if (owner == null && player.getMoney() > price){
+
+                    game.getBoardView().askForBuyDialog(this);
+
+
+                } else if (owner != null && !player.toString().equals(owner.toString())) {
+
+                    game.getBoardView().payRentInformation();
+                    player.setMoney(player.getMoney()-300);
+
+                    owner.setMoney(owner.getMoney()+300);
+                }
 
             }
         }
 
+        for (int giftField : giftFields) {
 
+            if (player.getFieldNumber() == giftField) {
+
+                game.getBoardView().giveFreeBoundsInformation();
+                player.setMoney(player.getMoney()+200);
+            }
+        }
+
+        for (int bonusDrawField : bonusDrawFields) {
+
+            if (player.getFieldNumber() == bonusDrawField) {
+
+                game.getBoardView().giveFreeDrawInformation();
+            }
+        }
+
+        for (int jailField : jailFields) {
+
+            if (player.getFieldNumber() == jailField) {
+
+                game.getBoardView().goToJailInformation();
+            }
+        }
 
     }
 

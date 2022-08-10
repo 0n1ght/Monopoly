@@ -1,7 +1,5 @@
 -prezentacja przynaleznosci pola do danego gracza, X na polu gracza koloru jego pionka
 
--przeciwnik placi po stanieciu na polu innego gracza
-
 -jezeli masz wszystkie ulice z danego zestawu, to czyns jest 2x wiekszy
 
 -jesli komus skoncza sie pieniadze to przegrywa

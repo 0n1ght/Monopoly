@@ -58,6 +58,10 @@ public class Player {
         return enemies;
     }
 
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
     @Override
     public String toString() {
         return "Player " + id;

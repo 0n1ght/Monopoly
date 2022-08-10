@@ -138,10 +138,10 @@ public final class Display {
 
     }
 
-    public void addResizedImage(String fileName, int width, int height, int x, int y, JFrame frame) {
+    public void addResizedImage(String filePath, int width, int height, int x, int y, JFrame frame) {
 
         JLabel label = new JLabel();
-        Image image = new ImageIcon(fileName)
+        Image image = new ImageIcon(filePath)
                 .getImage();
         Image scaledImage = image.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);
         label.setIcon(new ImageIcon(scaledImage));
