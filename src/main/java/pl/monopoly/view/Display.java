@@ -13,7 +13,7 @@ import java.util.Objects;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
-//manages game frame and canvas
+// class which manages all visible frames
 public final class Display {
 
     private static final int DEFAULT_WIDTH = 880;

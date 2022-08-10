@@ -1,5 +1,6 @@
 package pl.monopoly.view;
 
+import pl.monopoly.logic.Player;
 import pl.monopoly.logic.Street;
 
 import javax.swing.*;
@@ -10,12 +11,9 @@ import javax.swing.*;
 public class BoardView {
 
     // methods
-    public void askForBuyDialog(Street street) {
+    public int askForBuyDialog(Street street) {
 
-        int answer = JOptionPane.showConfirmDialog(null, "Do you want to buy this field for " + street.getPrice() + "?" , "BUY FIELD", JOptionPane.YES_NO_OPTION);
-
-        if (answer == JOptionPane.OK_OPTION)
-            street.buyField();
+        return JOptionPane.showConfirmDialog(null, "Do you want to buy this field for " + street.getPrice() + "?" , "BUY FIELD", JOptionPane.YES_NO_OPTION);
     }
 
     public void payRentInformation() {
@@ -33,9 +31,9 @@ public class BoardView {
         JOptionPane.showMessageDialog(null, "You have one more roll!\nRoll again", "BONUS ROLL", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public void goToJailInformation() {
+    public int goToJailInformation() {
 
-        JOptionPane.showMessageDialog(null, "Oh, you are going to the jail", "ARREST", JOptionPane.INFORMATION_MESSAGE);
+        return JOptionPane.showConfirmDialog(null, "Oh, you are going to the jail.\nDo you want to pay 400$ fine? If you won't, you will lose the next roll", "ARREST", JOptionPane.YES_NO_OPTION);
     }
 
 }
