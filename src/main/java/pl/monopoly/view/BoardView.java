@@ -36,4 +36,9 @@ public class BoardView {
         return JOptionPane.showConfirmDialog(null, "Oh, you are going to the jail.\nDo you want to pay 400$ fine? If you won't, you will lose the next roll", "ARREST", JOptionPane.YES_NO_OPTION);
     }
 
+    public void loseInformation(String nickname) {
+
+        JOptionPane.showMessageDialog(null, "Player " + nickname + " has lost the game", "Lose", JOptionPane.INFORMATION_MESSAGE);
+    }
+
 }

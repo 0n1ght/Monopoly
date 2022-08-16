@@ -23,13 +23,12 @@ public class Street extends Field{
 
             if (player.getFieldNumber() == buyAbleField) {
 
-                if (owner == null && player.getMoney() > price){
+                if (owner == null && player.getMoney() >= price){
 
                     int answer = game.getBoardView().askForBuyDialog(this);
 
                     if (answer == JOptionPane.OK_OPTION)
                         this.buyField();
-
 
                 } else if (owner != null && !player.toString().equals(owner.toString())) {
 
@@ -37,6 +36,7 @@ public class Street extends Field{
                     player.setMoney(player.getMoney()-300);
 
                     owner.setMoney(owner.getMoney()+300);
+
                 }
 
             }
@@ -71,6 +71,12 @@ public class Street extends Field{
 
                 }
             }
+        }
+
+        if (player.getMoney() < 0) {
+
+            game.getBoardView().loseInformation(String.valueOf(player.getId()));
+
         }
 
     }

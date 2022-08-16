@@ -4,7 +4,7 @@ public class Player {
     private int field;
     private static int nextId = 0;
     private final int id;
-    private int money = 1_500; //todo menu
+    private int money = 1_500;
     private Player[] enemies;
     private final Game game;
 
