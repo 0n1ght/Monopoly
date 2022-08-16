@@ -6,4 +6,5 @@
                                                     //todo optymalizacja pod inne systemy(linux,macos)
                                                     //todo help, wskazowki
 
--add settings to game frame; settings icon
+// errors
+-settings in the game does not change layout when frame does

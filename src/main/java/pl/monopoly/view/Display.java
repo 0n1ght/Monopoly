@@ -22,6 +22,7 @@ public final class Display {
     private static Canvas canvas;
     private final JFrame startMenu = new JFrame("Monopoly");
     private final JFrame settingsFrame = new JFrame("Monopoly");
+    private final JFrame optionsFrame = new JFrame("Monopoly");
 
     private Dimension size;
     public static Gameplay gameplay = new Gameplay(new MouseManager());
@@ -51,7 +52,7 @@ public final class Display {
         addResizedImage("src\\main\\java\\pl\\monopoly\\images\\redCubesImage2.png", 140, 140, 335, 250, startMenu);
 
         // buttons
-        addingButton("PLAY", 168, 140, 150, 75, e -> {
+        addButton("PLAY", 168, 140, 150, 75, e -> {
             startMenu.setVisible(false);
             showGame();
             if (musicCheckBox.isSelected()) {
@@ -63,9 +64,9 @@ public final class Display {
             }
             }, startMenu);
 
-        addingButton("SETTINGS", 168, 230, 150, 75, e -> displaySettings(), startMenu);
+        addButton("SETTINGS", 168, 230, 150, 75, e -> displaySettings(), startMenu);
 
-        addingButton("QUIT", 168, 320, 150, 75, e -> System.exit(0), startMenu);
+        addButton("QUIT", 168, 320, 150, 75, e -> System.exit(0), startMenu);
 
 
         //menu
@@ -132,7 +133,7 @@ public final class Display {
         settingsFrame.add(backgroundComboBox);
         settingsFrame.add(label3);
         settingsFrame.add(musicCheckBox);
-        addingButton("BACK", 5, 205, 100, 50, e -> {settingsFrame.setVisible(false); startMenu.setVisible(true);}, settingsFrame);
+        addButton("BACK", 5, 205, 100, 50, e -> {settingsFrame.setVisible(false); startMenu.setVisible(true);}, settingsFrame);
 
         settingsFrame.setVisible(true);
 
@@ -151,7 +152,7 @@ public final class Display {
 
     }
 
-    public void addingButton(String name, int x, int y, int width, int height, ActionListener l, JFrame frame) {
+    public void addButton(String name, int x, int y, int width, int height, ActionListener l, JFrame frame) {
 
         JButton button = new JButton(name);
         button.setFont(new Font("Serif", Font.ITALIC, 30));
@@ -183,6 +184,10 @@ public final class Display {
         frame.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
         frame.setLayout(new BorderLayout());
 
+        addButton("OPTIONS", frame.getWidth()- 270, frame.getHeight()- 750, 140, 45, e -> {
+            displayOptions();
+        }, frame);
+
         addScoreBoard();
     }
 
@@ -195,6 +200,45 @@ public final class Display {
         frame.add(canvas, BorderLayout.CENTER);
         canvas.setFocusable(true);
         canvas.requestFocusInWindow();
+    }
+
+    private void displayOptions() {
+
+        frame.setVisible(false);
+        optionsFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        optionsFrame.setResizable(false);
+        optionsFrame.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
+        optionsFrame.setSize(250, 300);
+        optionsFrame.setLocationRelativeTo(null);
+        optionsFrame.setLayout(null);
+
+
+        JLabel backgroundComboBoxText = new JLabel("Background color:");
+        backgroundComboBoxText.setBounds(15, 15, 110, 20);
+
+        JComboBox<String> backgroundComboBox = new JComboBox<>(new String[] {"green", "blue", "red", "yellow"});
+        backgroundComboBox.setFocusable(false);
+        backgroundComboBox.setBackground(Color.RED);
+        backgroundComboBox.setBounds(130, 10, 65, 30);
+        backgroundComboBox.addActionListener(e -> Gameplay.colorIndex = backgroundComboBox.getSelectedIndex());
+
+
+        //todo music checkbox doesn't work
+//        JLabel label3 = new JLabel("Background music:");
+//        label3.setBounds(15, 70, 110, 20);
+//
+//        musicCheckBox.setFocusable(false);
+//        musicCheckBox.setBounds(140, 65, 20, 20);
+
+        optionsFrame.getContentPane().setBackground(Color.WHITE);
+        optionsFrame.add(backgroundComboBoxText);
+        optionsFrame.add(backgroundComboBox);
+//        optionsFrame.add(label3);
+//        optionsFrame.add(musicCheckBox);
+
+        addButton("BACK", 5, 205, 100, 50, e -> {optionsFrame.setVisible(false); frame.setVisible(true);}, optionsFrame);
+
+        optionsFrame.setVisible(true);
     }
 
     public void addScoreBoard() {
