@@ -3,17 +3,18 @@ package pl.monopoly.view;
 import pl.monopoly.logic.Cubes;
 import pl.monopoly.logic.Game;
 import pl.monopoly.logic.Player;
+import pl.monopoly.logic.SettingsState;
 
 import javax.sound.sampled.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Gameplay {
-    private final Game game = new Game();
-    private final Player player1 = new Player(game), player2 = new Player(game), player3 = new Player(game), player4 = new Player(game);
-    private final PlayerView[] playerViews = {new PlayerView(player1, player2, player3, player4), new PlayerView(player2, player1, player3, player4), new PlayerView(player3, player1, player2, player4), new PlayerView(player4, player1, player2, player3)};
+    private final Game game;
+    private final PlayerView[] playerViews; = {new PlayerView(player1, player2, player3, player4), new PlayerView(player2, player1, player3, player4), new PlayerView(player3, player1, player2, player4), new PlayerView(player4, player1, player2, player3)};
     private final CubesView cubesView = new CubesView(new Cubes(game));
     private static Graphics graphics;
     protected static int colorIndex = 0;
@@ -21,7 +22,15 @@ public class Gameplay {
     // create
     public Gameplay(MouseManager manager) {
 
-        game.setPlayers(List.of(player1,player2,player3,player4));//todo D
+        // private final Player player1 = new Player(), player2 = new Player(), player3 = new Player(), player4 = new Player();
+        List<Player> players = new ArrayList<>();
+        List<PlayerView> playerViewList = new ArrayList<>();
+        for (int i = 0; i < SettingsState.getInstance().getPlayersNumber(); i++) {
+            players.add(new Player());
+            playerViewList.add(new PlayerView())
+        }
+
+        game = new Game(players);
         manager.setCubesView(cubesView);
 
     }

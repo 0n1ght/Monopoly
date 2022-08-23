@@ -2,9 +2,7 @@
 
 -jezeli masz wszystkie ulice z danego zestawu, to czyns jest 2x wiekszy
 
--jesli komus skoncza sie pieniadze to przegrywa
-                                                    //todo optymalizacja pod inne systemy(linux,macos)
-                                                    //todo help, wskazowki
+-refactoring innych action jezeli gracz stanie na roznych innych unbuyable polach
 
-// errors
--settings in the game does not change layout when frame does
+-jesli komus skoncza sie pieniadze to przegrywa
+                                                    

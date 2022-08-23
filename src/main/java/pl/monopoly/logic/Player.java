@@ -6,15 +6,12 @@ public class Player {
     private final int id;
     private int money = 1_500;
     private Player[] enemies;
-    private final Game game;
 
     // create
-    public Player(Game game) {
+    public Player() {
 
         id = nextId;
         nextId++;
-
-        this.game = game;
     }
 
     // methods
