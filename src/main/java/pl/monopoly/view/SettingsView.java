@@ -69,31 +69,13 @@ public class SettingsView {
         settingsFrame.add(backgroundComboBox);
         settingsFrame.add(label3);
         settingsFrame.add(musicCheckBox);
-        addButton("BACK", 5, 205, 100, 50, e -> {settingsFrame.setVisible(false);
-            viewFactory.createMenu();}, settingsFrame);
+
+        MyButton myButton = new MyButton("BACK", 5, 205, 100, 50);
+        myButton.addActionListener(e -> {settingsFrame.setVisible(false);
+            viewFactory.createMenu();});
+        settingsFrame.add(myButton);
 
         settingsFrame.setVisible(true);
 
-    }
-
-    public void addButton(String name, int x, int y, int width, int height, ActionListener l, JFrame frame) {
-
-        JButton button = new JButton(name);
-        button.setFont(new Font("Serif", Font.ITALIC, 30));
-        button.setForeground(Color.WHITE);
-        button.setBackground(Color.RED);
-        button.setBounds(x, y, width, height);
-        button.setFocusable(false);
-        button.addActionListener(l);
-        button.addActionListener(e -> {
-            try {
-                Gameplay.playSound("src\\main\\resources\\sounds\\soundClickDefault.wav");
-            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-        button.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
-
-        frame.add(button);
     }
 }

@@ -5,51 +5,40 @@ import pl.monopoly.logic.Cubes;
 import javax.swing.*;
 import java.awt.*;
 
-public class CubesView {
+public class CubesView extends CustomButtonView{
     private final Cubes cubes;
-    private final int positionX = 460;
-    private final int positionY = 550;
-    private Graphics g;
+    private int heightOneCube = 130;
+    private int widthOneCube = 200;
 
     // create
     public CubesView(Cubes cubes) {
+        super(240, 150, 460, 550);
         this.cubes = cubes;
     }
 
     // methods
     public void render(Graphics g) {
-
-        this.g = g;
-
         g.setColor(Color.BLACK);
-        g.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
-        g.drawString("Click to randomize !", positionX + 30, positionY + 2);
-        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesFrameImage.png").getImage(), positionX, positionY, 240, 150, null);
+        g.drawString("Click to randomize !", positionX + 30, positionY + 2); //todo wynieść stąd wczytywanie obrazka
+        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesFrameImage.png").getImage(), positionX, positionY, width, height, null);
 
-        showCube(cubes.getRoll1(), 0);
-        showCube(cubes.getRoll2(), 72);
-
+        showCube(cubes.getRoll1(), 0,g);
+        showCube(cubes.getRoll2(), 72,g);
     }
 
-    public void showCube(int number, int gap) {
+    public void showCube(int number, int gap, Graphics g) {
         ImageIcon imageIcon;
         imageIcon = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube" + number + "pImage.png");
         if (number != 0) {
             g.drawImage(imageIcon.getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
             return;
         }
-        g.drawImage(imageIcon.getImage(), positionX - 10, positionY + 15, 200, 130, null);
-        g.drawImage(imageIcon.getImage(), positionX + 50, positionY + 20, 200, 130, null);
+        g.drawImage(imageIcon.getImage(), positionX - 10, positionY + 15, widthOneCube, heightOneCube, null);
+        g.drawImage(imageIcon.getImage(), positionX + 50, positionY + 20, widthOneCube, heightOneCube, null);
     }
 
-    public void roll() {
+    public void click() {
+        SoundPlayer.playSound(Sound.DRAW_CLICK);
         cubes.rollTheDice();
     }
-
-    // get/set
-
-    public Rectangle getBounds() {
-        return new Rectangle(positionX+Display.getRelativeX(), positionY+Display.getRelativeY(), 240, 150);
-    }
-
 }

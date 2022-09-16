@@ -13,7 +13,7 @@ public class Street extends Field{
 
     @Override
     public void action(Player player, Board board) {
-
+    //todo refactor
         int[] buyAbleFields = {1, 3, 6, 8, 9, 11, 13, 14, 16, 18, 19, 21, 23, 24, 26, 27, 29, 31, 32, 34, 37, 39};
         int[] giftFields = {2, 4, 5, 12, 15, 17, 25, 28, 33, 35, 38};
         int[] bonusDrawFields = {7, 22, 63};
@@ -67,8 +67,6 @@ public class Street extends Field{
 
                 if (answer == JOptionPane.OK_OPTION) {
                     player.pay(400);
-                } else {
-
                 }
             }
         }

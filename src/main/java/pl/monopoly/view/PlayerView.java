@@ -9,17 +9,13 @@ public class PlayerView {
     private final Player player;
 
     // create
-    public PlayerView(Player player, Player player1, Player player2, Player player3) {
-
-        player.setEnemies(new Player[]{player1, player2, player3});
-
+    public PlayerView(Player player) {
         this.player = player;
-
     }
 
     public void render(Graphics graphics) {
 
-        int distance1=0, distance2=0, normalField = 73, bigFieldAddition = 15;
+        int distance1 = 0, distance2 = 0, normalField = 73, bigFieldAddition = 15;
 
         if (player.getFieldNumber() <= 10) {
 
@@ -60,45 +56,13 @@ public class PlayerView {
         graphics.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
         graphics.setColor(Color.GREEN);
 
+        int[] xModifier = {-10, +10, -10, +10};
+        int[] yModifier = {-10, -10, +10, +10};
 
-        if (player.getId() == 0) {
-
-            if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
-                graphics.drawImage(playerIcon.getImage(), 790-10 + distance1, 790-10 + distance2, 50, 50, null);
-            } else {
-                graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
-            }
-
-        }
-
-        if (player.getId() == 1) {
-
-            if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
-                graphics.drawImage(playerIcon.getImage(), 790+10 + distance1, 790-10 + distance2, 50, 50, null);
-            } else {
-                graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
-            }
-
-        }
-
-        if (player.getId() == 2) {
-
-            if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
-                graphics.drawImage(playerIcon.getImage(), 790-10 + distance1, 790+10 + distance2, 50, 50, null);
-            } else {
-                graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
-            }
-
-        }
-
-        if (player.getId() == 3) {
-
-            if (player.getFieldNumber() == player.getEnemies()[0].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[1].getFieldNumber() || player.getFieldNumber() == player.getEnemies()[2].getFieldNumber()) {
-                graphics.drawImage(playerIcon.getImage(), 790+10 + distance1, 790+10 + distance2, 50, 50, null);
-            } else {
-                graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
-            }
-
+        if (player.isSingle()) {
+            graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
+        } else {
+            graphics.drawImage(playerIcon.getImage(), 790+xModifier[player.getId()] + distance1, 790+yModifier[player.getId()] + distance2, 50, 50, null);
         }
 
     }

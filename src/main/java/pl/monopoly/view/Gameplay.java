@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Gameplay {
-    private final Game game;
-    private final PlayerView[] playerViews; = {new PlayerView(player1, player2, player3, player4), new PlayerView(player2, player1, player3, player4), new PlayerView(player3, player1, player2, player4), new PlayerView(player4, player1, player2, player3)};
-    private final CubesView cubesView = new CubesView(new Cubes(game));
+    private final Game game = new Game();
+    private final List<PlayerView> playerViewList = new ArrayList<>();
+    private List<CustomButtonView> customButtonViewList = new ArrayList<>();
     private static Graphics graphics;
     protected static int colorIndex = 0;
 
@@ -24,14 +24,16 @@ public class Gameplay {
 
         // private final Player player1 = new Player(), player2 = new Player(), player3 = new Player(), player4 = new Player();
         List<Player> players = new ArrayList<>();
-        List<PlayerView> playerViewList = new ArrayList<>();
         for (int i = 0; i < SettingsState.getInstance().getPlayersNumber(); i++) {
-            players.add(new Player());
-            playerViewList.add(new PlayerView())
+            Player player = new Player(game);
+            players.add(player);
+            playerViewList.add(new PlayerView(player));
         }
-
-        game = new Game(players);
-        manager.setCubesView(cubesView);
+        game.addPlayers(players);
+        CubesView cubesView = new CubesView(new Cubes(game));
+        SettingsButtonView settingsButtonView = new SettingsButtonView();
+        customButtonViewList.addAll(List.of(settingsButtonView, cubesView));
+        manager.setCustomButtonViewList(customButtonViewList);
 
     }
 
@@ -48,23 +50,27 @@ public class Gameplay {
         Gameplay.graphics.translate(Display.getRelativeX(),Display.getRelativeY());
         Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\board.png");
         Gameplay.graphics.drawImage(image, 0,0, null);
-        cubesView.render(Gameplay.graphics);
+        for (CustomButtonView customButtonView : customButtonViewList) {
+            customButtonView.render(g);
+        }
+        //todo refactoring -> using g(Graphics), not graphics(Graphics)
 
+        //TODO refactoring
         switch (Game.playersNumber) {
             case 2 -> {
-                playerViews[0].render(Gameplay.graphics);
-                playerViews[1].render(Gameplay.graphics);
+                playerViewList.get(0).render(Gameplay.graphics);
+                playerViewList.get(1).render(Gameplay.graphics);
             }
             case 3 -> {
-                playerViews[0].render(Gameplay.graphics);
-                playerViews[1].render(Gameplay.graphics);
-                playerViews[2].render(Gameplay.graphics);
+                playerViewList.get(0).render(Gameplay.graphics);
+                playerViewList.get(1).render(Gameplay.graphics);
+                playerViewList.get(2).render(Gameplay.graphics);
             }
             case 4 -> {
-                playerViews[0].render(Gameplay.graphics);
-                playerViews[1].render(Gameplay.graphics);
-                playerViews[2].render(Gameplay.graphics);
-                playerViews[3].render(Gameplay.graphics);
+                playerViewList.get(0).render(Gameplay.graphics);
+                playerViewList.get(1).render(Gameplay.graphics);
+                playerViewList.get(2).render(Gameplay.graphics);
+                playerViewList.get(3).render(Gameplay.graphics);
             }
         }
     }
@@ -82,29 +88,13 @@ public class Gameplay {
 
     }
 
-    public static void playSound(String path) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-
-        File musicFile = new File(path);
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioStream);
-
-        clip.start();
-    }
-
-    public Player getPlayer1() {
-        return player1;
-    }
-
-    public Player getPlayer2() {
-        return player2;
-    }
-
-    public Player getPlayer3() {
-        return player3;
-    }
-
-    public Player getPlayer4() {
-        return player4;
-    }
+//    public static void playSound(String path) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+//
+//        File musicFile = new File(path);
+//        AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
+//        Clip clip = AudioSystem.getClip();
+//        clip.open(audioStream);
+//
+//        clip.start();
+//    }
 }

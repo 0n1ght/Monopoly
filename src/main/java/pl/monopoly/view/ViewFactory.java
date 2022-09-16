@@ -17,7 +17,7 @@ public class ViewFactory {
     public void createGame() {
         MouseManager manager = new MouseManager();
 
-        Gameplay gameplay = new Gameplay(manager, 4);
+        Gameplay gameplay = new Gameplay(manager);
 
         Display display = new Display(gameplay);
         display.addListener(manager);

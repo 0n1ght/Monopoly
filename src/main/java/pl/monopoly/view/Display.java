@@ -1,23 +1,16 @@
 package pl.monopoly.view;
 
-import pl.monopoly.logic.Game;
-
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
-import java.io.IOException;
-import java.util.Objects;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 // class which manages all visible frames
 public final class Display {
 
-    private static final int DEFAULT_WIDTH = 880;
-    private static final int DEFAULT_HEIGHT = 880;
+    public static final int DEFAULT_WIDTH = 880;
+    public static final int DEFAULT_HEIGHT = 880;
     private static JFrame frame;
     private static Canvas canvas;
     private final JFrame optionsFrame = new JFrame("Monopoly");
@@ -47,27 +40,6 @@ public final class Display {
         frame.pack();
     }
 
-    public void addButton(String name, int x, int y, int width, int height, ActionListener l, JFrame frame) {
-
-        JButton button = new JButton(name);
-        button.setFont(new Font("Serif", Font.ITALIC, 30));
-        button.setForeground(Color.WHITE);
-        button.setBackground(Color.RED);
-        button.setBounds(x, y, width, height);
-        button.setFocusable(false);
-        button.addActionListener(l);
-        button.addActionListener(e -> {
-            try {
-                Gameplay.playSound("src\\main\\resources\\sounds\\soundClickDefault.wav");
-            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-        button.setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
-
-        frame.add(button);
-    }
-
     private void createAndSetupFrame() {
 
         frame = new JFrame("Monopoly");
@@ -79,9 +51,10 @@ public final class Display {
         frame.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
         frame.setLayout(new BorderLayout());
 
-        addButton("OPTIONS", frame.getWidth()- 270, frame.getHeight()- 750, 140, 45, e -> {
-            displayOptions();
-        }, frame);
+        //todo delete this button
+//        MyButton myButton = new MyButton("OPTIONS", frame.getWidth()- 270, frame.getHeight()- 750, 140, 45);
+//        myButton.addActionListener(e -> displayOptions());
+//        frame.add(myButton);
 
 //        addScoreBoard();
     }
@@ -131,7 +104,9 @@ public final class Display {
         optionsFrame.add(label3);
         optionsFrame.add(musicCheckBox);
 
-        addButton("BACK", 5, 205, 100, 50, e -> {optionsFrame.setVisible(false); frame.setVisible(true);}, optionsFrame);
+        MyButton myButton = new MyButton("BACK", 5, 205, 100, 50);
+        myButton.addActionListener(e -> {optionsFrame.setVisible(false); frame.setVisible(true);});
+        optionsFrame.add(myButton);
 
         optionsFrame.setVisible(true);
     }

@@ -5,11 +5,12 @@ public class Player {
     private static int nextId = 0;
     private final int id;
     private int money = 1_500;
-    private Player[] enemies;
+    private Game game;
 
     // create
-    public Player() {
+    public Player(Game game) {
 
+        this.game = game;
         id = nextId;
         nextId++;
     }
@@ -47,14 +48,6 @@ public class Player {
         return money;
     }
 
-    public void setEnemies(Player[] enemies) {
-        this.enemies = enemies;
-    }
-
-    public Player[] getEnemies() {
-        return enemies;
-    }
-
     public void setMoney(int money) {
         this.money = money;
     }
@@ -62,5 +55,9 @@ public class Player {
     @Override
     public String toString() {
         return "Player " + id;
+    }
+
+    public boolean isSingle() {
+        return game.playerSingle(this);
     }
 }
