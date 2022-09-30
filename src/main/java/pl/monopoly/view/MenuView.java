@@ -1,5 +1,7 @@
 package pl.monopoly.view;
 
+import pl.monopoly.logic.SettingsState;
+
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
@@ -32,7 +34,7 @@ public class MenuView {
         myButton1.addActionListener(e -> {
             startMenu.setVisible(false);
             viewFactory.createGame();
-            if (musicCheckBox.isSelected()) {
+            if (SettingsState.getInstance().isSoundPlaying()) {
                 SoundPlayer.playSound(Sound.MUSIC);
             }
         });
@@ -44,7 +46,7 @@ public class MenuView {
         startMenu.add(myButton2);
 
         MyButton myButton3 = new MyButton("QUIT", 168, 320, 150, 75);
-        myButton3.addActionListener(e -> System.exit(0));
+        myButton3.addActionListener(e -> startMenu.dispose());
         startMenu.add(myButton3);
 
 

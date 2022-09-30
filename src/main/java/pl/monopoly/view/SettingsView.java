@@ -1,14 +1,9 @@
 package pl.monopoly.view;
 
-import pl.monopoly.logic.Game;
 import pl.monopoly.logic.SettingsState;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.Objects;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
@@ -60,6 +55,8 @@ public class SettingsView {
 
         musicCheckBox.setFocusable(false);
         musicCheckBox.setBounds(140, 126, 20, 20);
+        musicCheckBox.addActionListener(e -> SettingsState.getInstance().setSoundPlaying(musicCheckBox.isSelected()));
+        musicCheckBox.setSelected(SettingsState.getInstance().isSoundPlaying());
 
 
         settingsFrame.getContentPane().setBackground(Color.WHITE);

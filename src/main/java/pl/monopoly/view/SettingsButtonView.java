@@ -19,6 +19,6 @@ public class SettingsButtonView extends CustomButtonView{
     @Override
     public void click() {
         SoundPlayer.playSound(Sound.BUTTON_CLICK);
-        System.out.println("show settings");  //todo ma wyskoczyć okno, było wcześniej robione przez metode klasy Display
+        System.out.println("show settings");  //todo next ma wyskoczyć okno, było wcześniej robione przez metode klasy Display
     }
 }
