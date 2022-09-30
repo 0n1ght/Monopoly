@@ -10,13 +10,12 @@ public class Game {
     private final Board board = new Board(this);
     private final BoardView boardView = new BoardView();
     private LinkedList<Player> queue;
-    public static int playersNumber = 4;
 
     // methods
     //setup
 
     public void addPlayers(List<Player> players) {
-        queue = new LinkedList<>(players.subList(0,playersNumber));
+        queue = new LinkedList<>(players.subList(0, SettingsState.getInstance().getPlayersNumber()));
     }
 
     public Player actualPlayer() {

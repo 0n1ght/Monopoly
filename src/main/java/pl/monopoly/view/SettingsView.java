@@ -10,7 +10,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class SettingsView {
     private final JFrame settingsFrame = new JFrame("Monopoly");
-    private final JComboBox<String> playersComboBox = new JComboBox<>(new String[] {"4", "3", "2"});
+    private final JComboBox<String> playersComboBox = new JComboBox<>(new String[] {"4", "3", "2"}); //todo dynamiczna budowa tablicy na podstawie danych z settings(z informacja max i min ilosc graczy)
     private final JCheckBox musicCheckBox = new JCheckBox();
     private final ViewFactory viewFactory;
     private final SettingsState settingsState = SettingsState.getInstance();
@@ -36,8 +36,10 @@ public class SettingsView {
         playersComboBox.setBackground(Color.RED);
         playersComboBox.setBounds(130, 10, 65, 30);
         playersComboBox.addActionListener(e -> {
-            settingsState.setPlayersNumber(Integer.parseInt((String) Objects.requireNonNull(playersComboBox.getSelectedItem())));
-            System.out.println("addScoreBoard();");});
+            settingsState.setPlayersNumber(
+                    Integer.parseInt((String) Objects.requireNonNull(playersComboBox.getSelectedItem())));
+            System.out.println("addScoreBoard();");
+        });
 
 
         JLabel backgroundComboBoxText = new JLabel("Background color:");

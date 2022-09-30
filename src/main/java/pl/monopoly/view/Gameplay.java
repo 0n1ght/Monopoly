@@ -56,7 +56,7 @@ public class Gameplay {
         //todo refactoring -> using g(Graphics), not graphics(Graphics)
 
         //TODO refactoring
-        switch (Game.playersNumber) {
+        switch (SettingsState.getInstance().getPlayersNumber()) {
             case 2 -> {
                 playerViewList.get(0).render(Gameplay.graphics);
                 playerViewList.get(1).render(Gameplay.graphics);
