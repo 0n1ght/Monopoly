@@ -1,5 +1,8 @@
 package pl.monopoly.view;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class ViewFactory {
 
     public void createMenu() {
@@ -14,7 +17,7 @@ public class ViewFactory {
         settingsView.displaySettings();
     }
 
-    public void createGame() {
+    public void createGame() throws IOException {
         MouseManager manager = new MouseManager();
 
         Gameplay gameplay = new Gameplay(manager);

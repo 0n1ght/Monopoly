@@ -1,5 +1,6 @@
 package pl.monopoly.view;
 
+import pl.monopoly.logic.BuyAbleField;
 import pl.monopoly.logic.Player;
 import pl.monopoly.logic.Street;
 
@@ -11,9 +12,9 @@ import javax.swing.*;
 public class BoardView {
 
     // methods
-    public int askForBuyDialog(Street street) {
+    public int askForBuyDialog(BuyAbleField buyAbleField) {
 
-        return JOptionPane.showConfirmDialog(null, "Do you want to buy this field for " + street.getPrice() + "?" , "BUY FIELD", JOptionPane.YES_NO_OPTION);
+        return JOptionPane.showConfirmDialog(null, "Do you want to buy this field for " + buyAbleField.getPrice() + "?" , "BUY FIELD", JOptionPane.YES_NO_OPTION);
     }
 
     public void payRentInformation() {

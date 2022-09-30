@@ -5,9 +5,8 @@ import pl.monopoly.logic.Game;
 import pl.monopoly.logic.Player;
 import pl.monopoly.logic.SettingsState;
 
-import javax.sound.sampled.*;
 import java.awt.*;
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +15,11 @@ public class Gameplay {
     private final Game game = new Game();
     private final List<PlayerView> playerViewList = new ArrayList<>();
     private List<CustomButtonView> customButtonViewList = new ArrayList<>();
-    private static Graphics graphics;
+    private ScoreView scoreView;
     protected static int colorIndex = 0;
 
     // create
-    public Gameplay(MouseManager manager) {
+    public Gameplay(MouseManager manager) throws IOException {
 
         // private final Player player1 = new Player(), player2 = new Player(), player3 = new Player(), player4 = new Player();
         List<Player> players = new ArrayList<>();
@@ -30,6 +29,7 @@ public class Gameplay {
             playerViewList.add(new PlayerView(player));
         }
         game.addPlayers(players);
+        scoreView = new ScoreView(players);
         CubesView cubesView = new CubesView(new Cubes(game));
         SettingsButtonView settingsButtonView = new SettingsButtonView();
         customButtonViewList.addAll(List.of(settingsButtonView, cubesView));
@@ -39,52 +39,34 @@ public class Gameplay {
 
     public void tick() {
 
-//        System.out.println("start");
-
     }
 
     public void render(Graphics g) {
-        graphics = g;
-        setBackgroundColor(colorIndex);
-        graphics.fillRect(0,0,Display.getWidth(),Display.getHeight());
-        Gameplay.graphics.translate(Display.getRelativeX(),Display.getRelativeY());
+        setBackgroundColor(colorIndex,g);
+        g.fillRect(0,0,Display.getWidth(),Display.getHeight());
+        g.translate(Display.getRelativeX(),Display.getRelativeY());
         Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\board.png");
-        Gameplay.graphics.drawImage(image, 0,0, null);
+        g.drawImage(image, 0,0, null);
         for (CustomButtonView customButtonView : customButtonViewList) {
             customButtonView.render(g);
         }
-        //todo refactoring -> using g(Graphics), not graphics(Graphics)
 
-        //TODO refactoring
-        switch (Game.playersNumber) {
-            case 2 -> {
-                playerViewList.get(0).render(Gameplay.graphics);
-                playerViewList.get(1).render(Gameplay.graphics);
-            }
-            case 3 -> {
-                playerViewList.get(0).render(Gameplay.graphics);
-                playerViewList.get(1).render(Gameplay.graphics);
-                playerViewList.get(2).render(Gameplay.graphics);
-            }
-            case 4 -> {
-                playerViewList.get(0).render(Gameplay.graphics);
-                playerViewList.get(1).render(Gameplay.graphics);
-                playerViewList.get(2).render(Gameplay.graphics);
-                playerViewList.get(3).render(Gameplay.graphics);
-            }
+        scoreView.render(g);
+        for (PlayerView playerView : playerViewList) {
+            playerView.render(g);
         }
     }
 
-    public static void setBackgroundColor(int colorIndex) {
+    public static void setBackgroundColor(int colorIndex, Graphics g) {
 
         switch (colorIndex) {
-            case 0 -> graphics.setColor(new Color(102, 255, 102));
-            case 1 -> graphics.setColor(new Color(51, 153, 255));
-            case 2 -> graphics.setColor(new Color(255, 102, 102));
-            case 3 -> graphics.setColor(new Color(255, 255, 0));
+            case 0 -> g.setColor(new Color(102, 255, 102));
+            case 1 -> g.setColor(new Color(51, 153, 255));
+            case 2 -> g.setColor(new Color(255, 102, 102));
+            case 3 -> g.setColor(new Color(255, 255, 0));
         }
 
-        graphics.fillRect(0,0,Display.getWidth(),Display.getHeight());
+        g.fillRect(0,0,Display.getWidth(),Display.getHeight());
 
     }
 

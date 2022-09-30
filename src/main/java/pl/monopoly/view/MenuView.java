@@ -7,6 +7,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
@@ -33,7 +34,11 @@ public class MenuView {
         MyButton myButton1 = new MyButton("PLAY", 168, 140, 150, 75);
         myButton1.addActionListener(e -> {
             startMenu.setVisible(false);
-            viewFactory.createGame();
+            try {
+                viewFactory.createGame();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             if (SettingsState.getInstance().isSoundPlaying()) {
                 SoundPlayer.playSound(Sound.MUSIC);
             }

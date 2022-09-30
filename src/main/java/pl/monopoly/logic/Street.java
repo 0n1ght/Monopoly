@@ -19,28 +19,7 @@ public class Street extends Field{
         int[] bonusDrawFields = {7, 22, 63};
         int[] jailFields = {10, 30};
 
-        for (int buyAbleField : buyAbleFields) {
-
-            if (player.getFieldNumber() == buyAbleField) {
-
-                if (owner == null && player.getMoney() >= price){
-
-                    int answer = game.getBoardView().askForBuyDialog(this);
-
-                    if (answer == JOptionPane.OK_OPTION)
-                        this.buyField();
-
-                } else if (owner != null && !player.toString().equals(owner.toString())) {
-
-                    game.getBoardView().payRentInformation();
-                    player.setMoney(player.getMoney()-300);
-
-                    owner.setMoney(owner.getMoney()+300);
-
-                }
-
-            }
-        }
+        //
 
         for (int giftField : giftFields) {
 
@@ -77,17 +56,6 @@ public class Street extends Field{
 
         }
 
-    }
-
-    public void buyField() {
-
-        owner = game.actualPlayer();
-        owner.pay(price);
-
-    }
-
-    public int getPrice() {
-        return price;
     }
 
 }
