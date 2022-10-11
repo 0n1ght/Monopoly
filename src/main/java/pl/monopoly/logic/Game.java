@@ -12,6 +12,7 @@ public class Game {
     private final Board board = new Board(this);
     private final BoardView boardView = new BoardView();
     private LinkedList<Player> queue;
+    public static int playersNumber;
 
     public Game() throws IOException {
     }
@@ -20,6 +21,7 @@ public class Game {
     //setup
 
     public void addPlayers(List<Player> players) {
+        playersNumber = players.size();
         queue = new LinkedList<>(players.subList(0, SettingsState.getInstance().getPlayersNumber()));
     }
 

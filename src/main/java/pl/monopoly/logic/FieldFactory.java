@@ -6,12 +6,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FieldFactory {
+    private Game game;
+
+    public FieldFactory(Game game) {
+        this.game = game;
+    }
 
     public List<Field> buildFields() throws IOException {
         List<Field> fields = new ArrayList<>();
         int fieldNumber, price, tax;
         boolean buyAble;
-        FieldGroup fieldGroup;
+        FieldSet fieldSet;
 
         BufferedReader bufferedWriter = new BufferedReader(new FileReader("src\\main\\resources\\fields.csv"));
 
@@ -21,16 +26,11 @@ public class FieldFactory {
 
             System.out.println(Arrays.toString(split));
 
-            fieldNumber = Integer.parseInt(split[0]);
-            buyAble = split[1].equals("BUY");
-
-            if (buyAble) {
-
-                price = Integer.parseInt(split[2]);
-                tax = Integer.parseInt(split[3]);
-                fieldGroup = FieldGroup.valueOf(split[4]);
+            if (split[1].equals("BUY")) {
+                fields.add(new BuyAbleField(game, FieldSet.valueOf(split[4]), Integer.parseInt(split[5]), Integer.parseInt(split[2]), Integer.parseInt(split[3])));
+            } else {
+                fields.add(new UnBuyAbleField(game));
             }
-
         }
 
         return fields;

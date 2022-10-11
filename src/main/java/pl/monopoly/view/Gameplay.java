@@ -6,6 +6,7 @@ import pl.monopoly.logic.Player;
 import pl.monopoly.logic.SettingsState;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Gameplay {
     protected static int colorIndex = 0;
 
     // create
-    public Gameplay(MouseManager manager) {
+    public Gameplay(MouseManager manager) throws IOException {
 
         // private final Player player1 = new Player(), player2 = new Player(), player3 = new Player(), player4 = new Player();
         List<Player> players = new ArrayList<>();

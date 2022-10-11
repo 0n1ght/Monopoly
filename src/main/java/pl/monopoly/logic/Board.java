@@ -1,8 +1,6 @@
 package pl.monopoly.logic;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
@@ -10,7 +8,7 @@ public class Board {
 
     public Board(Game game) throws IOException {
 
-        FieldFactory fieldFactory = new FieldFactory();
+        FieldFactory fieldFactory = new FieldFactory(game);
         fields = fieldFactory.buildFields();
 
     }
