@@ -35,7 +35,7 @@ public class MenuView {
                 throw new RuntimeException(ex);
             }
             if (SettingsState.getInstance().isSoundPlaying()) {
-                SoundPlayer.playSound(Sound.MUSIC);
+                MusicPlayer.play();
             }
         });
         startMenu.add(myButton1);

@@ -9,7 +9,6 @@ public class SettingsButtonView extends CustomButtonView{
     public SettingsButtonView() {
 
         super(80, 80, Display.DEFAULT_WIDTH - 200, Display.DEFAULT_HEIGHT - 764);
-        ViewFactory viewFactory = new ViewFactory();
         settings = new SettingsInGameView();
     }
 

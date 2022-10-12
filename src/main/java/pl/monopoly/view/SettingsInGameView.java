@@ -4,7 +4,6 @@ import pl.monopoly.logic.SettingsState;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -48,7 +47,13 @@ public class SettingsInGameView {
         settingsFrame.add(musicCheckBox);
 
         MyButton myButton = new MyButton("BACK", 5, 205, 100, 50);
-        myButton.addActionListener(e -> {settingsFrame.setVisible(false);
+        myButton.addActionListener(e -> {
+            settingsFrame.setVisible(false);
+            if (musicCheckBox.isSelected()) {
+                MusicPlayer.play();
+            } else {
+                MusicPlayer.stop();
+            }
         });
         settingsFrame.add(myButton);
 
