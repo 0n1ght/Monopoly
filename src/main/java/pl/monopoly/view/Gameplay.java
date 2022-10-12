@@ -13,7 +13,7 @@ import java.util.List;
 public class Gameplay {
     private final Game game = new Game();
     private final List<PlayerView> playerViewList = new ArrayList<>();
-    private List<CustomButtonView> customButtonViewList = new ArrayList<>();
+    private final List<CustomButtonView> customButtonViewList = new ArrayList<>();
     private static Graphics graphics;
     protected static int colorIndex = 0;
 

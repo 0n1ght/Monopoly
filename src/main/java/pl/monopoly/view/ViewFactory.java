@@ -1,6 +1,5 @@
 package pl.monopoly.view;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ViewFactory {
@@ -30,5 +29,4 @@ public class ViewFactory {
 
         display.showGame();
     }
-
 }

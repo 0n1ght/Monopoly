@@ -180,6 +180,14 @@ public final class Display {
 //        scoreGap4.setText(gameplay.getPlayer4().getMoney() + "$");
     }
 
+    public void showDisplay() {
+        frame.setVisible(true);
+    }
+
+    public void hideDisplay() {
+        frame.setVisible(false);
+    }
+
     public void addListener(MouseListener listener) {
         canvas.addMouseListener(listener);
     }

@@ -2,12 +2,8 @@ package pl.monopoly.view;
 
 import pl.monopoly.logic.SettingsState;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
@@ -15,7 +11,6 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 public class MenuView {
     private final ViewFactory viewFactory;
     private final JFrame startMenu = new JFrame("Monopoly");
-    private final JCheckBox musicCheckBox = new JCheckBox();
 
     public MenuView(ViewFactory viewFactory) {
         this.viewFactory = viewFactory;
