@@ -3,7 +3,6 @@ package pl.monopoly.logic;
 import pl.monopoly.view.BoardView;
 import pl.monopoly.view.Display;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,16 +10,16 @@ import java.util.List;
 public class Game {
     private final Board board = new Board(this);
     private final BoardView boardView = new BoardView();
-    private LinkedList<Player> queue;
+    private static LinkedList<Player> queue;
     public static int playersNumber;
 
-    public Game() throws IOException {
-    }
+    public Game() throws IOException {}
 
     // methods
     //setup
 
     public void addPlayers(List<Player> players) {
+
         playersNumber = players.size();
         queue = new LinkedList<>(players.subList(0, SettingsState.getInstance().getPlayersNumber()));
     }
@@ -58,5 +57,8 @@ public class Game {
         }
         return false;
 
+    }
+    public static List getQueue() {
+        return queue;
     }
 }

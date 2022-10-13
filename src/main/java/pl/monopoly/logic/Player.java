@@ -5,7 +5,7 @@ public class Player {
     private static int nextId = 0;
     private final int id;
     private int money = 1_500;
-    private Game game;
+    private final Game game;
 
     // create
     public Player(Game game) {

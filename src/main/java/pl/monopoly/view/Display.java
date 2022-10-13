@@ -1,8 +1,16 @@
 package pl.monopoly.view;
 
+import pl.monopoly.logic.Board;
+import pl.monopoly.logic.Field;
+import pl.monopoly.logic.Game;
+import pl.monopoly.logic.Player;
+
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.MouseListener;
+import java.awt.image.ImageObserver;
+import java.io.IOException;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -51,12 +59,7 @@ public final class Display {
         frame.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
         frame.setLayout(new BorderLayout());
 
-        //todo delete this button
-//        MyButton myButton = new MyButton("OPTIONS", frame.getWidth()- 270, frame.getHeight()- 750, 140, 45);
-//        myButton.addActionListener(e -> displayOptions());
-//        frame.add(myButton);
-
-//        addScoreBoard();
+        addScoreBoard();
     }
 
     private void createAndSetupCanvas() {
@@ -70,7 +73,43 @@ public final class Display {
         canvas.requestFocusInWindow();
     }
 
-    private void displayOptions() { //todo-> settings in the game does not change layout when frame does
+    private void addScoreBoard() {
+
+        JPanel panel = new JPanel();
+        panel.setBorder(BorderFactory.createBevelBorder(0, new Color(255,204,0), new Color(255,204,0)));
+        panel.setBackground(new Color(255,255,204));
+        panel.setBounds(frame.getWidth()-730, frame.getHeight()-205, 250, 60);
+        panel.setLayout(null);
+
+        JLabel label1 = new JLabel("red: " + ((Player) Game.getQueue().get(0)).getMoney());
+        label1.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 20));
+        label1.setForeground(new Color(204,0,0));
+        label1.setBounds(10,5,125,25);
+
+        JLabel label2 = new JLabel("blue: " + ((Player) Game.getQueue().get(1)).getMoney());
+        label2.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 20));
+        label2.setForeground(new Color(0,0,225));
+        label2.setBounds(135,5,125,25);
+
+        JLabel label3 = new JLabel("green: " + ((Player) Game.getQueue().get(2)).getMoney());
+        label3.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 20));
+        label3.setForeground(new Color(0,153,0));
+        label3.setBounds(10,32,125,25);
+
+        JLabel label4 = new JLabel("pink: " + ((Player) Game.getQueue().get(3)).getMoney());
+        label4.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 20));
+        label4.setForeground(new Color(102,0,153));
+        label4.setBounds(135,32,125,25);
+
+        panel.add(label1);
+        panel.add(label2);
+        panel.add(label3);
+        panel.add(label4);
+
+        frame.add(panel);
+    }
+
+    private void displayOptions() {
 
         frame.setVisible(false);
         optionsFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);

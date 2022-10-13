@@ -3,10 +3,10 @@ package pl.monopoly.view;
 import javax.swing.*;
 import java.awt.*;
 
-public class SettingsButtonView extends CustomButtonView{
+public class SettingsInGameButtonView extends CustomButtonView{
     SettingsInGameView settings;
 
-    public SettingsButtonView() {
+    public SettingsInGameButtonView() {
 
         super(80, 80, Display.DEFAULT_WIDTH - 200, Display.DEFAULT_HEIGHT - 764);
         settings = new SettingsInGameView();

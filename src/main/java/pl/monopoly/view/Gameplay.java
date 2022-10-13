@@ -20,7 +20,7 @@ public class Gameplay {
     // create
     public Gameplay(MouseManager manager) throws IOException {
 
-        // private final Player player1 = new Player(), player2 = new Player(), player3 = new Player(), player4 = new Player();
+
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < SettingsState.getInstance().getPlayersNumber(); i++) {
             Player player = new Player(game);
@@ -29,7 +29,7 @@ public class Gameplay {
         }
         game.addPlayers(players);
         CubesView cubesView = new CubesView(new Cubes(game));
-        SettingsButtonView settingsButtonView = new SettingsButtonView();
+        SettingsInGameButtonView settingsButtonView = new SettingsInGameButtonView();
         customButtonViewList.addAll(List.of(settingsButtonView, cubesView));
         manager.setCustomButtonViewList(customButtonViewList);
 
@@ -85,14 +85,4 @@ public class Gameplay {
         graphics.fillRect(0,0,Display.getWidth(),Display.getHeight());
 
     }
-
-//    public static void playSound(String path) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-//
-//        File musicFile = new File(path);
-//        AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
-//        Clip clip = AudioSystem.getClip();
-//        clip.open(audioStream);
-//
-//        clip.start();
-//    }
 }
