@@ -1,7 +1,6 @@
 package pl.monopoly.logic;
 
 import pl.monopoly.view.BoardView;
-import pl.monopoly.view.Display;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -10,7 +9,8 @@ import java.util.List;
 public class Game {
     private final Board board = new Board(this);
     private final BoardView boardView = new BoardView();
-    private static LinkedList<Player> queue;
+    private List<Player> players;
+    private int actual = 0;
     public static int playersNumber;
 
     public Game() throws IOException {}
@@ -21,11 +21,11 @@ public class Game {
     public void addPlayers(List<Player> players) {
 
         playersNumber = players.size();
-        queue = new LinkedList<>(players.subList(0, SettingsState.getInstance().getPlayersNumber()));
+        this.players = new LinkedList<>(players.subList(0, SettingsState.getInstance().getPlayersNumber()));
     }
 
     public Player actualPlayer() {
-        return queue.peek();
+        return players.get(actual);
     }
 
     public void interactiveField() {
@@ -33,9 +33,13 @@ public class Game {
     }
 
     public void nextRound() {
-        Display.refreshScoreBoard();
-        Player actual = queue.remove();
-        queue.add(actual);
+//        Display.refreshScoreBoard();
+
+        if (actual<playersNumber-1) {
+            actual++;
+        } else {
+            actual = 0;
+        }
     }
 
     // get/set
@@ -46,7 +50,7 @@ public class Game {
     public boolean playerSingle(Player player) {
         int replays = 0;
 
-        for (Player player1 : queue) {
+        for (Player player1 : players) {
             if (player.getFieldNumber() == player1.getFieldNumber()) {
                 replays++;
             }
@@ -58,7 +62,8 @@ public class Game {
         return false;
 
     }
-    public static List getQueue() {
-        return queue;
+
+    public List<Player> getPlayers() {
+        return players;
     }
 }

@@ -21,7 +21,7 @@ public class ViewFactory {
 
         Gameplay gameplay = new Gameplay(manager);
 
-        Display display = new Display(gameplay);
+        Display display = new Display();
         display.addListener(manager);
 
         GameEngine gameEngine = new GameEngine(display, gameplay);

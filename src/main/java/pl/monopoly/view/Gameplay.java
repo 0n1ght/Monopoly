@@ -14,6 +14,7 @@ public class Gameplay {
     private final Game game = new Game();
     private final List<PlayerView> playerViewList = new ArrayList<>();
     private final List<CustomButtonView> customButtonViewList = new ArrayList<>();
+    private ScoreView scoreView;
     private static Graphics graphics;
     protected static int colorIndex = 0;
 
@@ -28,6 +29,7 @@ public class Gameplay {
             playerViewList.add(new PlayerView(player));
         }
         game.addPlayers(players);
+        scoreView = new ScoreView(players);
         CubesView cubesView = new CubesView(new Cubes(game));
         SettingsInGameButtonView settingsButtonView = new SettingsInGameButtonView();
         customButtonViewList.addAll(List.of(settingsButtonView, cubesView));
@@ -42,6 +44,7 @@ public class Gameplay {
     }
 
     public void render(Graphics g) {
+
         graphics = g;
         setBackgroundColor(colorIndex);
         graphics.fillRect(0,0,Display.getWidth(),Display.getHeight());
@@ -51,26 +54,12 @@ public class Gameplay {
         for (CustomButtonView customButtonView : customButtonViewList) {
             customButtonView.render(g);
         }
-        //todo refactoring -> using g(Graphics), not graphics(Graphics)
 
-        //TODO refactoring
-        switch (Game.playersNumber) {
-            case 2 -> {
-                playerViewList.get(0).render(Gameplay.graphics);
-                playerViewList.get(1).render(Gameplay.graphics);
-            }
-            case 3 -> {
-                playerViewList.get(0).render(Gameplay.graphics);
-                playerViewList.get(1).render(Gameplay.graphics);
-                playerViewList.get(2).render(Gameplay.graphics);
-            }
-            case 4 -> {
-                playerViewList.get(0).render(Gameplay.graphics);
-                playerViewList.get(1).render(Gameplay.graphics);
-                playerViewList.get(2).render(Gameplay.graphics);
-                playerViewList.get(3).render(Gameplay.graphics);
-            }
+        for (PlayerView playerView : playerViewList) {
+            playerView.render(g);
         }
+
+        scoreView.render(g);
     }
 
     public static void setBackgroundColor(int colorIndex) {

@@ -24,8 +24,10 @@ public class BuyAbleField extends Field{
 
             int answer = game.getBoardView().askForBuyDialog(this);
 
-            if (answer == JOptionPane.OK_OPTION)
+            if (answer == JOptionPane.OK_OPTION) {
+                player.pay(price);
                 owner = player;
+            }
 
         } else if (owner != null && !player.toString().equals(owner.toString())) {
 
