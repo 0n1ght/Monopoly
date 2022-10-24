@@ -9,6 +9,7 @@ public class BuyAbleField extends Field{
     private int price;
     private int tax;
 
+    // methods
     public BuyAbleField(Game game, FieldSet set, int setSize, int price, int tax) {
         super(game);
         this.set = set;
@@ -27,6 +28,7 @@ public class BuyAbleField extends Field{
             if (answer == JOptionPane.OK_OPTION) {
                 player.pay(price);
                 owner = player;
+                // show X
             }
 
         } else if (owner != null && !player.toString().equals(owner.toString())) {
@@ -40,7 +42,12 @@ public class BuyAbleField extends Field{
 
     }
 
+    // get/set
     public int getPrice() {
         return price;
+    }
+
+    public Player getOwner() {
+        return owner;
     }
 }

@@ -1,9 +1,6 @@
 package pl.monopoly.view;
 
-import pl.monopoly.logic.Cubes;
-import pl.monopoly.logic.Game;
-import pl.monopoly.logic.Player;
-import pl.monopoly.logic.SettingsState;
+import pl.monopoly.logic.*;
 
 import java.awt.*;
 import java.io.IOException;
@@ -13,6 +10,7 @@ import java.util.List;
 public class Gameplay {
     private final Game game = new Game();
     private final List<PlayerView> playerViewList = new ArrayList<>();
+    private final List<BuyAbleFieldView> buyAbleFieldViewList = new ArrayList<>();
     private final List<CustomButtonView> customButtonViewList = new ArrayList<>();
     private ScoreView scoreView;
     private static Graphics graphics;
@@ -24,10 +22,13 @@ public class Gameplay {
 
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < SettingsState.getInstance().getPlayersNumber(); i++) {
+
             Player player = new Player(game);
             players.add(player);
             playerViewList.add(new PlayerView(player));
+
         }
+
         game.addPlayers(players);
         scoreView = new ScoreView(players);
         CubesView cubesView = new CubesView(new Cubes(game));
@@ -57,6 +58,10 @@ public class Gameplay {
 
         for (PlayerView playerView : playerViewList) {
             playerView.render(g);
+        }
+
+        for (BuyAbleFieldView buyAbleFieldView : buyAbleFieldViewList) {
+            buyAbleFieldView.render(g);
         }
 
         scoreView.render(g);
