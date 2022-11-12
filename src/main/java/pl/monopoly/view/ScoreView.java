@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.List;
 
 public class ScoreView {
-    private List<Player> playerList;
+    private final List<Player> playerList;
 
     public ScoreView(List<Player> playerList) {
 
@@ -27,9 +27,13 @@ public class ScoreView {
         g.drawString("red: " + playerList.get(0).getMoney()+"$", x+15, y+23);
         g.setColor(new Color(0,0,225));
         g.drawString("blue: " + playerList.get(1).getMoney()+"$", x+130, y+23);
-        g.setColor(new Color(0,153,0));
-        g.drawString("vert: " + playerList.get(2).getMoney()+"$", x+15, y+50);
-        g.setColor(new Color(102,0,153));
-        g.drawString("pink: " + playerList.get(3).getMoney()+"$", x+130, y+50);
+        try {
+            g.setColor(new Color(0,153,0));
+            g.drawString("vert: " + playerList.get(2).getMoney()+"$", x+15, y+50);
+        } catch (IndexOutOfBoundsException ignored) {}
+        try {
+            g.setColor(new Color(102,0,153));
+            g.drawString("pink: " + playerList.get(3).getMoney()+"$", x+130, y+50);
+        } catch (IndexOutOfBoundsException ignored) {}
     }
 }

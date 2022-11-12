@@ -6,13 +6,14 @@ import java.util.List;
 
 public class FieldFactory {
     private final Game game;
+    public static List<Field> fields;
 
     public FieldFactory(Game game) {
         this.game = game;
     }
 
     public List<Field> buildFields() throws IOException {
-        List<Field> fields = new ArrayList<>();
+        fields = new ArrayList<>();
 
         BufferedReader bufferedWriter = new BufferedReader(new FileReader("src\\main\\resources\\fields.csv"));
 

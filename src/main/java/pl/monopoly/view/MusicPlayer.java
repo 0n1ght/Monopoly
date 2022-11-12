@@ -22,6 +22,8 @@ public class MusicPlayer {
     }
 
     public static void stop() {
-        clip.stop();
+        try {
+            clip.stop();
+        } catch (NullPointerException ignored) {}
     }
 }

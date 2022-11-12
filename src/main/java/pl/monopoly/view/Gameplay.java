@@ -12,7 +12,7 @@ public class Gameplay {
     private final List<PlayerView> playerViewList = new ArrayList<>();
     private final List<BuyAbleFieldView> buyAbleFieldViewList = new ArrayList<>();
     private final List<CustomButtonView> customButtonViewList = new ArrayList<>();
-    private ScoreView scoreView;
+    private final ScoreView scoreView;
     private static Graphics graphics;
     protected static int colorIndex = 0;
 
@@ -35,6 +35,12 @@ public class Gameplay {
         SettingsInGameButtonView settingsButtonView = new SettingsInGameButtonView();
         customButtonViewList.addAll(List.of(settingsButtonView, cubesView));
         manager.setCustomButtonViewList(customButtonViewList);
+
+//        for (int i =  0; i < FieldFactory.fields.size(); i++) {
+//            if (i == 1 || i == 3 || i == 6 || i == 8 || i == 9 || i == 11 || i == 13 || i == 14 || i == 16 || i == 18 || i == 19 || i == 21 || i == 23 || i == 24 || i == 26 || i == 27 || i == 29 || i == 31 || i == 32 || i == 34 || i == 37 || i == 39) {
+//                buyAbleFieldViewList.add(new BuyAbleFieldView((BuyAbleField) FieldFactory.fields.get(i)));
+//            }
+//        }
 
     }
 

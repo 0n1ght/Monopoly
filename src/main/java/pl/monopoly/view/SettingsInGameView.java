@@ -49,6 +49,7 @@ public class SettingsInGameView {
         myButton.addActionListener(e -> {
             settingsFrame.setVisible(false);
             if (musicCheckBox.isSelected()) {
+                MusicPlayer.stop();
                 MusicPlayer.play();
             } else {
                 MusicPlayer.stop();
