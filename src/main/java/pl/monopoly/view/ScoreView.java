@@ -14,8 +14,8 @@ public class ScoreView {
     }
 
     public void render(Graphics g) {
-        int x = Display.getWidth()-730;
-        int y = Display.getHeight()-205;
+        int x = Display.getWidth()-730-Display.getRelativeX()*2;
+        int y = Display.getHeight()-205-Display.getRelativeY()*2;
 
         g.setColor(new Color(255,255,204));
         g.fillRect(x, y, 250, 60);
