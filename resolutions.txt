@@ -1,8 +1,10 @@
--prezentacja przynaleznosci pola do danego gracza, X na polu gracza koloru jego pionka
+//
+-BuyAbleFieldView where render method should be used
+-BoardView\payRentInformation() - synchronizing rent value with text file field.csv in resources
+//
 
--jezeli masz wszystkie ulice z danego zestawu, to czyns jest 2x wiekszy
+-houses; if player bought all the streets from some Set, then on those would be doubled
 
--refactoring innych action jezeli gracz stanie na roznych innych unbuyable polach
+-adding some action in the other unBuyAble fields, cards
 
--jesli komus skoncza sie pieniadze to przegrywa
-                                                    
+-if someone has no money, lose

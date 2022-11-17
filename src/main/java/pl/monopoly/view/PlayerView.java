@@ -45,7 +45,6 @@ public class PlayerView {
         if (player.getFieldNumber() >= 30) {distance1 += bigFieldAddition;}
         if (player.getFieldNumber() > 30) {distance2 += bigFieldAddition;}
 
-        new ImageIcon("");
         ImageIcon playerIcon = switch (player.getId()) {
             case 0 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\red.png");
             case 1 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\blue.png");

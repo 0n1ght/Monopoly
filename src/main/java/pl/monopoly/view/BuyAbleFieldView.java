@@ -9,7 +9,6 @@ import java.awt.*;
 public record BuyAbleFieldView(BuyAbleField field) {
 
     public void render(Graphics g) {
-//        ImageIcon crossImage = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\X_marks\\X_red.png");
         ImageIcon crossImage = switch (field.getOwner().getId()) {
 
             case 0 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\X_marks\\X_red.png");

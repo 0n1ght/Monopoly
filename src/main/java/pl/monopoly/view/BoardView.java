@@ -1,6 +1,7 @@
 package pl.monopoly.view;
 
 import pl.monopoly.logic.BuyAbleField;
+import pl.monopoly.logic.Game;
 
 import javax.swing.*;
 
@@ -17,7 +18,7 @@ public class BoardView {
 
     public void payRentInformation() {
 
-        JOptionPane.showMessageDialog(null, "This field is already owned!\nYou have to pay a rent of 300$ to the owner", "OTHER PLAYER'S FIELD", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "This field is already owned!\nYou have to pay a rent of " + 0 + "$ to the owner", "OTHER PLAYER'S FIELD", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void giveFreeBoundsInformation() {
