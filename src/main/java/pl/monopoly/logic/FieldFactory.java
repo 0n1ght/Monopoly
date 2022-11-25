@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FieldFactory {
     private final Game game;
-    public static List<Field> fields;
+    private List<Field> fields;
 
     public FieldFactory(Game game) {
         this.game = game;

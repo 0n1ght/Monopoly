@@ -42,6 +42,11 @@ public class Game {
         }
     }
 
+    public boolean hasAllSet(Player player, FieldSet fieldSet) {
+
+        return board.hasAllSet(player, fieldSet);
+    }
+
     // get/set
     public BoardView getBoardView() {
         return boardView;
@@ -65,5 +70,9 @@ public class Game {
 
     public List<Player> getPlayers() {
         return players;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 }

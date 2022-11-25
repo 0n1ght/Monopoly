@@ -36,25 +36,12 @@ public class Gameplay {
         customButtonViewList.addAll(List.of(settingsButtonView, cubesView));
         manager.setCustomButtonViewList(customButtonViewList);
 
-//        int[] buyAbleFieldsNumbers = {1, 3, 6, 8, 9, 11, 13, 14, 16, 18, 19, 21, 23, 24, 26, 27, 29, 31, 32, 34, 37, 39};
+        for (Field field : game.getBoard().getFields()) {
 
-        for (Field field : FieldFactory.fields) {
-
-            if (field.getNumber() == 1 || field.getNumber() == 3 || field.getNumber() == 6 || field.getNumber() == 8 || field.getNumber() == 9
-                    || field.getNumber() == 11 || field.getNumber() == 13 || field.getNumber() == 14 || field.getNumber() == 16
-                    || field.getNumber() == 18 || field.getNumber() == 19 || field.getNumber() == 21 || field.getNumber() == 23
-                    || field.getNumber() == 24 || field.getNumber() == 26 || field.getNumber() == 27 || field.getNumber() == 29
-                    || field.getNumber() == 31 || field.getNumber() == 32 || field.getNumber() == 34 || field.getNumber() == 37
-                    || field.getNumber() == 39) {
+            if (field.isBuyAble()) {
                 buyAbleFieldViewList.add(new BuyAbleFieldView((BuyAbleField) field));
             }
         }
-
-//        for (int i =  0; i < FieldFactory.fields.size(); i++) {
-//            if (i == 1 || i == 3 || i == 6 || i == 8 || i == 9 || i == 11 || i == 13 || i == 14 || i == 16 || i == 18 || i == 19 || i == 21 || i == 23 || i == 24 || i == 26 || i == 27 || i == 29 || i == 31 || i == 32 || i == 34 || i == 37 || i == 39) {
-//                buyAbleFieldViewList.add(new BuyAbleFieldView((BuyAbleField) FieldFactory.fields.get(i)));
-//            }
-//        }
 
     }
 
@@ -76,9 +63,14 @@ public class Gameplay {
             customButtonView.render(g);
         }
 
+        for (BuyAbleFieldView buyAbleFieldView : buyAbleFieldViewList) {
+            buyAbleFieldView.render(g);
+        }
+
         for (PlayerView playerView : playerViewList) {
             playerView.render(g);
         }
+
 
         scoreView.render(g);
     }

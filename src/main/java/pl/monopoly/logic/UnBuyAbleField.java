@@ -10,4 +10,9 @@ public class UnBuyAbleField extends Field{
     public void action(Player player, Board board) {
 
     }
+
+    @Override
+    public boolean isBuyAble() {
+        return false;
+    }
 }
