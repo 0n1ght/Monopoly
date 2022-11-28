@@ -1,5 +1,10 @@
--houses; if player bought all the streets from some Set, then on those fields price would be doubled
+-houses
 
 -adding some action in the other unBuyAble fields, cards
 
 -if someone has no money- lose or has to sell some property
+
+//for now
+house is rendered after buy
+repair co-ordinates of houses
+bug with houses changing place after buy another field

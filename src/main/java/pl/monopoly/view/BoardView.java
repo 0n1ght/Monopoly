@@ -40,4 +40,9 @@ public class BoardView {
         JOptionPane.showMessageDialog(null, "Player " + nickname + " has lost the game", "Lose", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    public int buildHouseDialog(BuyAbleField buyAbleField) {
+
+        return JOptionPane.showConfirmDialog(null, "You already owned this field.\nDo you want to build a house for 300$?", "CONSTRUCTION CREW", JOptionPane.YES_NO_OPTION);
+    }
+
 }

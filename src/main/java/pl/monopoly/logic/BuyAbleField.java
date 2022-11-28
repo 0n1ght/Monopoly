@@ -8,6 +8,7 @@ public class BuyAbleField extends Field{
     private int setSize;
     private final int price;
     private final int baseTax;
+    private int houses = 0;
 
     // methods
     public BuyAbleField(Game game, FieldSet set, int setSize, int price, int tax) {
@@ -20,10 +21,11 @@ public class BuyAbleField extends Field{
 
     @Override
     public void action(Player player, Board board) {
+        int answer;
 
         if (owner == null && player.getMoney() >= price){
 
-            int answer = game.getBoardView().askForBuyDialog(this);
+            answer = game.getBoardView().askForBuyDialog(this);
 
             if (answer == JOptionPane.OK_OPTION) {
                 player.pay(price);
@@ -37,6 +39,13 @@ public class BuyAbleField extends Field{
 
             owner.setMoney(owner.getMoney()+ baseTax);
 
+        } else if (owner != null && houses < 4 && player.getMoney() >= 350){
+            answer = game.getBoardView().buildHouseDialog(this);
+
+            if (answer == JOptionPane.OK_OPTION) {
+                player.pay(350);
+                houses++;
+            }
         }
 
     }
@@ -76,5 +85,9 @@ public class BuyAbleField extends Field{
                 ", price=" + price +
                 ", tax=" + baseTax +
                 '}';
+    }
+
+    public int getHouses() {
+        return houses;
     }
 }

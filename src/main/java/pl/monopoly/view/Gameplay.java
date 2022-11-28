@@ -64,7 +64,8 @@ public class Gameplay {
         }
 
         for (BuyAbleFieldView buyAbleFieldView : buyAbleFieldViewList) {
-            buyAbleFieldView.render(g);
+            buyAbleFieldView.renderX(g);
+            buyAbleFieldView.renderHouse(g);
         }
 
         for (PlayerView playerView : playerViewList) {
