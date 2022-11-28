@@ -42,7 +42,7 @@ public class BoardView {
 
     public int buildHouseDialog(BuyAbleField buyAbleField) {
 
-        return JOptionPane.showConfirmDialog(null, "You already owned this field.\nDo you want to build a house for 300$?", "CONSTRUCTION CREW", JOptionPane.YES_NO_OPTION);
+        return JOptionPane.showConfirmDialog(null, "You already owned this field.\nDo you want to build a house for 350$?", "CONSTRUCTION CREW", JOptionPane.YES_NO_OPTION);
     }
 
 }

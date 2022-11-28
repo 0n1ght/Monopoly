@@ -14,15 +14,13 @@ public record BuyAbleFieldView(BuyAbleField field) {
             return;
         }
 
-        ImageIcon crossImage = switch (field.getOwner().getId()) {
-
-            case 0 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\X_marks\\X_red.png");
-            case 1 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\X_marks\\X_blue.png");
-            case 2 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\X_marks\\X_green.png");
-            case 3 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\X_marks\\X_purple.png");
+        ImageIcon image = switch (field.getOwner().getId()) {
+            case 0 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\XImages\\redXImage.png");
+            case 1 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\XImages\\blueXImage.png");
+            case 2 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\XImages\\greenXImage.png");
+            case 3 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\XImages\\PurpleXImage.png");
             default -> throw new IllegalStateException("Unexpected value: " + field.getOwner().getId());
         };
-
 
         int distance1 = 0, distance2 = 0, normalField = 73, bigFieldAddition = 15;
 
@@ -32,17 +30,18 @@ public record BuyAbleFieldView(BuyAbleField field) {
 
         } else if (field.getNumber() > 10 && field.getNumber() <= 20) {
 
-            distance1 = -normalField * 10;
-            distance2 = -normalField * (field.getNumber() - 10);
+            distance1 = -normalField * 10 + 41;
+            distance2 = -normalField * (field.getNumber() - 10) + 40;
 
         } else if (field.getNumber() > 20 && field.getNumber() <= 30) {
 
             distance1 = -normalField * 10 + normalField * (field.getNumber() - 20);
-            distance2 = -normalField * 10;
+            distance2 = -normalField * 10 + 82;
 
         } else if (field.getNumber() > 30) {
 
-            distance2 = -normalField * 10 + normalField * (field.getNumber() - 30);
+            distance1 = -43;
+            distance2 = -normalField * 10 + normalField * (field.getNumber() - 30) + 40;
 
         }
 
@@ -68,9 +67,7 @@ public record BuyAbleFieldView(BuyAbleField field) {
             distance2 += bigFieldAddition;
         }
 
-//        g.setColor(Color.blue);
-//        g.drawString("OWNED", 760 + distance1, 775 + distance2);
-        g.drawImage(crossImage.getImage(), 760 + distance1, 775 + distance2, 100, 100, null);
+        g.drawImage(image.getImage(), 807 + distance1, 770 + distance2, 28, 18, null);
     }
 
     public void renderHouse(Graphics g) {

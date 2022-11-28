@@ -1,10 +1,6 @@
--houses
-
 -adding some action in the other unBuyAble fields, cards
 
 -if someone has no money- lose or has to sell some property
 
 //for now
-house is rendered after buy
-repair co-ordinates of houses
-bug with houses changing place after buy another field
+repair co-ordinates of OWNED text (cross the inscription)
