@@ -3,4 +3,7 @@
 -if someone has no money- lose or has to sell some property
 
 //for now
-repair co-ordinates of OWNED text (cross the inscription)
+
+
+
+- co-ordinates, inscription
