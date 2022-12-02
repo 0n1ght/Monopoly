@@ -1,6 +1,7 @@
 package pl.monopoly.view;
 
 import pl.monopoly.logic.BuyAbleField;
+import pl.monopoly.logic.Player;
 
 import javax.swing.*;
 
@@ -43,6 +44,10 @@ public class BoardView {
     public int buildHouseDialog(BuyAbleField buyAbleField) {
 
         return JOptionPane.showConfirmDialog(null, "You already owned this field.\nDo you want to build a house for 350$?", "CONSTRUCTION CREW", JOptionPane.YES_NO_OPTION);
+    }
+
+    public void getLoseInformation(Player player) {
+        JOptionPane.showMessageDialog(null, "Player " + player.getColor() + " lost the game.", "YOU LOST", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }

@@ -49,4 +49,17 @@ public class Board {
 
         return fieldList;
     }
+
+    public void clearBankruptsFields(Player player) {
+        for (Field field : fields) {
+
+            if (field.isBuyAble()) {
+                ((BuyAbleField) field).clearOwner();
+            }
+        }
+    }
 }
+
+//if (player.isBankrupt()) {
+//    board.clearBankruptsFields(player)
+//}

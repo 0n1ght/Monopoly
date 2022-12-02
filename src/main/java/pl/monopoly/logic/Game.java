@@ -33,7 +33,13 @@ public class Game {
     }
 
     public void nextRound() {
-//        Display.refreshScoreBoard();
+
+        if (actualPlayer().isBankrupt()) {
+            boardView.getLoseInformation(actualPlayer());
+            board.clearBankruptsFields(actualPlayer());
+            players.remove(actualPlayer());
+            playersNumber-=1;
+        }
 
         if (actual<playersNumber-1) {
             actual++;

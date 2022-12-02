@@ -15,6 +15,10 @@ public class PlayerView {
 
     public void render(Graphics graphics) {
 
+        if (player.getMoney() < 0) {
+            return;
+        }
+
         int distance1 = 0, distance2 = 0, normalField = 73, bigFieldAddition = 15;
 
         if (player.getFieldNumber() <= 10) {
@@ -45,12 +49,11 @@ public class PlayerView {
         if (player.getFieldNumber() >= 30) {distance1 += bigFieldAddition;}
         if (player.getFieldNumber() > 30) {distance2 += bigFieldAddition;}
 
-        ImageIcon playerIcon = switch (player.getId()) {
-            case 0 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\red.png");
-            case 1 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\blue.png");
-            case 2 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\green.png");
-            case 3 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\purple.png");
-            default -> new ImageIcon();
+        ImageIcon playerIcon = switch (player.getColor()) {
+            case RED -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\red.png");
+            case BLUE -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\blue.png");
+            case GREEN -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\green.png");
+            case PURPLE -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\purple.png");
         };
         graphics.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
         graphics.setColor(Color.GREEN);

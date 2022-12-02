@@ -48,6 +48,17 @@ public class Player {
         return money;
     }
 
+    public PlayerColor getColor() {
+
+        return switch (id) {
+            case 0 -> PlayerColor.RED;
+            case 1 -> PlayerColor.BLUE;
+            case 2 -> PlayerColor.GREEN;
+            case 3 -> PlayerColor.PURPLE;
+            default -> throw new IllegalStateException("Unexpected value: " + id);
+        };
+    }
+
     public void setMoney(int money) {
         this.money = money;
     }
@@ -59,5 +70,9 @@ public class Player {
 
     public boolean isSingle() {
         return game.playerSingle(this);
+    }
+
+    public boolean isBankrupt() {
+        return money < 0;
     }
 }

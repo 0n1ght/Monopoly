@@ -4,8 +4,8 @@ import javax.swing.*;
 
 public class BuyAbleField extends Field{
     private Player owner;
-    private FieldSet set;
-    private int setSize;
+    private final FieldSet set;
+    private final int setSize;
     private final int price;
     private final int baseTax;
     private int houses = 0;
@@ -35,9 +35,9 @@ public class BuyAbleField extends Field{
         } else if (owner != null && !player.toString().equals(owner.toString())) {
 
             game.getBoardView().payRentInformation(this);
-            player.setMoney(player.getMoney()- baseTax);
+            player.setMoney(player.getMoney()- getFullTax());
 
-            owner.setMoney(owner.getMoney()+ baseTax);
+            owner.setMoney(owner.getMoney()+ getFullTax());
 
         } else if (owner != null && houses < 4 && player.getMoney() > 350){
             answer = game.getBoardView().buildHouseDialog(this);
@@ -47,7 +47,6 @@ public class BuyAbleField extends Field{
                 houses++;
             }
         }
-
     }
 
     @Override
@@ -64,12 +63,16 @@ public class BuyAbleField extends Field{
         return owner;
     }
 
+    public void clearOwner() {
+        this.owner = null;
+    }
+
     public int getFullTax() {
-        if (game.hasAllSet(owner, set)) {
+        if (houses == 0 && game.hasAllSet(owner, set)) {
             return baseTax*2;
         }
 
-        return baseTax;
+        return baseTax + houses*250;
     }
 
     public FieldSet getSet() {
