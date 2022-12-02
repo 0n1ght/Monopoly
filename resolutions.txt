@@ -1,9 +1,8 @@
 -adding some action in the other unBuyAble fields, cards
 
--if someone has no money- lose or has to sell some property
-
 //for now
 
 
 
+english:
 - co-ordinates, inscription
