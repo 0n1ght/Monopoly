@@ -46,8 +46,23 @@ public class BoardView {
         return JOptionPane.showConfirmDialog(null, "You already owned this field.\nDo you want to build a house for 350$?", "CONSTRUCTION CREW", JOptionPane.YES_NO_OPTION);
     }
 
-    public void getLoseInformation(Player player) {
-        JOptionPane.showMessageDialog(null, "Player " + player.getColor() + " lost the game.", "YOU LOST", JOptionPane.INFORMATION_MESSAGE);
+    public void getLoseInformation(Player player) { //TODO
+        JOptionPane.showMessageDialog(null, "Player " + player.getColor() + " lost the game.", "GAME RESULTS", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void incomeTaxesInformation(Player player) {
+        JOptionPane.showMessageDialog(null, "Player " + player.getColor() + " has to pay 200$ of taxes", "TAXES INCOME", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public int getWinInformation(Player player) {
+        return JOptionPane.showOptionDialog(null,
+                "Player " + player.getColor() + " won the game.",
+                "GAME RESULTS",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                new String[]{"MENU" , "QUIT"},
+                0);
     }
 
 }

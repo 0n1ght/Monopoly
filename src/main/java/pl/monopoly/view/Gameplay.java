@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Gameplay {
-    private final Game game = new Game();
+    private final Game game = new Game(); //przekazac mu VF
     private final List<PlayerView> playerViewList = new ArrayList<>();
     private final List<BuyAbleFieldView> buyAbleFieldViewList = new ArrayList<>();
     private final List<CustomButtonView> customButtonViewList = new ArrayList<>();

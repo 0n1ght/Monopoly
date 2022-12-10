@@ -4,6 +4,8 @@ import java.io.IOException;
 
 public class ViewFactory {
 
+    //przechowywanie game Engine
+
     public void createMenu() {
 
         MenuView menuView = new MenuView(this);
@@ -17,9 +19,10 @@ public class ViewFactory {
     }
 
     public void createGame() throws IOException {
+        //jesli jest engine to nie rob nic
         MouseManager manager = new MouseManager();
 
-        Gameplay gameplay = new Gameplay(manager);
+        Gameplay gameplay = new Gameplay(manager); //przekazać mu VF
 
         Display display = new Display();
         display.addListener(manager);
@@ -29,4 +32,6 @@ public class ViewFactory {
 
         display.showGame();
     }
+
+    //stop engine ktora wywoluje stop i np. ustawia null
 }

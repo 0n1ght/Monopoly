@@ -9,7 +9,6 @@ public final class GameEngine implements Runnable {
     private Thread thread;
     private boolean running;
     private BufferStrategy strategy;
-
     private final Display display;
     private final Gameplay gameplay;
 

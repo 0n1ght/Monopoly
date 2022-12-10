@@ -8,7 +8,8 @@ public class UnBuyAbleField extends Field{
 
     @Override
     public void action(Player player, Board board) {
-
+        game.getBoardView().incomeTaxesInformation(player);
+        player.pay(200);
     }
 
     @Override

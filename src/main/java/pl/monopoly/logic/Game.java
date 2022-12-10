@@ -2,6 +2,7 @@ package pl.monopoly.logic;
 
 import pl.monopoly.view.BoardView;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -34,7 +35,16 @@ public class Game {
 
     public void nextRound() {
 
-        if (actualPlayer().isBankrupt()) {
+        if (playersNumber == 1) {
+            int answer = boardView.getWinInformation(actualPlayer());
+            if (answer == JOptionPane.OK_CANCEL_OPTION) {
+                // odpalic createMenu z ViewFactry
+            } else {
+                // wywolac stop z GameEngine
+                System.exit(0);
+            }
+
+        } else if (actualPlayer().isBankrupt()) {
             boardView.getLoseInformation(actualPlayer());
             board.clearBankruptsFields(actualPlayer());
             players.remove(actualPlayer());

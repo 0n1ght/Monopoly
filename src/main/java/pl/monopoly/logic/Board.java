@@ -54,7 +54,10 @@ public class Board {
         for (Field field : fields) {
 
             if (field.isBuyAble()) {
-                ((BuyAbleField) field).clearOwner();
+
+                if (((BuyAbleField)field).getOwner() == player)
+                    ((BuyAbleField) field).clearOwner();
+
             }
         }
     }

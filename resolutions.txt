@@ -1,8 +1,9 @@
 -adding some action in the other unBuyAble fields, cards
+-win
 
 //for now
 
 
 
 english:
-- co-ordinates, inscription
+- co-ordinates, inscription, genuinely
