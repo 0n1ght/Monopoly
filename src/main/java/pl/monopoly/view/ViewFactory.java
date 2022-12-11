@@ -3,8 +3,7 @@ package pl.monopoly.view;
 import java.io.IOException;
 
 public class ViewFactory {
-
-    //przechowywanie game Engine
+    private GameEngine gameEngine;
 
     public void createMenu() {
 
@@ -19,19 +18,20 @@ public class ViewFactory {
     }
 
     public void createGame() throws IOException {
-        //jesli jest engine to nie rob nic
         MouseManager manager = new MouseManager();
 
-        Gameplay gameplay = new Gameplay(manager); //przekazać mu VF
+        Gameplay gameplay = new Gameplay(manager, this);
 
         Display display = new Display();
         display.addListener(manager);
 
-        GameEngine gameEngine = new GameEngine(display, gameplay);
+        gameEngine = new GameEngine(display, gameplay);
         gameEngine.start();
 
         display.showGame();
     }
 
-    //stop engine ktora wywoluje stop i np. ustawia null
+    public void stopGame() {
+        gameEngine.stop();
+    }
 }

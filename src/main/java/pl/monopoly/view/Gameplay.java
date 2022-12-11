@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Gameplay {
-    private final Game game = new Game(); //przekazac mu VF
     private final List<PlayerView> playerViewList = new ArrayList<>();
     private final List<BuyAbleFieldView> buyAbleFieldViewList = new ArrayList<>();
     private final List<CustomButtonView> customButtonViewList = new ArrayList<>();
@@ -17,8 +16,9 @@ public class Gameplay {
     protected static int colorIndex = 0;
 
     // create
-    public Gameplay(MouseManager manager) throws IOException {
+    public Gameplay(MouseManager manager, ViewFactory viewFactory) throws IOException {
 
+        Game game = new Game(viewFactory);
 
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < SettingsState.getInstance().getPlayersNumber(); i++) {

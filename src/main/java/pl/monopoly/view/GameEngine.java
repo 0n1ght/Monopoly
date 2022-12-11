@@ -87,7 +87,7 @@ public final class GameEngine implements Runnable {
 //        display.showGame();
     }
 
-    private synchronized void stop() {
+    public synchronized void stop() {
         if (!running) {
             return;
         }

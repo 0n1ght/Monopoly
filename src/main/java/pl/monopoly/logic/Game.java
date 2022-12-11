@@ -1,6 +1,7 @@
 package pl.monopoly.logic;
 
 import pl.monopoly.view.BoardView;
+import pl.monopoly.view.ViewFactory;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -13,8 +14,11 @@ public class Game {
     private List<Player> players;
     private int actual = 0;
     public static int playersNumber;
+    public ViewFactory viewFactory;
 
-    public Game() throws IOException {}
+    public Game(ViewFactory viewFactory) throws IOException {
+        this.viewFactory = viewFactory;
+    }
 
     // methods
     //setup
@@ -37,11 +41,11 @@ public class Game {
 
         if (playersNumber == 1) {
             int answer = boardView.getWinInformation(actualPlayer());
-            if (answer == JOptionPane.OK_CANCEL_OPTION) {
-                // odpalic createMenu z ViewFactry
+            System.out.println(answer);
+            if (answer == 0 || answer == -1) {
+                viewFactory.createMenu();
             } else {
-                // wywolac stop z GameEngine
-                System.exit(0);
+                viewFactory.stopGame();
             }
 
         } else if (actualPlayer().isBankrupt()) {
