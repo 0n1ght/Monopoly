@@ -22,18 +22,33 @@ public class ScoreView {
         g.setColor(new Color(255,204,0));
         g.drawRect(x, y, 250, 60);
         g.setFont(new Font("Serif", Font.BOLD, 20));
-        g.setColor(Color.RED);
+
         g.setColor(new Color(204,0,0));
-        g.drawString("red: " + playerList.get(0).getMoney()+"$", x+15, y+23);
+        if (playerList.get(0).getMoney() > 0) {
+            g.drawString("red: " + playerList.get(0).getMoney()+"$", x+15, y+23);
+        } else {
+            g.drawString("red: " + "----", x+15, y+23);
+        }
+
         g.setColor(new Color(0,0,225));
-        g.drawString("blue: " + playerList.get(1).getMoney()+"$", x+130, y+23);
-        try {
-            g.setColor(new Color(0,153,0));
+        if (playerList.size() >= 2 && playerList.get(1).getMoney() > 0) {
+            g.drawString("blue: " + playerList.get(1).getMoney()+"$", x+130, y+23);
+        } else {
+            g.drawString("blue: " + "----", x+130, y+23);
+        }
+
+        g.setColor(new Color(0,153,0));
+        if (playerList.size() >= 3 && playerList.get(2).getMoney() > 0) {
             g.drawString("vert: " + playerList.get(2).getMoney()+"$", x+15, y+50);
-        } catch (IndexOutOfBoundsException ignored) {}
-        try {
-            g.setColor(new Color(102,0,153));
+        } else {
+            g.drawString("vert: " + "----", x+15, y+50);
+        }
+
+        g.setColor(new Color(102,0,153));
+        if (playerList.size() >= 4 && playerList.get(3).getMoney() > 0) {
             g.drawString("pink: " + playerList.get(3).getMoney()+"$", x+130, y+50);
-        } catch (IndexOutOfBoundsException ignored) {}
+        } else {
+            g.drawString("pink: " + "----", x+130, y+50);
+        }
     }
 }

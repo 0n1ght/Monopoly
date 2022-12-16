@@ -30,6 +30,7 @@ public final class GameEngine implements Runnable {
         long timer = 0;
 
         while (running) {
+         //   System.out.println("test");
             now = System.nanoTime();
             delta += (now - lastTime) / timePerTick;
             timer += now - lastTime;
@@ -46,7 +47,7 @@ public final class GameEngine implements Runnable {
                 timer = 0;
             }
         }
-        stop();
+        System.out.println("run zakonczony");
     }
 
     private void tick() {
@@ -84,19 +85,19 @@ public final class GameEngine implements Runnable {
         running = true;
         thread = new Thread(this);
         thread.start();
-//        display.showGame();
     }
 
     public synchronized void stop() {
         if (!running) {
             return;
         }
-
         running = false;
         try {
             thread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        display.close();
+
     }
 }

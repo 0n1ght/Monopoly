@@ -1,5 +1,5 @@
--adding some action in the other unBuyAble fields, cards
--win
+- debugging "game over"
+- adding some action in the other unBuyAble fields, cards
 
 //for now
 

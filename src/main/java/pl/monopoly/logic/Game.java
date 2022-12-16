@@ -41,11 +41,12 @@ public class Game {
 
         if (playersNumber == 1) {
             int answer = boardView.getWinInformation(actualPlayer());
-            System.out.println(answer);
             if (answer == 0 || answer == -1) {
                 viewFactory.createMenu();
             } else {
-                viewFactory.stopGame();
+              SwingUtilities.invokeLater(()->viewFactory.stopGame());
+              System.exit(0);
+                return;
             }
 
         } else if (actualPlayer().isBankrupt()) {

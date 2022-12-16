@@ -91,4 +91,8 @@ public final class Display {
 
         return 0;
     }
+
+    public void close() {
+        frame.dispose();
+    }
 }
