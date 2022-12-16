@@ -75,4 +75,8 @@ public class Player {
     public boolean isBankrupt() {
         return money < 0;
     }
+
+    public static void resetId() {
+        nextId = 0;
+    }
 }

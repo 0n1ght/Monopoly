@@ -42,6 +42,8 @@ public class Game {
         if (playersNumber == 1) {
             int answer = boardView.getWinInformation(actualPlayer());
             if (answer == 0 || answer == -1) {
+                viewFactory.stopGame();
+                resetGameState();
                 viewFactory.createMenu();
             } else {
               SwingUtilities.invokeLater(()->viewFactory.stopGame());
@@ -95,5 +97,9 @@ public class Game {
 
     public Board getBoard() {
         return board;
+    }
+
+    private void resetGameState() {
+        Player.resetId();
     }
 }
