@@ -34,9 +34,8 @@ public class MenuView {
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
-            if (SettingsState.getInstance().isSoundPlaying()) {
-                MusicPlayer.play();
-            }
+            MusicPlayer.stop();
+            if (SettingsState.getInstance().isSoundPlaying()) {MusicPlayer.play();}
         });
         startMenu.add(myButton1);
 

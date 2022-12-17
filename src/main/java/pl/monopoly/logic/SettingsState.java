@@ -2,7 +2,7 @@ package pl.monopoly.logic;
 
 public class SettingsState {
     private static final SettingsState settingsState = new SettingsState();
-    private int playersNumber = 1; //todo playerssss
+    private int playersNumber = 4;
     private boolean soundPlaying = true;
 
     private SettingsState() {}

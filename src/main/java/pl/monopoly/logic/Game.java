@@ -84,15 +84,8 @@ public class Game {
             }
         }
 
-        if (replays == 1) {
-            return true;
-        }
-        return false;
+        return replays == 1;
 
-    }
-
-    public List<Player> getPlayers() {
-        return players;
     }
 
     public Board getBoard() {
