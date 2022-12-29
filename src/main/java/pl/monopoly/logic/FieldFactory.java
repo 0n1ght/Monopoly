@@ -4,16 +4,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FieldFactory {
-    private final Game game;
-    private List<Field> fields;
-
-    public FieldFactory(Game game) {
-        this.game = game;
-    }
+public record FieldFactory(Game game) {
 
     public List<Field> buildFields() throws IOException {
-        fields = new ArrayList<>();
+        List<Field> fields = new ArrayList<>();
 
         BufferedReader bufferedWriter = new BufferedReader(new FileReader("src\\main\\resources\\fields.csv"));
 

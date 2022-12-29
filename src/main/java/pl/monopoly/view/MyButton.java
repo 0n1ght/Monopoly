@@ -17,10 +17,8 @@ public class MyButton extends JButton {
         setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
     }
 
-    private void initSound() { //todo refactoring
+    private void initSound() {
 
-        addActionListener(e -> {
-           SoundPlayer.playSound(Sound.BUTTON_CLICK);
-        });
+        addActionListener(e -> SoundPlayer.playSound(Sound.BUTTON_CLICK));
     }
 }

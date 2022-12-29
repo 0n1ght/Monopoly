@@ -47,7 +47,6 @@ public final class GameEngine implements Runnable {
                 timer = 0;
             }
         }
-        System.out.println("run zakonczony");
     }
 
     private void tick() {

@@ -5,13 +5,8 @@ import pl.monopoly.logic.Player;
 import javax.swing.*;
 import java.awt.*;
 
-public class PlayerView {
-    private final Player player;
-
+public record PlayerView(Player player) {
     // create
-    public PlayerView(Player player) {
-        this.player = player;
-    }
 
     public void render(Graphics graphics) {
 
@@ -23,12 +18,12 @@ public class PlayerView {
 
         if (player.getFieldNumber() <= 10) {
 
-            distance1 = - normalField * player.getFieldNumber();
+            distance1 = -normalField * player.getFieldNumber();
 
         } else if (player.getFieldNumber() > 10 && player.getFieldNumber() <= 20) {
 
-            distance1 = - normalField * 10;
-            distance2 = - normalField * (player.getFieldNumber() - 10);
+            distance1 = -normalField * 10;
+            distance2 = -normalField * (player.getFieldNumber() - 10);
 
         } else if (player.getFieldNumber() > 20 && player.getFieldNumber() <= 30) {
 
@@ -41,13 +36,27 @@ public class PlayerView {
 
         }
 
-        if (player.getFieldNumber() > 0) {distance1 -= bigFieldAddition;}
-        if (player.getFieldNumber() >= 10) {distance1 -= bigFieldAddition;}
-        if (player.getFieldNumber() > 10) {distance2 -= bigFieldAddition;}
-        if (player.getFieldNumber() >= 20) {distance2 -= bigFieldAddition;}
-        if (player.getFieldNumber() > 20) {distance1 += bigFieldAddition;}
-        if (player.getFieldNumber() >= 30) {distance1 += bigFieldAddition;}
-        if (player.getFieldNumber() > 30) {distance2 += bigFieldAddition;}
+        if (player.getFieldNumber() > 0) {
+            distance1 -= bigFieldAddition;
+        }
+        if (player.getFieldNumber() >= 10) {
+            distance1 -= bigFieldAddition;
+        }
+        if (player.getFieldNumber() > 10) {
+            distance2 -= bigFieldAddition;
+        }
+        if (player.getFieldNumber() >= 20) {
+            distance2 -= bigFieldAddition;
+        }
+        if (player.getFieldNumber() > 20) {
+            distance1 += bigFieldAddition;
+        }
+        if (player.getFieldNumber() >= 30) {
+            distance1 += bigFieldAddition;
+        }
+        if (player.getFieldNumber() > 30) {
+            distance2 += bigFieldAddition;
+        }
 
         ImageIcon playerIcon = switch (player.getColor()) {
             case RED -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\red.png");
@@ -55,7 +64,7 @@ public class PlayerView {
             case GREEN -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\green.png");
             case PURPLE -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\purple.png");
         };
-        graphics.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
+        graphics.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         graphics.setColor(Color.GREEN);
 
         int[] xModifier = {-10, +10, -10, +10};
@@ -64,7 +73,7 @@ public class PlayerView {
         if (player.isSingle()) {
             graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
         } else {
-            graphics.drawImage(playerIcon.getImage(), 790+xModifier[player.getId()] + distance1, 790+yModifier[player.getId()] + distance2, 50, 50, null);
+            graphics.drawImage(playerIcon.getImage(), 790 + xModifier[player.getId()] + distance1, 790 + yModifier[player.getId()] + distance2, 50, 50, null);
         }
 
     }

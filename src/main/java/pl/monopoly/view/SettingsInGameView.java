@@ -5,8 +5,6 @@ import pl.monopoly.logic.SettingsState;
 import javax.swing.*;
 import java.awt.*;
 
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-
 public class SettingsInGameView {
     private final JFrame settingsFrame = new JFrame("Monopoly");
     private final JCheckBox musicCheckBox = new JCheckBox();

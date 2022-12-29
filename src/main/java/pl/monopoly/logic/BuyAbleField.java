@@ -40,7 +40,7 @@ public class BuyAbleField extends Field{
             owner.setMoney(owner.getMoney()+ getFullTax());
 
         } else if (owner != null && houses < 4 && player.getMoney() > 350){
-            answer = game.getBoardView().buildHouseDialog(this);
+            answer = game.getBoardView().buildHouseDialog();
 
             if (answer == JOptionPane.OK_OPTION) {
                 player.pay(350);
