@@ -1,8 +1,4 @@
-- adding some action in the other unBuyAble fields, cards
+- adding new actions on fields, cards
 
 //for now
-
-
-
-english:
-- co-ordinates, inscription, genuinely
+back to main menu option in a game
