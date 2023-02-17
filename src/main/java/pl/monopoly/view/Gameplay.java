@@ -5,10 +5,11 @@ import pl.monopoly.logic.*;
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Gameplay {
-    private final List<PlayerView> playerViewList = new ArrayList<>();
+    private final List<PlayerView> playerViewList = new LinkedList<>();
     private final List<BuyAbleFieldView> buyAbleFieldViewList = new ArrayList<>();
     private final List<CustomButtonView> customButtonViewList = new ArrayList<>();
     private final ScoreView scoreView;
@@ -18,7 +19,7 @@ public class Gameplay {
     // create
     public Gameplay(MouseManager manager, ViewFactory viewFactory) throws IOException {
 
-        Game game = new Game(viewFactory);
+        Game game = new Game(viewFactory, this);
 
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < SettingsState.getInstance().getPlayersNumber(); i++) {
@@ -87,5 +88,12 @@ public class Gameplay {
 
         graphics.fillRect(0,0,Display.getWidth(),Display.getHeight());
 
+    }
+
+    public void switchLight(int playerId) {
+
+        for (PlayerView playerView : playerViewList) {
+            playerView.setMarked(playerView.getPlayer().getId() == playerId);
+        }
     }
 }

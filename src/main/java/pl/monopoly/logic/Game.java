@@ -1,6 +1,7 @@
 package pl.monopoly.logic;
 
 import pl.monopoly.view.BoardView;
+import pl.monopoly.view.Gameplay;
 import pl.monopoly.view.ViewFactory;
 
 import javax.swing.*;
@@ -15,9 +16,11 @@ public class Game {
     private int actual = 0;
     public static int playersNumber;
     public ViewFactory viewFactory;
+    private Gameplay gameplay;
 
-    public Game(ViewFactory viewFactory) throws IOException {
+    public Game(ViewFactory viewFactory, Gameplay gameplay) throws IOException {
         this.viewFactory = viewFactory;
+        this.gameplay = gameplay;
     }
 
     // methods
@@ -63,6 +66,7 @@ public class Game {
         } else {
             actual = 0;
         }
+        gameplay.switchLight(actual);
     }
 
     public boolean hasAllSet(Player player, FieldSet fieldSet) {

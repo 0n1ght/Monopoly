@@ -5,10 +5,15 @@ import pl.monopoly.logic.Player;
 import javax.swing.*;
 import java.awt.*;
 
-public record PlayerView(Player player) {
-    // create
+public final class PlayerView {
+    private final Player player;
+    private boolean marked;
 
-    public void render(Graphics graphics) {
+    public PlayerView(Player player) {
+        this.player = player;
+    }
+
+    public void render(Graphics g) {
 
         if (player.getMoney() < 0) {
             return;
@@ -64,18 +69,30 @@ public record PlayerView(Player player) {
             case GREEN -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\green.png");
             case PURPLE -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\purple.png");
         };
-        graphics.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
-        graphics.setColor(Color.GREEN);
+        ImageIcon arrowImage = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\arrowImage.png");
+        g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
+        g.setColor(Color.GREEN);
 
         int[] xModifier = {-10, +10, -10, +10};
         int[] yModifier = {-10, -10, +10, +10};
 
         if (player.isSingle()) {
-            graphics.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
-        } else {
-            graphics.drawImage(playerIcon.getImage(), 790 + xModifier[player.getId()] + distance1, 790 + yModifier[player.getId()] + distance2, 50, 50, null);
-        }
 
+            g.drawImage(playerIcon.getImage(), 790 + distance1, 790 + distance2, 50, 50, null);
+            if (marked)
+                g.drawImage(arrowImage.getImage(), 810 + distance1, 765 + distance2, 20, 25, null);
+        } else {
+            g.drawImage(playerIcon.getImage(), 790 + xModifier[player.getId()] + distance1, 790 + yModifier[player.getId()] + distance2, 50, 50, null);
+            if (marked)
+                g.drawImage(arrowImage.getImage(), 810 + xModifier[player.getId()] + distance1, 765 + yModifier[player.getId()] + distance2, 20, 25, null);
+        }
     }
 
+    public void setMarked(boolean marked) {
+        this.marked = marked;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
 }
