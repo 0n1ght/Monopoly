@@ -18,8 +18,9 @@ public class CubesView extends CustomButtonView{
 
     // methods
     public void render(Graphics g) {
-        g.setColor(Color.BLACK);
-        g.drawString("Click to randomize !", positionX + 30, positionY + 2);
+        g.setColor(Color.RED);
+        g.setFont(new Font("Monospaced", Font.BOLD, 14));
+        g.drawString(" Click to randomize!", positionX + 30, positionY + 2);
         g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesFrameImage.png").getImage(), positionX, positionY, width, height, null);
 
         showCube(cubes.getRoll1(), 0,g);
