@@ -46,12 +46,6 @@ public class Gameplay {
 
     }
 
-    public void tick() {
-
-//        System.out.println("start");
-
-    }
-
     public void render(Graphics g) {
 
         graphics = g;
@@ -95,5 +89,9 @@ public class Gameplay {
         for (PlayerView playerView : playerViewList) {
             playerView.setMarked(playerView.getPlayer().getId() == playerId);
         }
+    }
+
+    public List<PlayerView> getPlayerViewList() {
+        return playerViewList;
     }
 }
