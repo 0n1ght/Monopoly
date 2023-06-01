@@ -90,8 +90,4 @@ public class Gameplay {
             playerView.setMarked(playerView.getPlayer().getId() == playerId);
         }
     }
-
-    public List<PlayerView> getPlayerViewList() {
-        return playerViewList;
-    }
 }

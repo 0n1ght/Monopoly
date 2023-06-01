@@ -63,11 +63,6 @@ public class Player {
         this.money = money;
     }
 
-    @Override
-    public String toString() {
-        return "Player " + id;
-    }
-
     public boolean isSingle() {
         return game.playerSingle(this);
     }
@@ -78,5 +73,10 @@ public class Player {
 
     public static void resetId() {
         nextId = 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Player " + id;
     }
 }
