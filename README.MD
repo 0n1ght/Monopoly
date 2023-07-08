@@ -14,7 +14,7 @@ Developed by [Karol Kasperek](https://github.com/KarolKasperek).
 
 ## Screenshots
 
-![workspaceScreenShot](https://github.com/KarolKasperek/Task-Tracker/assets/105314335/e0444794-252e-463f-8521-3dab1f02c1ff)
+![mainMenuScreenShot](https://github.com/KarolKasperek/Monopoly-Swing/assets/105314335/6c056393-b8ab-47d9-890e-d41ce31892c9)
 *Main menu*
 
 ![taskCretingScreenShot](https://github.com/KarolKasperek/Task-Tracker/assets/105314335/479cba58-4b83-493a-ab74-b5476b3a1739)
