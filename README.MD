@@ -17,5 +17,5 @@ Developed by [Karol Kasperek](https://github.com/KarolKasperek).
 ![mainMenuScreenShot](https://github.com/KarolKasperek/Monopoly-Swing/assets/105314335/6c056393-b8ab-47d9-890e-d41ce31892c9)
 *Main menu*
 
-![taskCretingScreenShot](https://github.com/KarolKasperek/Task-Tracker/assets/105314335/479cba58-4b83-493a-ab74-b5476b3a1739)
+![gameScreenShot](https://github.com/KarolKasperek/Monopoly-Swing/assets/105314335/e7570e04-4b83-46ca-a2bc-d38c0b2f65ba)
 *Game view*
