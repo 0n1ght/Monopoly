@@ -14,16 +14,13 @@ Developed by [Karol Kasperek](https://github.com/KarolKasperek).
 
 ## Screenshots
 
-![mainMenu](https://github.com/KarolKasperek/Monopoly/assets/105314335/3cc92f9d-1683-4f70-b2fb-7f87bb35bf86)
-
+![mainMenu](https://github.com/KarolKasperek/Monopoly/assets/105314335/3cc92f9d-1683-4f70-b2fb-7f87bb35bf86)<br>
 *Client*
 
 
-![gameView](https://github.com/KarolKasperek/Monopoly/assets/105314335/15bb8b7c-bd62-4b42-a558-c4d227e9100a)
-
+![gameView](https://github.com/KarolKasperek/Monopoly/assets/105314335/15bb8b7c-bd62-4b42-a558-c4d227e9100a)<br>
 *Game*
 
 
-![options](https://github.com/KarolKasperek/Monopoly/assets/105314335/35c8ec03-41fc-42f4-b03d-dbe5e0a220f9)
-
+![options](https://github.com/KarolKasperek/Monopoly/assets/105314335/35c8ec03-41fc-42f4-b03d-dbe5e0a220f9)<br>
 *Settings*
