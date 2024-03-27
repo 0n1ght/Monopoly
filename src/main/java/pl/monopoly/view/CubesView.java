@@ -18,10 +18,27 @@ public class CubesView extends CustomButtonView{
 
     // methods
     public void render(Graphics g) {
-        g.setColor(Color.RED);
-        g.setFont(new Font("Monospaced", Font.BOLD, 14));
-        g.drawString(" Click to randomize!", positionX + 30, positionY + 2);
-        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesFrameImage.png").getImage(), positionX, positionY, width, height, null);
+
+        int borderWidth = 6;
+
+        int innerX = positionX + borderWidth / 2;
+        int innerY = positionY + borderWidth / 2;
+        int innerWidth = width - borderWidth;
+        int innerHeight = height - borderWidth;
+
+        g.drawImage(new ImageIcon("src\\main\\resources\\img\\cubesBackground.jpg").getImage(), positionX, positionY, width, height, null);
+
+        g.setColor(new Color(0, 51, 102));
+        g.setFont(new Font("Roboto", Font.BOLD, 17));
+        g.drawString(" Click to randomize!", positionX + 37, positionY + -5);
+
+        g.setColor(Color.BLACK);
+        g.drawRect(positionX, positionY, width, height);
+
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setColor(new Color(0, 51, 102));
+        g2.setStroke(new BasicStroke(borderWidth));
+        g2.drawRect(innerX, innerY, innerWidth, innerHeight);
 
         showCube(cubes.getRoll1(), 0,g);
         showCube(cubes.getRoll2(), 72,g);
@@ -29,7 +46,7 @@ public class CubesView extends CustomButtonView{
 
     public void showCube(int number, int gap, Graphics g) {
         ImageIcon imageIcon;
-        imageIcon = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\cubesAllImages\\cube" + number + "pImage.png");
+        imageIcon = new ImageIcon("src\\main\\resources\\img\\cubesAllImages\\cube" + number + "pImage.png");
         if (number != 0) {
             g.drawImage(imageIcon.getImage(), positionX + 35+gap, positionY + 27, 100, 100, null);
             return;

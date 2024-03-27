@@ -64,12 +64,12 @@ public final class PlayerView {
         }
 
         ImageIcon playerIcon = switch (player.getColor()) {
-            case RED -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\red.png");
-            case BLUE -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\blue.png");
-            case GREEN -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\green.png");
-            case PURPLE -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\playersImages\\purple.png");
+            case RED -> new ImageIcon("src\\main\\resources\\img\\playersImages\\red.png");
+            case BLUE -> new ImageIcon("src\\main\\resources\\img\\playersImages\\blue.png");
+            case GREEN -> new ImageIcon("src\\main\\resources\\img\\playersImages\\green.png");
+            case PURPLE -> new ImageIcon("src\\main\\resources\\img\\playersImages\\purple.png");
         };
-        ImageIcon arrowImage = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\arrowImage.png");
+        ImageIcon arrowImage = new ImageIcon("src\\main\\resources\\img\\arrowImage.png");
         g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         g.setColor(Color.GREEN);
 

@@ -14,7 +14,7 @@ public class MyButton extends JButton {
         setBounds(x, y, width, height);
         setFocusable(false);
         initSound();
-        setBorder(BorderFactory.createEtchedBorder(Color.BLACK, Color.BLACK));
+        setBorder(BorderFactory.createLineBorder(new Color(140, 0, 0), 3));
         setContentAreaFilled(false);
         setOpaque(true);
         setFocusPainted(false);

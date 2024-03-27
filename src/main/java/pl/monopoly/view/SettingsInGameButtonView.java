@@ -15,7 +15,7 @@ public class SettingsInGameButtonView extends CustomButtonView{
     @Override
     public void render(Graphics g) {
         g.setColor(Color.BLACK);
-        g.drawImage(new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\settingsIcon.png").getImage(), positionX, positionY, width, height, null); //todo dynamiczne ścieżki
+        g.drawImage(new ImageIcon("src\\main\\resources\\img\\settingsIcon.png").getImage(), positionX, positionY, width, height, null); //todo dynamiczne ścieżki
 
     }
 

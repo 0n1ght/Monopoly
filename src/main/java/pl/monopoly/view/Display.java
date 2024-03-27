@@ -38,7 +38,7 @@ public final class Display {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(true);
-        frame.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
+        frame.setIconImage(new ImageIcon("src\\main\\resources\\img\\icon.png").getImage());
         frame.setLayout(new BorderLayout());
     }
 

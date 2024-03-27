@@ -15,10 +15,10 @@ public record BuyAbleFieldView(BuyAbleField field) {
         }
 
         ImageIcon image = switch (field.getOwner().getId()) {
-            case 0 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\XImages\\redXImage.png");
-            case 1 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\XImages\\blueXImage.png");
-            case 2 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\XImages\\greenXImage.png");
-            case 3 -> new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\XImages\\PurpleXImage.png");
+            case 0 -> new ImageIcon("src\\main\\resources\\img\\XImages\\redXImage.png");
+            case 1 -> new ImageIcon("src\\main\\resources\\img\\XImages\\blueXImage.png");
+            case 2 -> new ImageIcon("src\\main\\resources\\img\\XImages\\greenXImage.png");
+            case 3 -> new ImageIcon("src\\main\\resources\\img\\XImages\\PurpleXImage.png");
             default -> throw new IllegalStateException("Unexpected value: " + field.getOwner().getId());
         };
 
@@ -75,7 +75,7 @@ public record BuyAbleFieldView(BuyAbleField field) {
             return;
         }
 
-        ImageIcon crossImage = new ImageIcon("src\\main\\java\\pl\\monopoly\\images\\houseImage.png");
+        ImageIcon crossImage = new ImageIcon("src\\main\\resources\\img\\houseImage.png");
 
 
         int distance1 = 0, distance2 = 0, normalField = 73, bigFieldAddition = 15;

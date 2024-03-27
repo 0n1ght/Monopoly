@@ -52,7 +52,7 @@ public class Gameplay {
         setBackgroundColor(colorIndex);
         graphics.fillRect(0,0,Display.getWidth(),Display.getHeight());
         Gameplay.graphics.translate(Display.getRelativeX(),Display.getRelativeY());
-        Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\board.png");
+        Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\img\\board.png");
         Gameplay.graphics.drawImage(image, 0,0, null);
         for (CustomButtonView customButtonView : customButtonViewList) {
             customButtonView.render(g);

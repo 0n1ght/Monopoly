@@ -12,7 +12,7 @@ public class SettingsInGameView {
     public void displaySettings() {
 
         settingsFrame.setResizable(false);
-        settingsFrame.setIconImage(new ImageIcon("src\\main\\resources\\icon.png").getImage());
+        settingsFrame.setIconImage(new ImageIcon("src\\main\\resources\\img\\icon.png").getImage());
         settingsFrame.setSize(250, 300);
         settingsFrame.setLocationRelativeTo(null);
         settingsFrame.setLayout(null);
