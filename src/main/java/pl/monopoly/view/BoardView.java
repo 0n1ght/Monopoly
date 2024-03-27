@@ -1,7 +1,7 @@
 package pl.monopoly.view;
 
-import pl.monopoly.logic.BuyAbleField;
-import pl.monopoly.logic.Player;
+import pl.monopoly.model.BuyAbleField;
+import pl.monopoly.model.Player;
 
 import javax.swing.*;
 

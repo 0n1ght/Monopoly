@@ -1,6 +1,6 @@
 package pl.monopoly.view;
 
-import pl.monopoly.logic.Cubes;
+import pl.monopoly.model.Cubes;
 
 import javax.swing.*;
 import java.awt.*;

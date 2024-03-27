@@ -1,6 +1,6 @@
 package pl.monopoly.view;
 
-import pl.monopoly.logic.SettingsState;
+import pl.monopoly.model.SettingsState;
 
 import javax.swing.*;
 import java.awt.*;

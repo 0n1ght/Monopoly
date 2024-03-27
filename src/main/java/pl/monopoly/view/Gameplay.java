@@ -1,6 +1,6 @@
 package pl.monopoly.view;
 
-import pl.monopoly.logic.*;
+import pl.monopoly.model.*;
 
 import java.awt.*;
 import java.io.IOException;

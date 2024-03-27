@@ -1,4 +1,4 @@
-package pl.monopoly.logic;
+package pl.monopoly.model;
 
 import pl.monopoly.view.BoardView;
 import pl.monopoly.view.Gameplay;

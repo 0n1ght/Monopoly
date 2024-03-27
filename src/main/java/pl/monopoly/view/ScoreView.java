@@ -1,6 +1,6 @@
 package pl.monopoly.view;
 
-import pl.monopoly.logic.Player;
+import pl.monopoly.model.Player;
 
 import java.awt.*;
 import java.util.List;

@@ -1,4 +1,4 @@
-package pl.monopoly.logic;
+package pl.monopoly.model;
 
 import java.io.IOException;
 import java.util.LinkedList;
