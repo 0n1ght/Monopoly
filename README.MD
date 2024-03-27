@@ -15,7 +15,6 @@ Developed by [Karol Kasperek](https://github.com/KarolKasperek).
 ## Screenshots
 
 ![mainMenu](https://github.com/KarolKasperek/Monopoly/assets/105314335/3cc92f9d-1683-4f70-b2fb-7f87bb35bf86)
-
 *Client*
 
 ![gameView](https://github.com/KarolKasperek/Monopoly/assets/105314335/15bb8b7c-bd62-4b42-a558-c4d227e9100a)
