@@ -24,7 +24,7 @@ Developed by [Karol Kasperek](https://github.com/KarolKasperek).
 *Settings*
 
 ## How to run
-1. Clone repository
+1. Clone the repository
 ```
 git clone https://github.com/karolkasperek/monopoly
 ```
