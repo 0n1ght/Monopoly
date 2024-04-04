@@ -29,5 +29,5 @@ Developed by [Karol Kasperek](https://github.com/KarolKasperek).
 git clone https://github.com/karolkasperek/monopoly
 ```
 2. Run the code
-<br>
+
 Compile and run the Launcher class. You can find it in "src/main/java/pl/monopoly" directory.
