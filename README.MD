@@ -22,3 +22,11 @@ Developed by [Karol Kasperek](https://github.com/KarolKasperek).
 
 ![options](https://github.com/KarolKasperek/Monopoly/assets/105314335/35c8ec03-41fc-42f4-b03d-dbe5e0a220f9)
 *Settings*
+
+## How to run
+1. Clone repository
+```
+git clone https://github.com/karolkasperek/monopoly
+```
+2. Run the code
+Compile and run the Launcher class. You can find it in "src/main/java/pl/monopoly" directory.
