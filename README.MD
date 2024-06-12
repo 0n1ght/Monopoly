@@ -30,4 +30,4 @@ git clone https://github.com/karolkasperek/monopoly
 ```
 2. Run the code
 
-Compile and run the Launcher class. You can find it in "src/main/java/pl/monopoly" directory.
+Compile and run src/main/java/pl/Monopoly/Launcher.java
