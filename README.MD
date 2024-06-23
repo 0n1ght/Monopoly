@@ -1,7 +1,7 @@
 # Monopoly for Windows
 
 ## Description
-The game is a digital implementation of one of the most popular board games in the world - Monopoly. Front-end of the game is created with Java Swing libraries.
+The game is my first bigger project. Digital implementation of popular board game- Monopoly. Game is created with Java and Java Swing library.
 
 Developed by [Karol Kasperek](https://github.com/KarolKasperek).
 
